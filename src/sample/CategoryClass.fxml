@@ -33,5 +33,6 @@
         <font>
             <Font size="15.0" />
         </font></Text>
+      <Button fx:id="Back_Button" layoutX="18.0" layoutY="13.0" mnemonicParsing="false" onAction="#goBackToMainScene" text="Back" />
 </children>
 </Pane>

@@ -1,12 +1,13 @@
 package sample;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -15,17 +16,21 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller extends TreeItem<File> implements Initializable{
-    private Launcher launcher;
-    private Stage stage;
+    Stage previousStage;
+    public void setPreviousStage(Stage stage){
+        previousStage=stage;
+    }
     @FXML
     TreeView<File> FilesView; // FilesTreeView
     @FXML
     Button newFileButton;
-    @FXML
-    VBox rootBox;
-    @FXML
-    private void clickNewFileButton(ActionEvent action) throws IOException { //change the scene to CategoryChooser scene
-        //TODO
+    public void clickCategoryControllerButton() throws IOException {
+        Stage stage = new Stage();
+        Pane myPane = FXMLLoader.load(getClass().getResource("CategoryClass.fxml"));
+        Scene scene = new Scene(myPane);
+        stage.setScene(scene);
+        previousStage.close();
+        stage.show();
     }
     @Override //run on start
     public void initialize(URL url, ResourceBundle resourceBundle){

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="rootBox" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<VBox fx:id="rootBox" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -52,7 +52,7 @@
             <AnchorPane>
                <children>
                   <TreeView fx:id="FilesView" layoutY="33.0" prefHeight="542.0" prefWidth="271.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0" />
-                  <Button fx:id="newFileButton" mnemonicParsing="false" onAction="#clickNewFileButton" text="new file" />
+                  <Button fx:id="newFileButton" mnemonicParsing="false" onAction="#clickCategoryControllerButton" text="new file" />
                </children>
             </AnchorPane>
         <AnchorPane>
