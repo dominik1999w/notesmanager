@@ -22,10 +22,14 @@ public class CategoryController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle){
         ObservableList<String> categories = FXCollections.observableArrayList("a","b","c");
         categories_list.setItems(categories);
-        categories_list.setOnMouseClicked(mouseEvent -> newFileName.setEditable(true)
+        categories_list.setOnMouseClicked(mouseEvent -> {
+                    newFileName.setDisable(false);
+                    newFileName.setEditable(true);
+                }
         );
     }
     public void submitFileName(){
+        //category is null!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         String a="categories/" +categories_list.getSelectionModel().getSelectedItems().get(0)+"/";
         newFileName.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
