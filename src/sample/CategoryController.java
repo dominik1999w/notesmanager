@@ -22,7 +22,6 @@ public class CategoryController{
         Scene scene = new Scene(myPane);
         stage.setScene(scene);
         stage.show();
-
     }
 
 }

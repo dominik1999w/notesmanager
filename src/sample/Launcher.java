@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
 public class Launcher extends Application{
     private static final String MAIN_FXML = "sample.fxml";
     private static final String SCENE_ONE_FXML = "CategoryClass.fxml";
