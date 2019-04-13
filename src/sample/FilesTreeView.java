@@ -11,7 +11,7 @@ class FilesTreeView {
             private boolean FirstChildren = true;
             private boolean Leaf;
             @Override
-            public ObservableList<TreeItem<File>> getChildren() { //getChildren for a specific node
+            public ObservableList<TreeItem<File>> getChildren(){ //getChildren for a specific node
                 if (FirstChildren) {
                     FirstChildren = false;
                     super.getChildren().setAll(createRootsChildren(this));

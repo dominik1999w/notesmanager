@@ -10,11 +10,11 @@ public class Launcher extends Application{
     private static final String SCENE_ONE_FXML = "CategoryClass.fxml";
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("sample.fxml"));
-        Pane myPane=loader.load();
-        Controller controller=loader.getController();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
+        Pane myPane = loader.load();
+        Controller controller = loader.getController();
         controller.setPreviousStage(primaryStage);
-        Scene scene= new Scene(myPane);
+        Scene scene = new Scene(myPane);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
