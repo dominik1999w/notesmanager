@@ -1,9 +1,7 @@
 package sample;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -13,21 +11,28 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class CategoryController implements Initializable {
+public class ControllerCategory extends Controller{
+
     @FXML
     ListView<String> categories_list;
+
     @FXML
     TextField newFileName;
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
-        ObservableList<String> categories = FXCollections.observableArrayList("a","b","c");
-        categories_list.setItems(categories);
-        categories_list.setOnMouseClicked(mouseEvent -> {
-                    newFileName.setDisable(false);
-                    newFileName.setEditable(true);
-                }
-        );
+
+    @FXML
+    Button Back_Button;
+
+    public ControllerCategory(String name, Controller previousController) {
+        super(name,previousController);
     }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) { }
+
+    public void goBackToMainScene() throws IOException {
+        Controller.stageMaster.loadPreviousScene();
+    }
+
     public void submitFileName(){
         String a="categories/" +categories_list.getSelectionModel().getSelectedItems().get(0)+"/";
         newFileName.setOnKeyPressed(event -> {
@@ -53,4 +58,6 @@ public class CategoryController implements Initializable {
             e.printStackTrace();
         }
     }
+
+
 }
