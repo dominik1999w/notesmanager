@@ -18,3 +18,4 @@
         <TextField fx:id="newFileName" disable="true" editable="false" layoutX="650.0" layoutY="642.0" onKeyPressed="#submitFileName" prefHeight="26.0" prefWidth="317.0" style="-fx-background-color: white;" />
     </children>
 </Pane>
+

@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -27,7 +29,15 @@ public class ControllerCategory extends Controller{
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) { }
+    public void initialize(URL url, ResourceBundle resourceBundle){
+        ObservableList<String> categories = FXCollections.observableArrayList("a","b","c");
+        categories_list.setItems(categories);
+        categories_list.setOnMouseClicked(mouseEvent -> {
+                    newFileName.setDisable(false);
+                    newFileName.setEditable(true);
+                }
+        );
+    }
 
     public void goBackToMainScene() throws IOException {
         Controller.stageMaster.loadPreviousScene();
