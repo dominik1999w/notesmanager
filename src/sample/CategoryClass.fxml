@@ -7,14 +7,14 @@
 <?import javafx.scene.text.Font?>
 
 <Pane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: slategrey;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CategoryController">
-<children>
-      <Button fx:id="Back_Button" layoutY="1.0" mnemonicParsing="false" text="Back" />
-      <ListView fx:id="categories_list" layoutX="50.0" layoutY="99.0" prefHeight="569.0" prefWidth="219.0" />
-      <TextField disable="true" editable="false" layoutX="50.0" layoutY="73.0" prefHeight="26.0" prefWidth="219.0" style="-fx-background-color: grey;" text="Categories">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="newFileName" disable="true" editable="false" layoutX="650.0" layoutY="642.0" onKeyPressed="#submitFileName" prefHeight="26.0" prefWidth="317.0" style="-fx-background-color: white;" />
-</children>
+    <children>
+        <Button fx:id="Back_Button" layoutY="1.0" mnemonicParsing="false" text="Back" />
+        <ListView fx:id="categories_list" layoutX="50.0" layoutY="99.0" prefHeight="569.0" prefWidth="219.0" />
+        <TextField disable="true" editable="false" layoutX="50.0" layoutY="73.0" prefHeight="26.0" prefWidth="219.0" style="-fx-background-color: grey;" text="Categories">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="newFileName" disable="true" editable="false" layoutX="650.0" layoutY="642.0" onKeyPressed="#submitFileName" prefHeight="26.0" prefWidth="317.0" style="-fx-background-color: white;" />
+    </children>
 </Pane>
