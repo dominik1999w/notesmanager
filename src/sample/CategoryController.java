@@ -29,7 +29,6 @@ public class CategoryController implements Initializable {
         );
     }
     public void submitFileName(){
-        //category is null!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         String a="categories/" +categories_list.getSelectionModel().getSelectedItems().get(0)+"/";
         newFileName.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {

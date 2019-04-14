@@ -5,14 +5,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller extends TreeItem<File> implements Initializable{
@@ -24,6 +26,8 @@ public class Controller extends TreeItem<File> implements Initializable{
     TreeView<File> FilesView; // FilesTreeView
     @FXML
     Button newFileButton;
+    @FXML
+    TextArea DisplayFileText;
     public void clickCategoryControllerButton() throws IOException {
         Stage stage = new Stage();
         Pane myPane = FXMLLoader.load(getClass().getResource("CategoryClass.fxml"));
@@ -32,6 +36,7 @@ public class Controller extends TreeItem<File> implements Initializable{
         previousStage.close();
         stage.show();
     }
+
     @Override //run on start
     public void initialize(URL url, ResourceBundle resourceBundle){
         FilesTreeView  filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
@@ -43,5 +48,26 @@ public class Controller extends TreeItem<File> implements Initializable{
         FilesView.setRoot(connectRoots);
         FilesView.setShowRoot(false);
     }
-
+    public void displayFile(){
+        FilesView.setOnMouseClicked(mouseEvent -> {
+            TreeItem<File> item = FilesView.getSelectionModel().getSelectedItem();
+            if(item.getValue().isFile()){ //if clicked on file display content
+                List<String> lines= new ArrayList<>();
+                String line;
+                try {
+                    BufferedReader br = new BufferedReader(new FileReader(item.getValue()));
+                    while ((line = br.readLine()) != null) {
+                        lines.add(line);
+                    }
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                DisplayFileText.setText("");
+                for(String tmp: lines){
+                    DisplayFileText.appendText(tmp+"\n");
+                }
+            }
+        });
+    }
 }
