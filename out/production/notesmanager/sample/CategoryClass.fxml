@@ -16,6 +16,15 @@
             </font>
         </TextField>
         <TextField fx:id="newFileName" disable="true" editable="false" layoutX="650.0" layoutY="642.0" onKeyPressed="#submitFileName" prefHeight="26.0" prefWidth="317.0" style="-fx-background-color: white;" />
+      <TextField disable="true" editable="false" layoutX="650.0" layoutY="616.0" prefHeight="26.0" prefWidth="317.0" style="-fx-background-color: grey;" text="Press enter to create new file">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField disable="true" editable="false" layoutX="597.0" layoutY="642.0" prefHeight="26.0" prefWidth="53.0" style="-fx-background-color: grey;" text="File:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
     </children>
 </Pane>
-

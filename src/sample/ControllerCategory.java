@@ -3,7 +3,6 @@ package sample;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -20,10 +19,6 @@ public class ControllerCategory extends Controller{
 
     @FXML
     TextField newFileName;
-
-    @FXML
-    Button Back_Button;
-
     public ControllerCategory(String name, Controller previousController) {
         super(name,previousController);
     }
@@ -38,11 +33,9 @@ public class ControllerCategory extends Controller{
                 }
         );
     }
-
     public void goBackToMainScene() throws IOException {
         Controller.stageMaster.loadPreviousScene();
     }
-
     public void submitFileName(){
         String a="categories/" +categories_list.getSelectionModel().getSelectedItems().get(0)+"/";
         newFileName.setOnKeyPressed(event -> {

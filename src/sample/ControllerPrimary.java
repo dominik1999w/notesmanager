@@ -2,7 +2,6 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
@@ -29,9 +28,6 @@ public class ControllerPrimary extends Controller implements Initializable{
     TreeView<File> FilesView; // FilesTreeView
 
     @FXML
-    Button newFileButton;
-
-    @FXML
     TextArea DisplayFileText;
 
     public void clickCategoryControllerButton() throws IOException {
@@ -54,7 +50,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     public void displayFile(){
         FilesView.setOnMouseClicked(mouseEvent -> {
             TreeItem<File> item = FilesView.getSelectionModel().getSelectedItem();
-            if(item.getValue().isFile()){ //if clicked on file display content
+            if(item!=null&&item.getValue().isFile()){ //if clicked on file display content
                 List<String> lines= new ArrayList<>();
                 String line;
                 try {
