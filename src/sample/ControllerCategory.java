@@ -42,6 +42,7 @@ public class ControllerCategory extends Controller{
             if (event.getCode() == KeyCode.ENTER) {
                 String b=a.concat(String.valueOf(newFileName.getCharacters()));
                 createFile(b);
+                try { goBackToMainScene(); } catch (IOException e) {}
             }
         });
 

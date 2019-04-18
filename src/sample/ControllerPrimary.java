@@ -31,6 +31,9 @@ public class ControllerPrimary extends Controller implements Initializable{
     @FXML
     TextArea DisplayFileText;
 
+    @FXML
+    TextArea DisplayTitle;
+
     public void clickCategoryControllerButton() throws IOException {
         //Creating new ControllerCategory and loading it
         Controller.stageMaster.loadNewScene(new ControllerCategory("CategoryClass.fxml", this));
@@ -67,6 +70,8 @@ public class ControllerPrimary extends Controller implements Initializable{
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
+                displayTitle(item.getValue().getName());
                 DisplayFileText.setText("");
                 for(String tmp: lines){
                     DisplayFileText.appendText(tmp + "\n");
@@ -75,5 +80,8 @@ public class ControllerPrimary extends Controller implements Initializable{
         });
     }
 
+    public void displayTitle(String name){
+        DisplayTitle.setText(regexManager.convertNameToReadable(name));
+    }
 
 }

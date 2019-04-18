@@ -11,13 +11,12 @@ import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public abstract class Controller implements Initializable {
 
     static StageMaster stageMaster;
+    static RegexManager regexManager = new RegexManager();
 
     String name;
     Controller previousController;
@@ -47,8 +46,11 @@ public abstract class Controller implements Initializable {
         this.previousController = previousController;
     }
 
+    @Override
+    public abstract void initialize(URL url, ResourceBundle resourceBundle);
 
-    public List<String> getCategories(boolean pathOrName){ // true for paths, false for just names
+
+    List<String> getCategories(boolean pathOrName){ // true for paths, false for just names
         List<String> categories = new LinkedList<>();
         List<String> names = new LinkedList<>();
         try {
@@ -67,11 +69,8 @@ public abstract class Controller implements Initializable {
             categories.sort(String::compareTo);
             return categories;
         } else {
-            Pattern pat = Pattern.compile("^.+[/]");
-            Matcher mat;
-            for(String s : categories){
-                mat = pat.matcher(s);
-                names.add(mat.replaceAll(""));
+            for(String path : categories){
+                names.add(regexManager.convertPathToName(path));
             }
         }
         names.sort(String::compareTo);
@@ -79,7 +78,6 @@ public abstract class Controller implements Initializable {
     }
 
 
-    @Override
-    public abstract void initialize(URL url, ResourceBundle resourceBundle);
+
 
 }
