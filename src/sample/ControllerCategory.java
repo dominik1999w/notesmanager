@@ -54,9 +54,9 @@ public class ControllerCategory extends Controller{
 
     }
 
-    private void createFile(String a) {
-        System.out.println(a);
-        File newFile = new File(a);
+    private void createFile(String file) {
+        System.out.println(file);
+        File newFile = new File(file);
         OutputStream out = null;
         try {
             out = new FileOutputStream(newFile);

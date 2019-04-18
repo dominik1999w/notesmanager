@@ -36,5 +36,9 @@ public class StageMaster {
         stage.show();
     }
 
+    public void refresh(Controller controller) throws IOException {
+        Controller.stageMaster.loadNewScene(controller);
+    }
+
 
 }

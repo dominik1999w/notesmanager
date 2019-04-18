@@ -8,22 +8,25 @@ import java.io.File;
 class FilesTreeView {
     TreeItem<File> createNode(final File file) {
         return new TreeItem<File>(file) {
-            private boolean FirstChildren = true;
-            private boolean Leaf;
+            private boolean firstChildren = true;
+            private boolean leaf;
+
             @Override
             public ObservableList<TreeItem<File>> getChildren(){ //getChildren for a specific node
-                if (FirstChildren) {
-                    FirstChildren = false;
+                if (firstChildren) {
+                    firstChildren = false;
                     super.getChildren().setAll(createRootsChildren(this));
                 }
                 return super.getChildren();
             }
+
             @Override
             public boolean isLeaf() {
                 File f = getValue();
-                Leaf = f.isFile();
-                return Leaf;
+                leaf = f.isFile();
+                return leaf;
             }
+
             private ObservableList<TreeItem<File>> createRootsChildren(TreeItem<File> root) {
                 File f = root.getValue();
                 if (f != null && f.isDirectory()) {
@@ -38,6 +41,7 @@ class FilesTreeView {
                 }
                 return FXCollections.emptyObservableList();
             }
+
         };
     }
 }

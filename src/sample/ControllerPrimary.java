@@ -58,6 +58,10 @@ public class ControllerPrimary extends Controller implements Initializable{
         Controller.stageMaster.loadNewScene(new ControllerCategory("CategoryClass.fxml", this));
     }
 
+    public void clickNewCategoryButton() throws IOException {
+        Controller.stageMaster.loadNewScene(new ControllerCategories("Categories.fxml", this));
+    }
+
     public void displayFile(){
         FilesView.setOnMouseClicked(mouseEvent -> {
             TreeItem<File> item = FilesView.getSelectionModel().getSelectedItem();
@@ -91,7 +95,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         TreeItem<File> item = FilesView.getSelectionModel().getSelectedItem();
         if(item != null){
             String path = item.getValue().getPath();
-            try { Files.delete(Paths.get(path)); } catch (IOException e) { System.out.println("FAILED to remove: " + path); }
+            try { Files.delete(Paths.get(path)); Controller.stageMaster.refresh(this); } catch (IOException e) { System.out.println("FAILED to remove: " + path); }
         }
 
     }
