@@ -12,6 +12,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -83,6 +85,15 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     public void displayTitle(String name){
         DisplayTitle.setText(regexManager.convertNameToReadable(name));
+    }
+
+    public void removeFile(){
+        TreeItem<File> item = FilesView.getSelectionModel().getSelectedItem();
+        if(item != null){
+            String path = item.getValue().getPath();
+            try { Files.delete(Paths.get(path)); } catch (IOException e) { System.out.println("FAILED to remove: " + path); }
+        }
+
     }
 
 }

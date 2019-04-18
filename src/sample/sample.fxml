@@ -9,6 +9,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <VBox fx:id="rootBox" prefHeight="700.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <children>
@@ -17,7 +18,12 @@
         <AnchorPane style="-fx-background-color: grey;">
           <children>
             <TreeView fx:id="FilesView" onMouseClicked="#displayFile" prefHeight="542.0" prefWidth="271.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0" />
-            <Button fx:id="newFileButton" mnemonicParsing="false" onAction="#clickCategoryControllerButton" style="-fx-background-color: white;" text="new file" underline="true" />
+            <Button fx:id="newFileButton" layoutX="0.0" layoutY="0.0" mnemonicParsing="false" onAction="#clickCategoryControllerButton" prefHeight="33.0" style="-fx-background-color: white;" text="new file" underline="false" />
+            <Button fx:id="removeButton" layoutX="73.0" layoutY="0.0" mnemonicParsing="false" onAction="#removeFile" prefHeight="33.0" prefWidth="73.0" style="-fx-background-color: white;" text="remove" underline="false" wrapText="true">
+              <font>
+                <Font size="13.0" />
+              </font>
+            </Button>
           </children>
         </AnchorPane>
         <AnchorPane>

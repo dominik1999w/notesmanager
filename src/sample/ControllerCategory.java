@@ -43,11 +43,11 @@ public class ControllerCategory extends Controller{
     }
 
     public void submitFileName(){
-        String a = "categories/" + categories_list.getSelectionModel().getSelectedItems().get(0) + "/";
+        String path = regexManager.categoryToPath(categories_list.getSelectionModel().getSelectedItem());
         newFileName.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
-                String b = a.concat(String.valueOf(newFileName.getCharacters()));
-                createFile(b);
+                String file = path.concat(String.valueOf(newFileName.getCharacters()));
+                createFile(file);
                 try { goBackToMainScene(); } catch (IOException e) {}
             }
         });

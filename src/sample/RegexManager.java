@@ -16,4 +16,8 @@ public class RegexManager {
         Matcher mat = pat.matcher(name);
         return mat.replaceAll("");
     }
+
+    String categoryToPath(String category){
+        return "categories/" + category + "/";
+    }
 }
