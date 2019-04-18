@@ -25,7 +25,7 @@ public class ControllerCategory extends Controller{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        ObservableList<String> categories = FXCollections.observableArrayList("a","b","c");
+        ObservableList<String> categories = FXCollections.observableArrayList(getCategories(false));
         categories_list.setItems(categories);
         categories_list.setOnMouseClicked(mouseEvent -> {
                     newFileName.setDisable(false);

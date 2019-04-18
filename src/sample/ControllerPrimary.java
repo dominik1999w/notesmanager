@@ -13,6 +13,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -38,11 +39,15 @@ public class ControllerPrimary extends Controller implements Initializable{
     @Override //run on start
     public void initialize(URL url, ResourceBundle resourceBundle){
         FilesTreeView  filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
-        TreeItem<File> root = filesTreeViewClass.createNode(new File("categories/a")); //get files from a
-        TreeItem<File> root2 = filesTreeViewClass.createNode(new File("categories/b")); //get files from b
-        TreeItem<File> root3 = filesTreeViewClass.createNode(new File("categories/c")); //get files from c
+        List<String> categories = getCategories(true);
+        List<TreeItem<File>> roots = new LinkedList<>();
+
+        for(String categoryName : categories){
+            roots.add(filesTreeViewClass.createNode(new File(categoryName)));
+        }
+
         TreeItem<File> connectRoots = new TreeItem<>(null);
-        connectRoots.getChildren().addAll(root,root2,root3);
+        connectRoots.getChildren().addAll(roots);
         FilesView.setRoot(connectRoots);
         FilesView.setShowRoot(false);
     }
@@ -50,8 +55,8 @@ public class ControllerPrimary extends Controller implements Initializable{
     public void displayFile(){
         FilesView.setOnMouseClicked(mouseEvent -> {
             TreeItem<File> item = FilesView.getSelectionModel().getSelectedItem();
-            if(item!=null&&item.getValue().isFile()){ //if clicked on file display content
-                List<String> lines= new ArrayList<>();
+            if(item != null && item.getValue().isFile()){ //if clicked on file display content
+                List<String> lines = new ArrayList<>();
                 String line;
                 try {
                     BufferedReader br = new BufferedReader(new FileReader(item.getValue()));
@@ -64,7 +69,7 @@ public class ControllerPrimary extends Controller implements Initializable{
                 }
                 DisplayFileText.setText("");
                 for(String tmp: lines){
-                    DisplayFileText.appendText(tmp+"\n");
+                    DisplayFileText.appendText(tmp + "\n");
                 }
             }
         });
