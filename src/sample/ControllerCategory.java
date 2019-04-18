@@ -14,45 +14,52 @@ import java.util.ResourceBundle;
 
 public class ControllerCategory extends Controller{
 
+    public ControllerCategory(String name, Controller previousController) {
+        super(name,previousController);
+    }
+
     @FXML
     ListView<String> categories_list;
 
     @FXML
     TextField newFileName;
-    public ControllerCategory(String name, Controller previousController) {
-        super(name,previousController);
-    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         ObservableList<String> categories = FXCollections.observableArrayList(getCategories(false));
         categories_list.setItems(categories);
         categories_list.setOnMouseClicked(mouseEvent -> {
-                    newFileName.setDisable(false);
-                    newFileName.setEditable(true);
-                }
-        );
+            if(categories_list.getSelectionModel().getSelectedItems().get(0) != null) {
+                newFileName.setDisable(false);
+                newFileName.setEditable(true);
+            }
+        });
     }
+
+
     public void goBackToMainScene() throws IOException {
         Controller.stageMaster.loadPreviousScene();
     }
+
     public void submitFileName(){
-        String a="categories/" +categories_list.getSelectionModel().getSelectedItems().get(0)+"/";
+        String a = "categories/" + categories_list.getSelectionModel().getSelectedItems().get(0) + "/";
         newFileName.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
-                String b=a.concat(String.valueOf(newFileName.getCharacters()));
+                String b = a.concat(String.valueOf(newFileName.getCharacters()));
                 createFile(b);
                 try { goBackToMainScene(); } catch (IOException e) {}
             }
         });
 
     }
+
     private void createFile(String a) {
         System.out.println(a);
         File newFile = new File(a);
         OutputStream out = null;
         try {
-            out=new FileOutputStream(newFile);
+            out = new FileOutputStream(newFile);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

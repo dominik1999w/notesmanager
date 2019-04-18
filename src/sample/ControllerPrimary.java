@@ -34,11 +34,6 @@ public class ControllerPrimary extends Controller implements Initializable{
     @FXML
     TextArea DisplayTitle;
 
-    public void clickCategoryControllerButton() throws IOException {
-        //Creating new ControllerCategory and loading it
-        Controller.stageMaster.loadNewScene(new ControllerCategory("CategoryClass.fxml", this));
-    }
-
     @Override //run on start
     public void initialize(URL url, ResourceBundle resourceBundle){
         FilesTreeView  filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
@@ -53,6 +48,12 @@ public class ControllerPrimary extends Controller implements Initializable{
         connectRoots.getChildren().addAll(roots);
         FilesView.setRoot(connectRoots);
         FilesView.setShowRoot(false);
+    }
+
+
+    public void clickCategoryControllerButton() throws IOException {
+        //Creating new ControllerCategory and loading it
+        Controller.stageMaster.loadNewScene(new ControllerCategory("CategoryClass.fxml", this));
     }
 
     public void displayFile(){
