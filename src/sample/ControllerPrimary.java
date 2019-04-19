@@ -9,6 +9,7 @@ import javafx.scene.control.TreeView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -28,16 +29,13 @@ public class ControllerPrimary extends Controller implements Initializable{
         this.previousController = this;
         Controller.stageMaster = new StageMaster(stage); //One and only stageMaster
     }
-
+    private File selectedFile;
     @FXML
     TreeView<File> FilesView; // FilesTreeView
-
     @FXML
     TextArea DisplayFileText;
-
     @FXML
     TextArea DisplayTitle;
-
     @Override //run on start
     public void initialize(URL url, ResourceBundle resourceBundle){
         FilesTreeView  filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
@@ -52,7 +50,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         connectRoots.getChildren().addAll(roots);
         FilesView.setRoot(connectRoots);
         FilesView.setShowRoot(false);
-        FilesView.setCellFactory(new Callback<TreeView<File>, TreeCell<File>>() {
+        FilesView.setCellFactory(new Callback<TreeView<File>, TreeCell<File>>() { //replace path with file name
             @Override
             public TreeCell<File> call(TreeView<File> fileTreeView) {
                 return new TreeCell<File>(){
@@ -80,6 +78,8 @@ public class ControllerPrimary extends Controller implements Initializable{
         FilesView.setOnMouseClicked(mouseEvent -> {
             TreeItem<File> item = FilesView.getSelectionModel().getSelectedItem();
             if(item != null && item.getValue().isFile()){ //if clicked on file display content
+                selectedFile=item.getValue();
+                System.out.println(selectedFile);
                 List<String> lines = new ArrayList<>();
                 String line;
                 try {
@@ -103,6 +103,19 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     public void displayTitle(String name){
         DisplayTitle.setText(regexManager.convertNameToReadable(name));
+    }
+    public void OpenFileNatively() throws IOException {
+        if(selectedFile==null)  return;
+
+        if(Desktop.isDesktopSupported()) {
+            new Thread(() -> {
+                try {
+                    Desktop.getDesktop().open(selectedFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+        }
     }
 
     public void removeFile(){
