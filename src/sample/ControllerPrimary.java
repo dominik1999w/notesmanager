@@ -3,9 +3,11 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -50,12 +52,24 @@ public class ControllerPrimary extends Controller implements Initializable{
         connectRoots.getChildren().addAll(roots);
         FilesView.setRoot(connectRoots);
         FilesView.setShowRoot(false);
+        FilesView.setCellFactory(new Callback<TreeView<File>, TreeCell<File>>() {
+            @Override
+            public TreeCell<File> call(TreeView<File> fileTreeView) {
+                return new TreeCell<File>(){
+                    @Override
+                    public void updateItem(File file, boolean empty){
+                        super.updateItem(file,empty);
+                        setText((file==null||empty) ? "" : file.getName());
+                    }
+                };
+            }
+        });
     }
 
 
     public void clickCategoryControllerButton() throws IOException {
-        //Creating new ControllerCategory and loading it
-        Controller.stageMaster.loadNewScene(new ControllerCategory("CategoryClass.fxml", this));
+        //Creating new ControllerFiles and loading it
+        Controller.stageMaster.loadNewScene(new ControllerFiles("Files.fxml", this));
     }
 
     public void clickNewCategoryButton() throws IOException {

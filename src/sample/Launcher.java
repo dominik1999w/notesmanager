@@ -5,9 +5,6 @@ import javafx.stage.Stage;
 
 public class Launcher extends Application {
 
-    private static final String MAIN_FXML = "sample.fxml";
-    private static final String SCENE_ONE_FXML = "CategoryClass.fxml";
-
     @Override
     public void start(Stage primaryStage) throws Exception{
         //Make first primary controller, set its name. It will create static field for

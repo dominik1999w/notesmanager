@@ -12,9 +12,9 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class ControllerCategory extends Controller{
+public class ControllerFiles extends Controller{
 
-    public ControllerCategory(String name, Controller previousController) {
+    public ControllerFiles(String name, Controller previousController) {
         super(name,previousController);
     }
 
