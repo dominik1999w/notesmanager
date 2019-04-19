@@ -110,12 +110,6 @@ public class ControllerPrimary extends Controller implements Initializable{
         ExternalThread tr = new ExternalThread();
         if(Desktop.isDesktopSupported()){
             tr.start();
-            while(true){
-                if(cur!=null&&cur!=tr){
-                    cur.wait();
-                }else
-                    break;
-            }
         }
 
     }
