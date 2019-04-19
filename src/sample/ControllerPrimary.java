@@ -104,20 +104,31 @@ public class ControllerPrimary extends Controller implements Initializable{
     public void displayTitle(String name){
         DisplayTitle.setText(regexManager.convertNameToReadable(name));
     }
-    public void OpenFileNatively() throws IOException {
+    public void OpenFileNatively() throws InterruptedException {
         if(selectedFile==null)  return;
+        Thread cur=Thread.currentThread();
+        ExternalThread tr = new ExternalThread();
+        if(Desktop.isDesktopSupported()){
+            tr.start();
+            while(true){
+                if(cur!=null&&cur!=tr){
+                    cur.wait();
+                }else
+                    break;
+            }
+        }
 
-        if(Desktop.isDesktopSupported()) {
-            new Thread(() -> {
+    }
+    class ExternalThread extends Thread{
+        @Override
+        public void run(){
                 try {
                     Desktop.getDesktop().open(selectedFile);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }).start();
-        }
+            }
     }
-
     public void removeFile(){
         TreeItem<File> item = FilesView.getSelectionModel().getSelectedItem();
         if(item != null){
