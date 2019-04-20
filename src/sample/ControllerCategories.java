@@ -9,8 +9,6 @@ import javafx.scene.input.KeyCode;
 
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 public class ControllerCategories extends Controller {
@@ -38,16 +36,21 @@ public class ControllerCategories extends Controller {
             if (event.getCode() == KeyCode.ENTER) {
                 String category = String.valueOf(newCategoryName.getCharacters());
                 createCategory(category);
-                try { goBack(); } catch (IOException e) {}
             }
         });
 
     }
 
     private void createCategory(String category) {
-        System.out.println(category);
-        String path = regexManager.categoryToPath(category);
-        try { Files.createDirectory(Paths.get(path)); } catch (IOException e) { System.out.println("FAILED to create category."); }
+
+        System.out.println("Want to create: " + category);
+        try{
+            Controller.stageMaster.loadNewScene(new ControllerAreYouSure("AreYouSure.fxml", this,"newCategory",category));
+        } catch (NullPointerException e){
+            System.out.println("You can't remove nothing. ;)");
+        } catch (IOException e) {
+            System.out.println("FAILED to create category" + category);
+        }
     }
 
 

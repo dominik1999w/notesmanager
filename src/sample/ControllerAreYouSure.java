@@ -16,7 +16,13 @@ public class ControllerAreYouSure extends Controller {
         super(name,previousController);
         this.command = command;
         this.file = file;
-        this.category = Controller.regexManager.getCategory(this.file);
+        this.category = regexManager.getCategory(this.file);
+    }
+
+    public ControllerAreYouSure(String name, Controller previousController, String command, String category) {
+        super(name,previousController);
+        this.command = command;
+        this.category = category;
     }
 
     private File file;
@@ -28,12 +34,19 @@ public class ControllerAreYouSure extends Controller {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-       question.setText("Are you sure you want to remove " + file.getName() + " from  category " + category + "?" );
+        if(command.equals("remove")){
+            question.setText("Are you sure you want to remove " + file.getName() + " from  category " + category + "?" );
+        } else if(command.equals("newCategory")){
+            question.setText("Are you sure you want to create new category called " + category + "?" );
+        }
     }
 
     public void yes() throws IOException {
         if(command.equals("remove")){
             remove();
+            super.goBack();
+        } else if(command.equals("newCategory")){
+            newCategory();
             super.goBack();
         } else {
             System.out.println("FATAL ERROR - no such command found");
@@ -51,6 +64,16 @@ public class ControllerAreYouSure extends Controller {
             System.out.println("REMOVED: " + path);
         } catch (IOException e) {
             System.out.println("FAILED to remove: " + path);
+        }
+    }
+
+    private void newCategory(){
+        String path = regexManager.categoryToPath(category);
+        try {
+            Files.createDirectory(Paths.get(path));
+            System.out.println("CREATED CATEGORY: " + category);
+        } catch (IOException e) {
+            System.out.println("FAILED to create category.");
         }
     }
 
