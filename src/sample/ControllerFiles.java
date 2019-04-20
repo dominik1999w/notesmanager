@@ -38,17 +38,13 @@ public class ControllerFiles extends Controller{
     }
 
 
-    public void goBackToMainScene() throws IOException {
-        Controller.stageMaster.loadPreviousScene();
-    }
-
     public void submitFileName(){
         String path = regexManager.categoryToPath(categories_list.getSelectionModel().getSelectedItem());
         newFileName.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 String file = path.concat(String.valueOf(newFileName.getCharacters()));
                 createFile(file);
-                try { goBackToMainScene(); } catch (IOException e) {}
+                try { goBack(); } catch (IOException e) {}
             }
         });
 

@@ -2,16 +2,16 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TreeCell;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.awt.*;
 import java.io.*;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -98,12 +98,12 @@ public class ControllerPrimary extends Controller implements Initializable{
         });
     }
 
-    public void displayTitle(String name){
+    private void displayTitle(String name){
         DisplayTitle.setText(regexManager.convertNameToReadable(name));
     }
 
     public void openFileNatively() throws InterruptedException {
-        if(selectedFile==null)  return;
+        if(selectedFile == null)  return;
         Thread cur=Thread.currentThread();
         ExternalThread tr = new ExternalThread();
         if(Desktop.isDesktopSupported()){
@@ -123,16 +123,12 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
     }
 
-    public void removeFile(){
-        TreeItem<File> item = FilesView.getSelectionModel().getSelectedItem();
-        if(item != null){
-            String path = item.getValue().getPath();
-            try {
-                Files.delete(Paths.get(path)); Controller.stageMaster.refresh(this);
-                System.out.println("REMOVED: " + path);
-            } catch (IOException e) {
-                System.out.println("FAILED to remove: " + path);
-            }
+    public void removeFile() throws IOException {
+        try{
+            File file = FilesView.getSelectionModel().getSelectedItem().getValue();
+            Controller.stageMaster.loadNewScene(new ControllerAreYouSure("AreYouSure.fxml", this,"remove",file));
+        } catch (NullPointerException e){
+            System.out.println("You can't remove nothing. ;)");
         }
     }
 

@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="rootBox" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="rootBox" prefHeight="843.0" prefWidth="1243.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <SplitPane dividerPositions="0.3066132264529058" focusTraversable="true" VBox.vgrow="ALWAYS">
+    <SplitPane dividerPositions="0.3066132264529058" focusTraversable="true" prefHeight="801.0" prefWidth="1106.0" VBox.vgrow="ALWAYS">
       <items>
         <AnchorPane style="-fx-background-color: grey;">
           <children>
@@ -29,15 +29,15 @@
         </AnchorPane>
         <AnchorPane>
           <children>
-            <TextArea fx:id="DisplayFileText" editable="false" layoutY="51.0" prefHeight="647.0" prefWidth="686.0" style="-fx-background-color: grey;" text="" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="51.0" />
+            <TextArea fx:id="DisplayFileText" editable="false" layoutY="45.0" prefHeight="653.0" prefWidth="688.0" style="-fx-background-color: grey;" text="" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="51.0" />
                   <AnchorPane prefHeight="50.0" prefWidth="686.0">
                      <children>
                   <TextArea fx:id="DisplayTitle" editable="false" layoutX="176.0" prefHeight="52.0" prefWidth="510.0" wrapText="true" AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="176.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font size="17.0" />
                            </font></TextArea>
-                        <ToggleButton fx:id="edit"  layoutX="81.0" layoutY="13.0" mnemonicParsing="false" onAction="#edit" prefHeight="26.0" prefWidth="62.0" text="edit" />
-                        <Button fx:id="save"  layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#save" text="save" />
+                        <ToggleButton fx:id="edit" layoutX="81.0" layoutY="13.0" mnemonicParsing="false" onAction="#edit" prefHeight="26.0" prefWidth="55.0" text="edit" />
+                        <Button fx:id="save" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#save" text="save" />
                      </children>
                   </AnchorPane>
           </children>

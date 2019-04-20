@@ -49,6 +49,10 @@ public abstract class Controller implements Initializable {
     @Override
     public abstract void initialize(URL url, ResourceBundle resourceBundle);
 
+    public void goBack() throws IOException {
+        Controller.stageMaster.loadPreviousScene();
+    }
+
 
     List<String> getCategories(boolean pathOrName){ // true for paths, false for just names
         List<String> categories = new LinkedList<>();

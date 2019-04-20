@@ -33,15 +33,12 @@ public class ControllerCategories extends Controller {
     }
 
 
-    public void goBackToMainScene() throws IOException {
-        Controller.stageMaster.loadPreviousScene();
-    }
     public void submitCategoryName(){
         newCategoryName.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 String category = String.valueOf(newCategoryName.getCharacters());
                 createCategory(category);
-                try { goBackToMainScene(); } catch (IOException e) {}
+                try { goBack(); } catch (IOException e) {}
             }
         });
 
