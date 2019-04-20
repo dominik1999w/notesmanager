@@ -2,18 +2,13 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TreeCell;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -29,6 +24,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         this.previousController = this;
         Controller.stageMaster = new StageMaster(stage); //One and only stageMaster
     }
+
     private File selectedFile;
     @FXML
     TreeView<File> FilesView; // FilesTreeView
@@ -36,6 +32,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     TextArea DisplayFileText;
     @FXML
     TextArea DisplayTitle;
+
     @Override //run on start
     public void initialize(URL url, ResourceBundle resourceBundle){
         FilesTreeView  filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
@@ -78,7 +75,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         FilesView.setOnMouseClicked(mouseEvent -> {
             TreeItem<File> item = FilesView.getSelectionModel().getSelectedItem();
             if(item != null && item.getValue().isFile()){ //if clicked on file display content
-                selectedFile=item.getValue();
+                selectedFile = item.getValue();
                 System.out.println(selectedFile);
                 List<String> lines = new ArrayList<>();
                 String line;
@@ -104,7 +101,8 @@ public class ControllerPrimary extends Controller implements Initializable{
     public void displayTitle(String name){
         DisplayTitle.setText(regexManager.convertNameToReadable(name));
     }
-    public void OpenFileNatively() throws InterruptedException {
+
+    public void openFileNatively() throws InterruptedException {
         if(selectedFile==null)  return;
         Thread cur=Thread.currentThread();
         ExternalThread tr = new ExternalThread();
@@ -113,23 +111,46 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
 
     }
+
     class ExternalThread extends Thread{
         @Override
         public void run(){
-                try {
-                    Desktop.getDesktop().open(selectedFile);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            try {
+                Desktop.getDesktop().open(selectedFile);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+        }
     }
+
     public void removeFile(){
         TreeItem<File> item = FilesView.getSelectionModel().getSelectedItem();
         if(item != null){
             String path = item.getValue().getPath();
-            try { Files.delete(Paths.get(path)); Controller.stageMaster.refresh(this); } catch (IOException e) { System.out.println("FAILED to remove: " + path); }
+            try {
+                Files.delete(Paths.get(path)); Controller.stageMaster.refresh(this);
+                System.out.println("REMOVED: " + path);
+            } catch (IOException e) {
+                System.out.println("FAILED to remove: " + path);
+            }
         }
+    }
 
+    public void edit(){
+        DisplayFileText.setEditable(!DisplayFileText.isEditable());
+        System.out.println("SET editable to: " + DisplayFileText.isEditable());
+    }
+
+    public void save(){
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(selectedFile);
+            fileOutputStream.write(DisplayFileText.getText().getBytes());
+            System.out.println("SAVED to: " + selectedFile.getName());
+        } catch (FileNotFoundException e) {
+            System.out.println("FAILED to find: " + selectedFile.getName());
+        } catch (IOException e) {
+            System.out.println("PROBLEM with saving");
+        }
     }
 
 }
