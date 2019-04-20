@@ -1,6 +1,8 @@
-package sample;
+package Controllers;
 
 import javafx.fxml.Initializable;
+import Others.RegexManager;
+import Management.StageMaster;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +17,7 @@ import java.util.stream.Collectors;
 
 public abstract class Controller implements Initializable {
 
-    static StageMaster stageMaster;
+    public static StageMaster stageMaster;
     static RegexManager regexManager = new RegexManager();
 
     String name;
@@ -35,7 +37,7 @@ public abstract class Controller implements Initializable {
     }
 
 
-    public Controller() { }
+    public Controller() {}
 
     public Controller(String name) {
         this.name = name;

@@ -1,4 +1,4 @@
-package sample;
+package Others;
 
 import java.io.File;
 import java.util.regex.Matcher;
@@ -6,23 +6,23 @@ import java.util.regex.Pattern;
 
 public class RegexManager {
 
-    String convertPathToName(String path){
+    public String convertPathToName(String path){
         Pattern pat = Pattern.compile("^.+[/]");
         Matcher mat = pat.matcher(path);
         return mat.replaceAll("");
     }
 
-    String convertNameToReadable(String name){
+    public String convertNameToReadable(String name){
         Pattern pat = Pattern.compile("[.].+$");
         Matcher mat = pat.matcher(name);
         return mat.replaceAll("");
     }
 
-    String categoryToPath(String category){
+    public String categoryToPath(String category){
         return "categories/" + category + "/";
     }
 
-    String getCategory(File file){
+    public String getCategory(File file){
         String path = file.getPath();
         Pattern pat = Pattern.compile("categories/");
         Matcher mat = pat.matcher(path);

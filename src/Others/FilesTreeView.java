@@ -1,12 +1,12 @@
-package sample;
+package Others;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TreeItem;
 
 import java.io.File;
 
-class FilesTreeView {
-    TreeItem<File> createNode(final File file) {
+public class FilesTreeView {
+    public TreeItem<File> createNode(final File file) {
         return new TreeItem<File>(file) {
             private boolean firstChildren = true;
             private boolean leaf;

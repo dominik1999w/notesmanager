@@ -46,6 +46,6 @@
     </SplitPane>
   </children>
   <stylesheets>
-    <URL value="@sample.css" />
+    <URL value="@../Others/sample.css" />
   </stylesheets>
 </VBox>

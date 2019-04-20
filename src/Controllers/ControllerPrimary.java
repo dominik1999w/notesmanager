@@ -1,4 +1,4 @@
-package sample;
+package Controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,6 +8,8 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import Others.FilesTreeView;
+import Management.StageMaster;
 
 import java.awt.*;
 import java.io.*;
@@ -35,7 +37,7 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     @Override //run on start
     public void initialize(URL url, ResourceBundle resourceBundle){
-        FilesTreeView  filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
+        FilesTreeView filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
         List<String> categories = getCategories(true);
         List<TreeItem<File>> roots = new LinkedList<>();
 
@@ -64,11 +66,11 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     public void clickCategoryControllerButton() throws IOException {
         //Creating new ControllerFiles and loading it
-        Controller.stageMaster.loadNewScene(new ControllerFiles("Files.fxml", this));
+        Controller.stageMaster.loadNewScene(new ControllerFiles("/Scenes/Files.fxml", this));
     }
 
     public void clickNewCategoryButton() throws IOException {
-        Controller.stageMaster.loadNewScene(new ControllerCategories("Categories.fxml", this));
+        Controller.stageMaster.loadNewScene(new ControllerCategories("/Scenes/Categories.fxml", this));
     }
 
     public void displayFile(){
@@ -118,7 +120,7 @@ public class ControllerPrimary extends Controller implements Initializable{
             try {
                 Desktop.getDesktop().open(selectedFile);
             } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println("FAILED to open file:");
             }
         }
     }
@@ -126,7 +128,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     public void removeFile() throws IOException {
         try{
             File file = FilesView.getSelectionModel().getSelectedItem().getValue();
-            Controller.stageMaster.loadNewScene(new ControllerAreYouSure("AreYouSure.fxml", this,"remove",file));
+            Controller.stageMaster.loadNewScene(new ControllerAreYouSure("/Scenes/AreYouSure.fxml", this,"remove",file));
         } catch (NullPointerException e){
             System.out.println("You can't remove nothing. ;)");
         }

@@ -1,5 +1,7 @@
-package sample;
+package Management;
 
+import Controllers.Controller;
+import Controllers.ControllerPrimary;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -9,7 +11,7 @@ public class Launcher extends Application {
     public void start(Stage primaryStage) throws Exception{
         //Make first primary controller, set its name. It will create static field for
         //Controller named StageMaster, who will receive primaryStage and will store & use it for every scene.
-        Controller controllerPrimary = new ControllerPrimary("sample.fxml", primaryStage);
+        Controller controllerPrimary = new ControllerPrimary("/Scenes/sample.fxml", primaryStage);
         //Static stageMaster is loading first scene using controllerPrimary.
         Controller.stageMaster.loadNewScene(controllerPrimary);
     }

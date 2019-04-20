@@ -1,4 +1,4 @@
-package sample;
+package Controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -45,7 +45,7 @@ public class ControllerCategories extends Controller {
 
         System.out.println("Want to create: " + category);
         try{
-            Controller.stageMaster.loadNewScene(new ControllerAreYouSure("AreYouSure.fxml", this,"newCategory",category));
+            Controller.stageMaster.loadNewScene(new ControllerAreYouSure("/Scenes/AreYouSure.fxml", this,"newCategory",category));
         } catch (NullPointerException e){
             System.out.println("You can't remove nothing. ;)");
         } catch (IOException e) {
