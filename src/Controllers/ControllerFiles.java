@@ -48,7 +48,6 @@ public class ControllerFiles extends Controller{
         });
 
     }
-
     private void createFile(String file) {
         System.out.println(file);
         File newFile = new File(file);
