@@ -4,13 +4,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="rootBox" prefHeight="843.0" prefWidth="1243.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="rootBox" prefHeight="939.0" prefWidth="1345.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <SplitPane dividerPositions="0.3066132264529058" focusTraversable="true" prefHeight="801.0" prefWidth="1106.0" VBox.vgrow="ALWAYS">
       <items>
@@ -29,17 +30,15 @@
         </AnchorPane>
         <AnchorPane>
           <children>
-            <TextArea fx:id="DisplayFileText" editable="false" layoutY="45.0" prefHeight="653.0" prefWidth="688.0" style="-fx-background-color: grey;" text="" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="51.0" />
-                  <AnchorPane prefHeight="50.0" prefWidth="686.0">
-                     <children>
-                  <TextArea fx:id="DisplayTitle" editable="false" layoutX="176.0" prefHeight="52.0" prefWidth="510.0" wrapText="true" AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="176.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <font>
-                              <Font size="17.0" />
-                           </font></TextArea>
-                        <ToggleButton fx:id="edit" layoutX="81.0" layoutY="13.0" mnemonicParsing="false" onAction="#edit" prefHeight="26.0" prefWidth="55.0" text="edit" />
-                        <Button fx:id="save" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#save" text="save" />
-                     </children>
-                  </AnchorPane>
+            <TextArea fx:id="DisplayFileText" editable="false" layoutY="51.0" prefHeight="893.0" prefWidth="941.0" style="-fx-background-color: grey;" text="" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-14.0" AnchorPane.topAnchor="51.0" />
+                  <ToggleButton fx:id="rename" layoutX="726.0" layoutY="15.0" mnemonicParsing="false" onAction="#rename"  text="rename" />
+                  <Button fx:id="save" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#save" text="save" />
+                  <ToggleButton fx:id="edit" layoutX="81.0" layoutY="14.0" mnemonicParsing="false" onAction="#edit" prefHeight="26.0" prefWidth="55.0" text="edit" />
+            <TextField fx:id="DisplayTitle" disable="true" editable="false" layoutX="162.0" layoutY="11.0" onKeyPressed="#submitRename" prefHeight="33.0" prefWidth="547.0" AnchorPane.bottomAnchor="900.0" AnchorPane.leftAnchor="162.0" AnchorPane.rightAnchor="218.0" AnchorPane.topAnchor="11.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </TextField>
           </children>
         </AnchorPane>
       </items>

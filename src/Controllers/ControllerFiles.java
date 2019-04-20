@@ -20,7 +20,6 @@ public class ControllerFiles extends Controller{
 
     @FXML
     ListView<String> categories_list;
-
     @FXML
     TextField newFileName;
 

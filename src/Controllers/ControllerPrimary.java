@@ -1,19 +1,22 @@
 package Controllers;
 
+import Management.StageMaster;
+import Others.FilesTreeView;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TreeCell;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-import Others.FilesTreeView;
-import Management.StageMaster;
 
 import java.awt.*;
 import java.io.*;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -33,7 +36,9 @@ public class ControllerPrimary extends Controller implements Initializable{
     @FXML
     TextArea DisplayFileText;
     @FXML
-    TextArea DisplayTitle;
+    TextField DisplayTitle;
+    @FXML
+    ToggleButton rename;
 
     @Override //run on start
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -149,6 +154,35 @@ public class ControllerPrimary extends Controller implements Initializable{
         } catch (IOException e) {
             System.out.println("PROBLEM with saving");
         }
+    }
+
+    public void submitRename(){
+        DisplayTitle.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                String category = regexManager.getCategory(selectedFile);
+                String pathToCategory = regexManager.categoryToPath(category);
+                String newPath = pathToCategory.concat(String.valueOf(DisplayTitle.getCharacters()));
+                try {
+                    Path path = Files.move((Paths.get(selectedFile.getPath())), Paths.get(newPath));
+                    File newFile = new File(path.toString());
+                    selectedFile = newFile;
+                    System.out.println("RENAMED to: " + selectedFile.getName());
+                    rename();
+                } catch (IOException e) {
+                    System.out.println("FAILED to rename: " + selectedFile.getName());
+                }
+            }
+        });
+    }
+
+    public void rename(){
+        DisplayTitle.setEditable(!DisplayTitle.isEditable());
+        DisplayTitle.setDisable(!DisplayTitle.isDisabled());
+        System.out.println("SET title editable to: " + DisplayTitle.isEditable());
+        if(DisplayTitle.isDisabled())
+            displayTitle(selectedFile.getName());
+        if(rename.isSelected() != DisplayTitle.isEditable())
+            rename.setSelected(!rename.isSelected());
     }
 
 }
