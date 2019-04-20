@@ -1,0 +1,40 @@
+--ZAD1
+SELECT b "language", SUM(1) submits FROM jezyk j(a,b) JOIN submits s ON language = a GROUP BY 1 ORDER BY 2 DESC
+----
+--ZAD2
+\set a ',SUM(CASE WHEN u='
+\set v 'THEN 1 END)'
+SELECT d "name"
+:a 8 :v ok
+:a 7 :v ans
+:a 5 :v tle
+:a 4 :v rte
+:a 14 :v rte
+:a 3 :v rte
+:a 2 :v cmp ,
+NULL rul
+:a 11 :v hea
+:a 6 :v "int" ,
+SUM(1) "all"
+FROM problems p(b,c,d,e) JOIN submits s(y,z,w,l,u) ON w = b
+GROUP BY b ORDER BY e
+----
+--ZAD3
+\set k ',SUM(CASE WHEN o <'
+\set l '9<o THEN 1 END)'
+\set m 9AND
+SELECT z "name"
+:k 10:m 9:l "100"
+:k 9:m 8:l "100-90"
+:k 8:m 7:l "90-80"
+:k 7:m 6:l "80-70"
+:k 6:m 5:l "70-60"
+:k 5:m 4:l "60-50"
+:k 4:m 3:l "50-40"
+:k 3:m 2:l "40-30"
+:k 2:m 1:l "30-20"
+:k 1:m :l "20-10"
+:k :m -:l "10-0",
+SUM(1) "all"
+FROM problems p(x,y,z,w) JOIN (SELECT 100 * MAX(ocena) o,c FROM submits s(a,b,c) GROUP BY b,c ) e ON c = x GROUP BY x ORDER BY w
+----
