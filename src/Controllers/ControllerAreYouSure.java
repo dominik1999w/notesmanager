@@ -38,6 +38,8 @@ public class ControllerAreYouSure extends Controller {
             question.setText("Are you sure you want to remove " + file.getName() + " from  category " + category + "?" );
         } else if(command.equals("newCategory")){
             question.setText("Are you sure you want to create new category called " + category + "?" );
+        } else if(command.equals("removeCategory")){
+            question.setText("Are you sure you want to remove a category " + category + "?" );
         }
     }
 
@@ -47,6 +49,9 @@ public class ControllerAreYouSure extends Controller {
             super.goBack();
         } else if(command.equals("newCategory")){
             newCategory();
+            super.goBack();
+        } else if(command.equals("removeCategory")) {
+            removeCategory();
             super.goBack();
         } else {
             System.out.println("FATAL ERROR - no such command found");
@@ -76,5 +81,26 @@ public class ControllerAreYouSure extends Controller {
             System.out.println("FAILED to create category.");
         }
     }
+
+    private void removeCategory(){
+        try{
+            delete(file);
+            System.out.println("REMOVED CATEGORY: " + file.getName());
+        } catch(IOException e){
+            System.out.println("FAILED to remove: " + file.getName());
+        } catch(NullPointerException e){
+            System.out.println("You can't remove nothing.");
+        }
+    }
+
+    void delete(File f) throws IOException, NullPointerException {
+        if (f.isDirectory()) {
+            for (File c : f.listFiles())
+                delete(c);
+        }
+        if (!f.delete())
+            System.out.println("Failed to delete file: " + f);
+    }
+
 
 }

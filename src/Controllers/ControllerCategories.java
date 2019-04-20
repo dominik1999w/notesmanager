@@ -3,10 +3,12 @@ package Controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,15 +21,20 @@ public class ControllerCategories extends Controller {
 
     @FXML
     ListView<String> categories_list;
-
     @FXML
     TextField newCategoryName;
-
+    @FXML
+    Button removeCategory;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         ObservableList<String> categories = FXCollections.observableArrayList(getCategories(false));
         categories_list.setItems(categories);
+        categories_list.setOnMouseClicked(mouseEvent -> {
+            if(categories_list.getSelectionModel().getSelectedItems().get(0) != null) {
+                removeCategory.setDisable(false);
+            }
+        });
     }
 
 
@@ -42,16 +49,27 @@ public class ControllerCategories extends Controller {
     }
 
     private void createCategory(String category) {
-
-        System.out.println("Want to create: " + category);
         try{
             Controller.stageMaster.loadNewScene(new ControllerAreYouSure("/Scenes/AreYouSure.fxml", this,"newCategory",category));
         } catch (NullPointerException e){
-            System.out.println("You can't remove nothing. ;)");
+            System.out.println("You can't create nothing. ;)");
         } catch (IOException e) {
             System.out.println("FAILED to create category" + category);
         }
     }
 
+    public void removeCategory(){
+        String path = regexManager.categoryToPath(categories_list.getSelectionModel().getSelectedItem());
+        File category = new File(path);
+
+
+        try{
+            Controller.stageMaster.loadNewScene(new ControllerAreYouSure("/Scenes/AreYouSure.fxml", this,"removeCategory",category));
+        } catch (NullPointerException e){
+            System.out.println("You can't remove nothing. ;)");
+        } catch (IOException e) {
+            System.out.println("FAILED to remove category" + category);
+        }
+    }
 
 }

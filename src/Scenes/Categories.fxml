@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: slategrey;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: slategrey;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Button fx:id="Back_Button" layoutX="18.0" layoutY="13.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
         <ListView fx:id="categories_list" layoutX="50.0" layoutY="99.0" prefHeight="569.0" prefWidth="219.0" />
@@ -26,5 +26,6 @@
                 <Font size="14.0" />
             </font>
         </TextField>
+      <Button fx:id="removeCategory" disable="true" layoutX="348.0" layoutY="642.0" mnemonicParsing="false" onAction="#removeCategory" prefHeight="26.0" prefWidth="174.0" text="Delete Category" />
     </children>
 </Pane>
