@@ -33,7 +33,7 @@
         </AnchorPane>
         <AnchorPane fx:id="MainPane" styleClass="MainPane">
           <children>
-            <TextArea fx:id="DisplayFileText" editable="false" layoutX="680.0" layoutY="51.0" prefHeight="845.0" prefWidth="261.0" style="-fx-background-color: grey;" text="" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="680.0" AnchorPane.rightAnchor="-14.0" AnchorPane.topAnchor="99.0" />
+            <TextArea fx:id="DisplayFileText" editable="false" layoutX="547.0" layoutY="51.0" prefHeight="886.0" prefWidth="400.0" text="" visible="false" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
                   <ToggleButton fx:id="rename" layoutX="418.0" layoutY="14.0" mnemonicParsing="false" onAction="#rename" text="rename" />
                   <Button fx:id="save" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#save" text="save" />
                   <ToggleButton fx:id="edit" layoutX="81.0" layoutY="14.0" mnemonicParsing="false" onAction="#edit" text="edit" />
@@ -42,7 +42,7 @@
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <GridPane fx:id="gridFiles" layoutX="14.0" layoutY="51.0" onMouseClicked="#openFileInEditMode" prefHeight="886.0" prefWidth="974.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="51.0">
+                  <GridPane fx:id="gridFiles" layoutX="14.0" layoutY="51.0" onMouseClicked="#openFileInEditMode" prefHeight="898.0" prefWidth="975.0" visible="false" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -57,6 +57,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                   </GridPane>
+                  <ToggleButton layoutX="512.0" layoutY="14.0" mnemonicParsing="false" onAction="#MakeTextAreaFullSize" text="FullSize" />
           </children>
         </AnchorPane>
       </items>

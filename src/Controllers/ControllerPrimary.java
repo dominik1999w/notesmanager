@@ -12,7 +12,6 @@ import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -113,6 +112,8 @@ public class ControllerPrimary extends Controller implements Initializable{
             DisplayFileText.appendText(tmp + "\n");
         }
     }
+    ///////////////////////////////////////////////
+    //grid Files stuff
     @FXML
     GridPane gridFiles;
     private void displayGridFilesView(File dir){
@@ -144,33 +145,39 @@ public class ControllerPrimary extends Controller implements Initializable{
                 }
             }
         }
+        //@@make gridFiles dynamically
         c=-1;
-        for(int i=0;i<4;i++){
-            for(int j=0;j<4;j++)
-                if(c<list.length-1){
+        for(int i=0;i<4;i++) {
+            for (int j = 0; j < 4; j++) {
+                if (c < list.length-1) {
                     c++;
-                    gridFiles.add(label[i][j] ,j,i);
-                }
+                    gridFiles.add(label[i][j], j, i);
+                } else
+                    break;
             }
+        }
     }
-    @FXML
-    AnchorPane MainPane;
     public void openFileInEditMode(MouseEvent event) throws IOException {
         Node clicked=event.getPickResult().getIntersectedNode();
         if(GridPane.getColumnIndex(clicked)!=null&&GridPane.getRowIndex(clicked)!=null){
-            System.out.println(MainPane.isResizable());
             selectedFile= new File(clicked.getId());
+            DisplayFileText.setPrefWidth(500);
             DisplayFileText.setVisible(true);
-            gridFiles.setVisible(false);
+            gridFiles.setPrefWidth(450);
+            gridFiles.addRow(5,new Label("A"));
             displayFile(new File(selectedDir.getPath()+"/"+clicked.getId()));
-           /* gridFiles.resize(100,100);
-            MainPane.resize(100,100);
-            gridFiles.setMaxSize(100,100);
-            gridFiles.setMinSize(100,100); DOESN'T WORK YET
-            gridFiles.setPrefSize(100,100);*/
             System.out.println(clicked.getId());
         }
     }
+    public void MakeTextAreaFullSize(){
+        gridFiles.setVisible(!gridFiles.isVisible());
+        if (DisplayFileText.getPrefWidth() == 940) {
+            DisplayFileText.setPrefWidth(500);
+        } else {
+            DisplayFileText.setPrefWidth(940);
+        }
+    }
+    /////////////////////////////////////////////////////////////
     private void displayTitle(String name){
         DisplayTitle.setText(regexManager.convertNameToReadable(name));
     }
