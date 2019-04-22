@@ -15,6 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javafx.scene.control.ScrollPane;
 
 import java.awt.*;
 import java.io.*;
@@ -34,6 +35,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         this.previousController = this;
         Controller.stageMaster = new StageMaster(stage); //One and only stageMaster
     }
+
     private File selectedDir;
     private File selectedFile;
     @FXML
@@ -44,6 +46,8 @@ public class ControllerPrimary extends Controller implements Initializable{
     TextField DisplayTitle;
     @FXML
     ToggleButton rename;
+    @FXML
+    ToggleButton fullSize;
 
     @Override //run on start
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -70,7 +74,15 @@ public class ControllerPrimary extends Controller implements Initializable{
                 };
             }
         });
+
+        gridFiles.setHgap(25);
+        gridFiles.setVgap(25);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollPane.setMinViewportHeight(1);
+        scrollPane.setMinViewportWidth(1);
     }
+
     public void clickCategoryControllerButton() throws IOException {
         //Creating new ControllerFiles and loading it
         Controller.stageMaster.loadNewScene(new ControllerFiles("/Scenes/Files.fxml", this));
@@ -82,8 +94,8 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     public void displayFile(){
             TreeItem<File> item = FilesView.getSelectionModel().getSelectedItem();
-            if(item!=null&&item.getValue().isDirectory()){
-                selectedDir=item.getValue();
+            if(item != null && item.getValue().isDirectory()){
+                selectedDir = item.getValue();
                 displayGridFilesView(item.getValue());
             }
             if(item != null && item.getValue().isFile()) { //if clicked on file display content
@@ -112,72 +124,105 @@ public class ControllerPrimary extends Controller implements Initializable{
             DisplayFileText.appendText(tmp + "\n");
         }
     }
+
     ///////////////////////////////////////////////
     //grid Files stuff
+
     @FXML
     GridPane gridFiles;
+    @FXML
+    ScrollPane scrollPane;
+
     private void displayGridFilesView(File dir){
         gridFiles.setVisible(true);
-        selectedDir= new File(dir.getPath());
+        scrollPane.setVisible(true);
+
+        selectedDir = new File(dir.getPath());
+
         gridFiles.getStylesheets().addAll(getClass().getResource("../Others/sample.css").toExternalForm());
+
         gridFiles.getChildren().clear(); //clear pane
-        String[] list=dir.list(); //list files in dir
-        Label[][] label = new Label[4][4];
-        int c=-1;
-        for(int i=0;i<4;i++) {
-            for (int j = 0; j < 4; j++) {
-                if (c<list.length-1){
-                    c++;
-                    label[i][j] = new Label(list[c]);
-                    label[i][j].setId(list[c]);
-                    //label[i][j].getStylesheets().addAll(getClass().getResource("../Others/sample.css").toExternalForm());
-                    label[i][j].setStyle("-fx-background-color: #000033;"+
-                            "-fx-border-color:black;"+
-                            "-fx-text-fill:white;"+
-                            "-fx-padding: 50px;"+
-                            "-fx-vertical-align:middle;"+
-                            "-fx-text-vertical-align:middle;"+
-                            "-fx-text-horizontal-align:middle;"+
+        adjustGridFilesView(dir,4);
+    }
+
+    private void adjustGridFilesView(File dir, int width){
+
+        gridFiles.getChildren().clear(); //clear pane
+        String[] files = dir.list(); //list files in dir
+        int numberOfItems = files.length;
+        int height = (numberOfItems / width) + 1;
+        int rows = gridFiles.impl_getRowCount();
+        int size = width * rows;
+        System.out.println("Size is: " + size + " nOI: " + numberOfItems);
+
+        while(size < numberOfItems){
+            System.out.println("Added row");
+            gridFiles.addRow(rows,new Label(), new Label());
+            rows++;
+            size = rows * width;
+            gridFiles.setPrefHeight(gridFiles.getPrefHeight() + 175);
+        }
+
+        scrollPane.setPrefViewportHeight(gridFiles.getPrefHeight() + 10);
+        scrollPane.setPrefViewportWidth(gridFiles.getPrefWidth() + 10);
+
+
+        System.out.println(gridFiles.getHgap() + " " + gridFiles.getVgap() + " " + gridFiles.impl_getColumnCount());
+        Label[][] label = new Label[height][width];
+        int c = 0;
+        for(int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (c < files.length){
+                    label[i][j] = new Label(files[c]);
+                    Label l = label[i][j];
+                    l.setId(files[c]);
+                    //l.getStylesheets().addAll(getClass().getResource("../Others/sample.css").toExternalForm());
+                    l.setStyle("-fx-background-color: #000033;" +
+                            "-fx-border-color:black;" +
+                            "-fx-text-fill:white;" +
+                            "-fx-padding:50px;" +
+                            "-fx-vertical-align:middle;" +
+                            "-fx-text-vertical-align:middle;" +
+                            "-fx-text-horizontal-align:middle;" +
                             "-fx-text-alignment:center;");
-                    label[i][j].setWrapText(true);
-                    label[i][j].setPrefSize(175, 175);
-                    label[i][j].setEffect(new DropShadow());
+                    l.setWrapText(true);
+                    l.setPrefSize(175, 150);
+                    l.setEffect(new DropShadow());
+                    gridFiles.add(l, j, i);
+                    c++;
                 }
             }
         }
         //@@make gridFiles dynamically
-        c=-1;
-        for(int i=0;i<4;i++) {
-            for (int j = 0; j < 4; j++) {
-                if (c < list.length-1) {
-                    c++;
-                    gridFiles.add(label[i][j], j, i);
-                } else
-                    break;
-            }
-        }
     }
+
     public void openFileInEditMode(MouseEvent event) throws IOException {
-        Node clicked=event.getPickResult().getIntersectedNode();
-        if(GridPane.getColumnIndex(clicked)!=null&&GridPane.getRowIndex(clicked)!=null){
-            selectedFile= new File(clicked.getId());
+        Node clicked = event.getPickResult().getIntersectedNode();
+        if(GridPane.getColumnIndex(clicked) != null && GridPane.getRowIndex(clicked) != null){
+            selectedFile = new File(clicked.getId());
             DisplayFileText.setPrefWidth(500);
             DisplayFileText.setVisible(true);
-            gridFiles.setPrefWidth(450);
-            gridFiles.addRow(5,new Label("A"));
-            displayFile(new File(selectedDir.getPath()+"/"+clicked.getId()));
+            //gridFiles.setPrefWidth(450);
+            adjustGridFilesView(selectedDir,2);
+            displayFile(new File(selectedDir.getPath() + "/" + clicked.getId()));
             System.out.println(clicked.getId());
         }
     }
+
     public void MakeTextAreaFullSize(){
-        gridFiles.setVisible(!gridFiles.isVisible());
-        if (DisplayFileText.getPrefWidth() == 940) {
-            DisplayFileText.setPrefWidth(500);
-        } else {
-            DisplayFileText.setPrefWidth(940);
+        if(selectedFile != null){
+            gridFiles.setVisible(!gridFiles.isVisible());
+            scrollPane.setVisible(!scrollPane.isVisible());
+            if (DisplayFileText.getPrefWidth() == 940) {
+                DisplayFileText.setPrefWidth(500);
+            } else {
+                DisplayFileText.setPrefWidth(940);
+            }
         }
     }
+
     /////////////////////////////////////////////////////////////
+
     private void displayTitle(String name){
         DisplayTitle.setText(regexManager.convertNameToReadable(name));
     }
@@ -228,6 +273,7 @@ public class ControllerPrimary extends Controller implements Initializable{
             System.out.println("PROBLEM with saving");
         }
     }
+
     public void submitRename(){
         DisplayTitle.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
