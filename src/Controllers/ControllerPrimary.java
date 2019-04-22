@@ -188,6 +188,7 @@ public class ControllerPrimary extends Controller implements Initializable{
 
 
     private void displayGridFilesView(File dir){
+        hideFileDisplay();
         selectedDir = new File(dir.getPath());
         gridManager = new GridManager(selectedDir, gridFilesFactory, gridFiles, scrollPane);
         gridManager.adjustGridFilesView(dir,4); //globalne
