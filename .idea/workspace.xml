@@ -4,9 +4,12 @@
     <bookmark url="file://$PROJECT_DIR$/src/Management/Launcher.java" line="22" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Stable version of GridScroll.">
-      <change afterPath="$PROJECT_DIR$/src/Others/GridManager.java" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Reorganized">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$ExternalThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$ExternalThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/ControllerPrimary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/ControllerPrimary.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -70,26 +73,26 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerPrimary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="137" column="47" selection-start-line="137" selection-start-column="47" selection-end-line="137" selection-end-column="47" />
+            <state relative-caret-position="520">
+              <caret line="250" column="5" selection-start-line="250" selection-start-column="5" selection-end-line="250" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#ControllerPrimary#0;class#ControllerPrimary#0" />
                 <element signature="method#initialize#0;class#ControllerPrimary#0" />
                 <element signature="method#clickCategoryControllerButton#0;class#ControllerPrimary#0" />
                 <element signature="method#clickNewCategoryButton#0;class#ControllerPrimary#0" />
-                <element signature="method#displayFile#0;class#ControllerPrimary#0" />
-                <element signature="method#displayFile#1;class#ControllerPrimary#0" />
-                <element signature="method#displayGridFilesView#0;class#ControllerPrimary#0" />
-                <element signature="method#openFileInEditMode#0;class#ControllerPrimary#0" />
-                <element signature="method#MakeTextAreaFullSize#0;class#ControllerPrimary#0" />
                 <element signature="method#openFileNatively#0;class#ControllerPrimary#0" />
                 <element signature="class#ExternalThread#0;class#ControllerPrimary#0" />
                 <element signature="method#removeFile#0;class#ControllerPrimary#0" />
+                <element signature="method#rename#0;class#ControllerPrimary#0" />
+                <element signature="method#submitRename#0;class#ControllerPrimary#0" />
                 <element signature="method#edit#0;class#ControllerPrimary#0" />
                 <element signature="method#save#0;class#ControllerPrimary#0" />
-                <element signature="method#submitRename#0;class#ControllerPrimary#0" />
-                <element signature="method#rename#0;class#ControllerPrimary#0" />
+                <element signature="method#displayGridFilesView#0;class#ControllerPrimary#0" />
+                <element signature="method#displayFile#0;class#ControllerPrimary#0" />
+                <element signature="method#displayFile#1;class#ControllerPrimary#0" />
+                <element signature="method#openFileInEditMode#0;class#ControllerPrimary#0" />
+                <element signature="method#MakeTextAreaFullSize#0;class#ControllerPrimary#0" />
               </folding>
             </state>
           </provider>
@@ -143,7 +146,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerFiles.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
+            <state relative-caret-position="421">
               <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
             </state>
           </provider>
@@ -280,7 +283,7 @@
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="67" />
     <option name="y" value="27" />
     <option name="width" value="852" />
@@ -333,7 +336,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555944205560" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555944569274" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -578,17 +581,24 @@
       <option name="project" value="LOCAL" />
       <updated>1555943442561</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Reorganized">
+      <created>1555944302612</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1555944302612</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="67" y="27" width="852" height="1048" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.12285556" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.27543426" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -597,7 +607,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3265086" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2948164" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.297062" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39935413" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -672,7 +682,8 @@
     <MESSAGE value="Added sample data." />
     <MESSAGE value="Unstable version of Dynamical gridView" />
     <MESSAGE value="Stable version of GridScroll." />
-    <option name="LAST_COMMIT_MESSAGE" value="Stable version of GridScroll." />
+    <MESSAGE value="Reorganized" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reorganized" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -932,13 +943,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerFiles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scenes/sample.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
@@ -970,28 +974,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerFiles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerPrimary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="137" column="47" selection-start-line="137" selection-start-column="47" selection-end-line="137" selection-end-column="47" />
+        <state relative-caret-position="520">
+          <caret line="250" column="5" selection-start-line="250" selection-start-column="5" selection-end-line="250" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#ControllerPrimary#0;class#ControllerPrimary#0" />
             <element signature="method#initialize#0;class#ControllerPrimary#0" />
             <element signature="method#clickCategoryControllerButton#0;class#ControllerPrimary#0" />
             <element signature="method#clickNewCategoryButton#0;class#ControllerPrimary#0" />
-            <element signature="method#displayFile#0;class#ControllerPrimary#0" />
-            <element signature="method#displayFile#1;class#ControllerPrimary#0" />
-            <element signature="method#displayGridFilesView#0;class#ControllerPrimary#0" />
-            <element signature="method#openFileInEditMode#0;class#ControllerPrimary#0" />
-            <element signature="method#MakeTextAreaFullSize#0;class#ControllerPrimary#0" />
             <element signature="method#openFileNatively#0;class#ControllerPrimary#0" />
             <element signature="class#ExternalThread#0;class#ControllerPrimary#0" />
             <element signature="method#removeFile#0;class#ControllerPrimary#0" />
+            <element signature="method#rename#0;class#ControllerPrimary#0" />
+            <element signature="method#submitRename#0;class#ControllerPrimary#0" />
             <element signature="method#edit#0;class#ControllerPrimary#0" />
             <element signature="method#save#0;class#ControllerPrimary#0" />
-            <element signature="method#submitRename#0;class#ControllerPrimary#0" />
-            <element signature="method#rename#0;class#ControllerPrimary#0" />
+            <element signature="method#displayGridFilesView#0;class#ControllerPrimary#0" />
+            <element signature="method#displayFile#0;class#ControllerPrimary#0" />
+            <element signature="method#displayFile#1;class#ControllerPrimary#0" />
+            <element signature="method#openFileInEditMode#0;class#ControllerPrimary#0" />
+            <element signature="method#MakeTextAreaFullSize#0;class#ControllerPrimary#0" />
           </folding>
         </state>
       </provider>

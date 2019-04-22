@@ -38,8 +38,9 @@ public class ControllerPrimary extends Controller implements Initializable{
     private GridManager gridManager = new GridManager();
     private File selectedDir;
     private File selectedFile;
+
     @FXML
-    TreeView<File> FilesView; // FilesTreeView
+    TreeView<File> FilesView;
     @FXML
     TextArea DisplayFileText;
     @FXML
@@ -47,9 +48,13 @@ public class ControllerPrimary extends Controller implements Initializable{
     @FXML
     ToggleButton rename;
     @FXML
-    ToggleButton fullSize;
+    GridPane gridFilesFactory;
+    @FXML
+    GridPane gridFiles;
+    @FXML
+    ScrollPane scrollPane;
 
-    @Override //run on start
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         FilesTreeView filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
         List<String> categories = getCategories(true);
@@ -83,6 +88,8 @@ public class ControllerPrimary extends Controller implements Initializable{
         scrollPane.setMinViewportWidth(1);
     }
 
+// NAVIGATION ----------------------------------------------------------------------
+
     public void clickCategoryControllerButton() throws IOException {
         //Creating new ControllerFiles and loading it
         Controller.stageMaster.loadNewScene(new ControllerFiles("/Scenes/Files.fxml", this));
@@ -90,6 +97,100 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     public void clickNewCategoryButton() throws IOException {
         Controller.stageMaster.loadNewScene(new ControllerCategories("/Scenes/Categories.fxml", this));
+    }
+
+// FILE OPTIONS --------------------------------------------------------------------
+
+    public void openFileNatively() throws InterruptedException {
+        if(selectedFile == null)  return;
+        Thread cur=Thread.currentThread();
+        ExternalThread tr = new ExternalThread();
+        if(Desktop.isDesktopSupported()){
+            tr.start();
+        }
+
+    }
+
+    class ExternalThread extends Thread{
+        @Override
+        public void run(){
+            try {
+                Desktop.getDesktop().open(selectedFile);
+            } catch (IOException e) {
+                System.out.println("FAILED to open file:");
+            }
+        }
+    }
+
+
+    public void removeFile() throws IOException {
+        try{
+            File file = FilesView.getSelectionModel().getSelectedItem().getValue();
+            Controller.stageMaster.loadNewScene(new ControllerAreYouSure("/Scenes/AreYouSure.fxml", this,"remove",file));
+        } catch (NullPointerException e){
+            System.out.println("You can't remove nothing. ;)");
+        }
+    }
+
+// DISPLAY FILE OPTIONS ------------------------------------------------------------
+
+    public void rename(){
+        DisplayTitle.setEditable(!DisplayTitle.isEditable());
+        DisplayTitle.setDisable(!DisplayTitle.isDisabled());
+        System.out.println("SET title editable to: " + DisplayTitle.isEditable());
+        if(DisplayTitle.isDisabled())
+            displayTitle(selectedFile.getName());
+        if(rename.isSelected() != DisplayTitle.isEditable())
+            rename.setSelected(!rename.isSelected());
+    }
+
+    public void submitRename(){
+        DisplayTitle.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                String category = regexManager.getCategory(selectedFile);
+                String pathToCategory = regexManager.categoryToPath(category);
+                String newPath = pathToCategory.concat(String.valueOf(DisplayTitle.getCharacters()));
+                try {
+                    Path path = Files.move((Paths.get(selectedFile.getPath())), Paths.get(newPath));
+                    File newFile = new File(path.toString());
+                    selectedFile = newFile;
+                    System.out.println("RENAMED to: " + selectedFile.getName());
+                    rename();
+                } catch (IOException e) {
+                    System.out.println("FAILED to rename: " + selectedFile.getName());
+                }
+            }
+        });
+    }
+
+    private void displayTitle(String name){
+        DisplayTitle.setText(regexManager.convertNameToReadable(name));
+    }
+
+    public void edit(){
+        DisplayFileText.setEditable(!DisplayFileText.isEditable());
+        System.out.println("SET editable to: " + DisplayFileText.isEditable());
+    }
+
+    public void save(){
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(selectedFile);
+            fileOutputStream.write(DisplayFileText.getText().getBytes());
+            System.out.println("SAVED to: " + selectedFile.getName());
+        } catch (FileNotFoundException e) {
+            System.out.println("FAILED to find: " + selectedFile.getName());
+        } catch (IOException e) {
+            System.out.println("PROBLEM with saving");
+        }
+    }
+
+// DISPLAY FILE --------------------------------------------------------------------
+
+
+    private void displayGridFilesView(File dir){
+        selectedDir = new File(dir.getPath());
+        gridManager = new GridManager(selectedDir, gridFilesFactory, gridFiles, scrollPane);
+        gridManager.adjustGridFilesView(dir,4); //globalne
     }
 
     public void displayFile(){
@@ -125,22 +226,6 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
     }
 
-    ///////////////////////////////////////////////
-    //grid Files stuff
-
-    @FXML
-    GridPane gridFilesFactory;
-    @FXML
-    GridPane gridFiles;
-    @FXML
-    ScrollPane scrollPane;
-
-    private void displayGridFilesView(File dir){
-        selectedDir = new File(dir.getPath());
-        gridManager = new GridManager(selectedDir, gridFilesFactory, gridFiles, scrollPane);
-        gridManager.adjustGridFilesView(dir,4); //globalne
-    }
-
     public void openFileInEditMode(MouseEvent event) throws IOException {
         Node clicked = event.getPickResult().getIntersectedNode();
         if(GridPane.getColumnIndex(clicked) != null && GridPane.getRowIndex(clicked) != null){
@@ -165,86 +250,8 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
     }
 
-    /////////////////////////////////////////////////////////////
-
-    private void displayTitle(String name){
-        DisplayTitle.setText(regexManager.convertNameToReadable(name));
-    }
-
-    public void openFileNatively() throws InterruptedException {
-        if(selectedFile == null)  return;
-        Thread cur=Thread.currentThread();
-        ExternalThread tr = new ExternalThread();
-        if(Desktop.isDesktopSupported()){
-            tr.start();
-        }
-
-    }
-
-    class ExternalThread extends Thread{
-        @Override
-        public void run(){
-            try {
-                Desktop.getDesktop().open(selectedFile);
-            } catch (IOException e) {
-                System.out.println("FAILED to open file:");
-            }
-        }
-    }
-
-    public void removeFile() throws IOException {
-        try{
-            File file = FilesView.getSelectionModel().getSelectedItem().getValue();
-            Controller.stageMaster.loadNewScene(new ControllerAreYouSure("/Scenes/AreYouSure.fxml", this,"remove",file));
-        } catch (NullPointerException e){
-            System.out.println("You can't remove nothing. ;)");
-        }
-    }
-
-    public void edit(){
-        DisplayFileText.setEditable(!DisplayFileText.isEditable());
-        System.out.println("SET editable to: " + DisplayFileText.isEditable());
-    }
-
-    public void save(){
-        try {
-            FileOutputStream fileOutputStream = new FileOutputStream(selectedFile);
-            fileOutputStream.write(DisplayFileText.getText().getBytes());
-            System.out.println("SAVED to: " + selectedFile.getName());
-        } catch (FileNotFoundException e) {
-            System.out.println("FAILED to find: " + selectedFile.getName());
-        } catch (IOException e) {
-            System.out.println("PROBLEM with saving");
-        }
-    }
-
-    public void submitRename(){
-        DisplayTitle.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                String category = regexManager.getCategory(selectedFile);
-                String pathToCategory = regexManager.categoryToPath(category);
-                String newPath = pathToCategory.concat(String.valueOf(DisplayTitle.getCharacters()));
-                try {
-                    Path path = Files.move((Paths.get(selectedFile.getPath())), Paths.get(newPath));
-                    File newFile = new File(path.toString());
-                    selectedFile = newFile;
-                    System.out.println("RENAMED to: " + selectedFile.getName());
-                    rename();
-                } catch (IOException e) {
-                    System.out.println("FAILED to rename: " + selectedFile.getName());
-                }
-            }
-        });
-    }
-
-    public void rename(){
-        DisplayTitle.setEditable(!DisplayTitle.isEditable());
-        DisplayTitle.setDisable(!DisplayTitle.isDisabled());
-        System.out.println("SET title editable to: " + DisplayTitle.isEditable());
-        if(DisplayTitle.isDisabled())
-            displayTitle(selectedFile.getName());
-        if(rename.isSelected() != DisplayTitle.isEditable())
-            rename.setSelected(!rename.isSelected());
+    private void hideFileDisplay(){
+        DisplayFileText.setVisible(false);
     }
 
 }
