@@ -62,7 +62,6 @@ public class ControllerPrimary extends Controller implements Initializable{
         for(String categoryName : categories){
             roots.add(filesTreeViewClass.createNode(new File(categoryName)));
         }
-
         TreeItem<File> connectRoots = new TreeItem<>(null);
         connectRoots.getChildren().addAll(roots);
         FilesView.setRoot(connectRoots);
@@ -205,6 +204,8 @@ public class ControllerPrimary extends Controller implements Initializable{
                 System.out.println(selectedFile);
                 displayFile(item.getValue());
             }
+            if(item!=null)
+            System.out.println(item.getValue());
         }
 
     private void displayFile(File file) {
@@ -229,6 +230,7 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     public void openFileInEditMode(MouseEvent event) throws IOException {
         Node clicked = event.getPickResult().getIntersectedNode();
+        if(clicked==null) return ;
         if(GridPane.getColumnIndex(clicked) != null && GridPane.getRowIndex(clicked) != null){
             selectedFile = new File(clicked.getId());
             DisplayFileText.setPrefWidth(500); //globalne

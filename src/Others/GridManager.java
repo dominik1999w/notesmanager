@@ -6,10 +6,14 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
+import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
 import java.util.LinkedList;
+
+import static java.lang.Math.round;
 
 public class GridManager {
 
@@ -33,7 +37,7 @@ public class GridManager {
     public void adjustGridFilesView(File dir, int width){
 
         String[] files = dir.list(); //list files in dir
-
+        File[] filesInfo=dir.listFiles();
         //adjusting size
         int numberOfItems = files.length;
         int height = (numberOfItems / width) + 1;
@@ -43,35 +47,65 @@ public class GridManager {
         gridFiles.setVisible(true);
         scrollPane.setVisible(true);
         gridFiles.getStylesheets().addAll(getClass().getResource("../Others/sample.css").toExternalForm());
-
-        Label[][] label = new Label[height][width];
         int c = 0;
         for(int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                if (c < files.length){
-                    label[i][j] = new Label(files[c]);
-                    Label l = label[i][j];
-                    l.setId(files[c]);
-                    //l.getStylesheets().addAll(getClass().getResource("../Others/sample.css").toExternalForm());
-                    l.setStyle("-fx-background-color: #000033;" +
+                if (c < files.length) {
+                    String beforeDot=files[c];
+                    boolean containsDot=false;
+                    if(beforeDot.contains(".")) {
+                        containsDot=true;
+                        int lastDot = beforeDot.lastIndexOf('.' );
+                        beforeDot = beforeDot.substring(0,lastDot);
+                    }
+                    Pane p = new Pane(); //main cell body
+                    p.setId(files[c]);
+                    p.setStyle("-fx-background-color: #383844;" +
                             "-fx-border-color:black;" +
-                            "-fx-text-fill:white;" +
-                            "-fx-padding:50px;" +
-                            "-fx-vertical-align:middle;" +
-                            "-fx-text-vertical-align:middle;" +
-                            "-fx-text-horizontal-align:middle;" +
-                            "-fx-text-alignment:center;");
-                    l.setWrapText(true);
-                    l.setPrefSize(175, 150); //globalne
-                    l.setEffect(new DropShadow());
-                    gridFiles.add(l, j, i);
+                            "-fx-text-fill:white;");
+                    p.resize(240,150);
+                    p.setEffect(new DropShadow());
+                    //add file name to cell
+                    Label name=new Label(beforeDot);
+                    name.setTranslateX(5);
+                    name.setTranslateY(110);
+                    name.setMaxWidth(p.getWidth()-30);
+                    name.setStyle("-fx-background-color: #383844;" +
+                            "-fx-border-color:#383844;" +
+                            "-fx-font-weight:500;" +
+                            "-fx-font-size:14");
+                    p.getChildren().add(name);
+                    //add extension field to cell
+                    if(containsDot){
+                        String ext = FilenameUtils.getExtension(filesInfo[c].getAbsolutePath());
+                        ext = ext.toUpperCase();
+                        Label extension = new Label(ext);
+                        extension.setTranslateX(5);
+                        extension.setTranslateY(130);
+                        extension.setStyle("-fx-background-color: #505062;" +
+                                "-fx-border-color:#505062;" +
+                                "-fx-font-weight:500;" +
+                                "-fx-font-size:14");
+                        p.getChildren().add(extension);
+                    }
+                    //add size info
+                    double fileSize=filesInfo[c].length();
+                    String sizeString;
+                    if(fileSize<1024){
+                        sizeString= fileSize +" B";
+                    }else{
+                        sizeString=round(fileSize/1024*100d)/100d+" KB";
+                    }
+                    Label size=new Label(sizeString);
+                    size.setTranslateY(130);
+                    size.setTranslateX(p.getWidth()-5*sizeString.length()-40);
+                    p.getChildren().add(size);
+                    gridFiles.add(p, j, i);
                     c++;
                 }
             }
         }
-        //@@make gridFiles dynamically
     }
-
     private Label[] generate(int width){
         Label[] labels = new Label[width];
         for(int i = 0; i < width; i++){

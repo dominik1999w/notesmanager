@@ -25,18 +25,16 @@ public class ControllerFiles extends Controller{
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> categories = FXCollections.observableArrayList(getCategories(false));
         categories_list.setItems(categories);
         categories_list.setOnMouseClicked(mouseEvent -> {
-            if(categories_list.getSelectionModel().getSelectedItems().get(0) != null) {
+            if (categories_list.getSelectionModel().getSelectedItems().get(0) != null) {
                 newFileName.setDisable(false);
                 newFileName.setEditable(true);
             }
         });
     }
-
-
     public void submitFileName(){
         String path = regexManager.categoryToPath(categories_list.getSelectionModel().getSelectedItem());
         newFileName.setOnKeyPressed(event -> {

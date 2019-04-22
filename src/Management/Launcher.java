@@ -10,6 +10,7 @@ public class Launcher extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         primaryStage.setResizable(false);
+        //primaryStage.setFullScreen(true);
         //Make first primary controller, set its name. It will create static field for
         //Controller named StageMaster, who will receive primaryStage and will store & use it for every scene.
         Controller controllerPrimary = new ControllerPrimary("/Scenes/sample.fxml", primaryStage);
