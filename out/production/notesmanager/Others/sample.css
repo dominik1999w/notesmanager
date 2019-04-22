@@ -28,3 +28,7 @@
     -fx-background-insets: 10px;
     -fx-background-color: #000033 ;
 }
+#scrollPane{
+    -fx-background: #000033;
+    -fx-background-color: #000033 ;
+}

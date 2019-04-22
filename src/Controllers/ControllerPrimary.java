@@ -6,16 +6,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-import javafx.scene.control.ScrollPane;
 
 import java.awt.*;
 import java.io.*;
@@ -129,45 +131,31 @@ public class ControllerPrimary extends Controller implements Initializable{
     //grid Files stuff
 
     @FXML
+    GridPane gridFilesFactory;
+    @FXML
     GridPane gridFiles;
     @FXML
     ScrollPane scrollPane;
 
     private void displayGridFilesView(File dir){
-        gridFiles.setVisible(true);
-        scrollPane.setVisible(true);
-
         selectedDir = new File(dir.getPath());
-
-        gridFiles.getStylesheets().addAll(getClass().getResource("../Others/sample.css").toExternalForm());
-
-        gridFiles.getChildren().clear(); //clear pane
-        adjustGridFilesView(dir,4);
+        adjustGridFilesView(dir,4); //globalne
     }
 
     private void adjustGridFilesView(File dir, int width){
 
-        gridFiles.getChildren().clear(); //clear pane
         String[] files = dir.list(); //list files in dir
+
+        //adjusting size
         int numberOfItems = files.length;
         int height = (numberOfItems / width) + 1;
-        int rows = gridFiles.impl_getRowCount();
-        int size = width * rows;
-        System.out.println("Size is: " + size + " nOI: " + numberOfItems);
 
-        while(size < numberOfItems){
-            System.out.println("Added row");
-            gridFiles.addRow(rows,new Label(), new Label());
-            rows++;
-            size = rows * width;
-            gridFiles.setPrefHeight(gridFiles.getPrefHeight() + 175);
-        }
+        gridFiles = generateNewGridPane(width,height);
+        scrollPane.setContent(gridFiles);
+        gridFiles.setVisible(true);
+        scrollPane.setVisible(true);
+        gridFiles.getStylesheets().addAll(getClass().getResource("../Others/sample.css").toExternalForm());
 
-        scrollPane.setPrefViewportHeight(gridFiles.getPrefHeight() + 10);
-        scrollPane.setPrefViewportWidth(gridFiles.getPrefWidth() + 10);
-
-
-        System.out.println(gridFiles.getHgap() + " " + gridFiles.getVgap() + " " + gridFiles.impl_getColumnCount());
         Label[][] label = new Label[height][width];
         int c = 0;
         for(int i = 0; i < height; i++) {
@@ -186,7 +174,7 @@ public class ControllerPrimary extends Controller implements Initializable{
                             "-fx-text-horizontal-align:middle;" +
                             "-fx-text-alignment:center;");
                     l.setWrapText(true);
-                    l.setPrefSize(175, 150);
+                    l.setPrefSize(175, 150); //globalne
                     l.setEffect(new DropShadow());
                     gridFiles.add(l, j, i);
                     c++;
@@ -196,14 +184,54 @@ public class ControllerPrimary extends Controller implements Initializable{
         //@@make gridFiles dynamically
     }
 
+    private Label[] generate(int width){
+        Label[] labels = new Label[width];
+        for(int i = 0; i < width; i++){
+            labels[i] = new Label();
+        }
+        return labels;
+    }
+
+    private GridPane generateNewGridPane(int width, int height){
+
+        double prefHeight = height <= 4 ? gridFilesFactory.getPrefHeight() : height * 175; //globalne
+        double prefWidth = gridFilesFactory.getPrefWidth() * ((double)width / 4); //globalne
+
+        System.out.println("CHANGING grid to : prefW - " + prefWidth + " prefH - " + prefHeight);
+
+        GridPane gridPane = new GridPane();
+        gridPane.setLayoutX(gridFilesFactory.getLayoutX());
+        gridPane.setLayoutY(gridFilesFactory.getLayoutY());
+        gridPane.setOnMouseClicked(gridFilesFactory.getOnMouseClicked());
+        gridPane.setPrefHeight(prefHeight);
+        gridPane.setPrefWidth(prefWidth);
+        gridPane.setGridLinesVisible(true);
+
+        LinkedList<ColumnConstraints> columnConstraints = new LinkedList<>();
+        for(int i = 0; i < width; i++)
+            columnConstraints.add(gridFilesFactory.getColumnConstraints().get(0));
+        gridPane.getColumnConstraints().addAll(columnConstraints);
+
+        LinkedList<RowConstraints> rowConstraints = new LinkedList<>();
+        height = height <= 4 ? 4 : height; //globalne
+        for(int i = 0; i < height; i++)
+            rowConstraints.add(gridFilesFactory.getRowConstraints().get(0));
+        gridPane.getRowConstraints().addAll(rowConstraints);
+
+        gridPane.setId("gridFiles");
+        gridPane.setVisible(true);
+        gridPane.setHgap(25); //globalne
+        gridPane.setVgap(25); //globalne
+        return gridPane;
+    }
+
     public void openFileInEditMode(MouseEvent event) throws IOException {
         Node clicked = event.getPickResult().getIntersectedNode();
         if(GridPane.getColumnIndex(clicked) != null && GridPane.getRowIndex(clicked) != null){
             selectedFile = new File(clicked.getId());
-            DisplayFileText.setPrefWidth(500);
+            DisplayFileText.setPrefWidth(500); //globalne
             DisplayFileText.setVisible(true);
-            //gridFiles.setPrefWidth(450);
-            adjustGridFilesView(selectedDir,2);
+            adjustGridFilesView(selectedDir,2); //globalne
             displayFile(new File(selectedDir.getPath() + "/" + clicked.getId()));
             System.out.println(clicked.getId());
         }
@@ -213,10 +241,10 @@ public class ControllerPrimary extends Controller implements Initializable{
         if(selectedFile != null){
             gridFiles.setVisible(!gridFiles.isVisible());
             scrollPane.setVisible(!scrollPane.isVisible());
-            if (DisplayFileText.getPrefWidth() == 940) {
-                DisplayFileText.setPrefWidth(500);
+            if (DisplayFileText.getPrefWidth() == 940) { //globalne
+                DisplayFileText.setPrefWidth(500); //globalne
             } else {
-                DisplayFileText.setPrefWidth(940);
+                DisplayFileText.setPrefWidth(940); //globalne
             }
         }
     }

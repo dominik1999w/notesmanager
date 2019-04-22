@@ -4,20 +4,29 @@
     <bookmark url="file://$PROJECT_DIR$/src/Management/Launcher.java" line="22" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Added sample data.">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Unstable version of Dynamical gridView">
+      <change afterPath="$PROJECT_DIR$/categories/Analiza Matematyczna/b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/categories/Analiza Matematyczna/c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/categories/Analiza Matematyczna/d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/categories/Analiza Matematyczna/e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/categories/Analiza Matematyczna/f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/categories/Analiza Matematyczna/g" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/categories/Analiza Matematyczna/h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/categories/Analiza Matematyczna/i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/categories/Analiza Matematyczna/j" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/categories/Analiza Matematyczna/k" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/categories/Analiza Matematyczna/l" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/categories/Analiza Matematyczna/m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/categories/Analiza Matematyczna/n" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/categories/Analiza Matematyczna/o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/categories/Analiza Matematyczna/p" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pochodne" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/Całki" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/Funkcje" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/Granice" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/Metryka" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/Pochodne" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$1$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$ExternalThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$ExternalThread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Others/sample.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Others/sample.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Scenes/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Scenes/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/sample/sample.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/ControllerPrimary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/ControllerPrimary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Others/sample.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Others/sample.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Scenes/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scenes/sample.fxml" afterDir="false" />
@@ -83,16 +92,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerPrimary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="826">
-              <caret line="82" column="40" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
+            <state relative-caret-position="214">
+              <caret line="146" column="22" lean-forward="true" selection-start-line="146" selection-start-column="22" selection-end-line="146" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#ControllerPrimary#0;class#ControllerPrimary#0" />
                 <element signature="method#clickCategoryControllerButton#0;class#ControllerPrimary#0" />
                 <element signature="method#clickNewCategoryButton#0;class#ControllerPrimary#0" />
                 <element signature="method#displayFile#1;class#ControllerPrimary#0" />
-                <element signature="e#6964#6965#0" expanded="true" />
-                <element signature="e#7042#7043#0" expanded="true" />
+                <element signature="method#generate#0;class#ControllerPrimary#0" />
                 <element signature="method#openFileNatively#0;class#ControllerPrimary#0" />
                 <element signature="class#ExternalThread#0;class#ControllerPrimary#0" />
                 <element signature="method#removeFile#0;class#ControllerPrimary#0" />
@@ -117,8 +125,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Others/sample.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            <state relative-caret-position="255">
+              <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerFiles.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -126,8 +143,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Scenes/sample.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="45" column="134" selection-start-line="45" selection-start-column="134" selection-end-line="45" selection-end-column="134" />
+            <state relative-caret-position="233">
+              <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -260,9 +277,9 @@
         <option value="$PROJECT_DIR$/src/Controllers/ControllerFiles.java" />
         <option value="$PROJECT_DIR$/src/Images/.comments/background.xml" />
         <option value="$PROJECT_DIR$/src/Management/Launcher.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/ControllerPrimary.java" />
-        <option value="$PROJECT_DIR$/src/Scenes/sample.fxml" />
         <option value="$PROJECT_DIR$/src/Others/sample.css" />
+        <option value="$PROJECT_DIR$/src/Scenes/sample.fxml" />
+        <option value="$PROJECT_DIR$/src/Controllers/ControllerPrimary.java" />
       </list>
     </option>
   </component>
@@ -285,6 +302,17 @@
             <path>
               <item name="notesmanager" type="b2602c69:ProjectViewProjectNode" />
               <item name="notesmanager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="notesmanager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="notesmanager" type="462c0819:PsiDirectoryNode" />
+              <item name="categories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="notesmanager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="notesmanager" type="462c0819:PsiDirectoryNode" />
+              <item name="categories" type="462c0819:PsiDirectoryNode" />
+              <item name="Analiza Matematyczna" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="notesmanager" type="b2602c69:ProjectViewProjectNode" />
@@ -320,7 +348,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555936673105" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555943421506" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -551,7 +579,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555769227043</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Unstable version of Dynamical gridView">
+      <created>1555936706101</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1555936706101</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -643,7 +678,8 @@
     <MESSAGE value="Added AreYouSure screen, and upgraded removing." />
     <MESSAGE value="Structure cleanUp." />
     <MESSAGE value="Added sample data." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added sample data." />
+    <MESSAGE value="Unstable version of Dynamical gridView" />
+    <option name="LAST_COMMIT_MESSAGE" value="Unstable version of Dynamical gridView" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -857,13 +893,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerFiles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/categories/test.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -873,14 +902,6 @@
           <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scenes/Files.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="134" selection-start-line="17" selection-start-column="102" selection-end-line="17" selection-end-column="134" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Scenes/Categories.fxml">
       <provider selected="true" editor-type-id="text-editor">
@@ -906,6 +927,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scenes/Files.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="134" selection-start-line="17" selection-start-column="102" selection-end-line="17" selection-end-column="134" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Others/sample.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Management/StageMaster.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="371">
@@ -913,33 +949,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerFiles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scenes/sample.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="45" column="134" selection-start-line="45" selection-start-column="134" selection-end-line="45" selection-end-column="134" />
+        <state relative-caret-position="233">
+          <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Others/sample.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerPrimary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="826">
-          <caret line="82" column="40" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
+        <state relative-caret-position="214">
+          <caret line="146" column="22" lean-forward="true" selection-start-line="146" selection-start-column="22" selection-end-line="146" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#ControllerPrimary#0;class#ControllerPrimary#0" />
             <element signature="method#clickCategoryControllerButton#0;class#ControllerPrimary#0" />
             <element signature="method#clickNewCategoryButton#0;class#ControllerPrimary#0" />
             <element signature="method#displayFile#1;class#ControllerPrimary#0" />
-            <element signature="e#6964#6965#0" expanded="true" />
-            <element signature="e#7042#7043#0" expanded="true" />
+            <element signature="method#generate#0;class#ControllerPrimary#0" />
             <element signature="method#openFileNatively#0;class#ControllerPrimary#0" />
             <element signature="class#ExternalThread#0;class#ControllerPrimary#0" />
             <element signature="method#removeFile#0;class#ControllerPrimary#0" />
