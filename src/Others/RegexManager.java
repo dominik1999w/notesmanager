@@ -6,23 +6,31 @@ import java.util.regex.Pattern;
 
 public class RegexManager {
 
-    public String convertPathToName(String path){
+    public static String convertPathToName(String path){
         Pattern pat = Pattern.compile("^.+[/]");
         Matcher mat = pat.matcher(path);
         return mat.replaceAll("");
     }
 
-    public String convertNameToReadable(String name){
-        Pattern pat = Pattern.compile("[.].+$");
+    public static String convertNameToReadable(String name){
+        Pattern pat = Pattern.compile("[.][^.]+$");
         Matcher mat = pat.matcher(name);
         return mat.replaceAll("");
     }
 
-    public String categoryToPath(String category){
+    public static String getExtension(String name){
+        Pattern pat = Pattern.compile("^.+[.]");
+        Matcher mat = pat.matcher(name);
+        if(!mat.find())
+            return "";
+        return mat.replaceAll("");
+    }
+
+    public static String categoryToPath(String category){
         return "categories/" + category + "/";
     }
 
-    public String getCategory(File file){
+    public static String getCategory(File file){
         String path = file.getPath();
         Pattern pat = Pattern.compile("categories/");
         Matcher mat = pat.matcher(path);

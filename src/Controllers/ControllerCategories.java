@@ -1,5 +1,6 @@
 package Controllers;
 
+import Others.RegexManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -59,7 +60,7 @@ public class ControllerCategories extends Controller {
     }
 
     public void removeCategory(){
-        String path = regexManager.categoryToPath(categories_list.getSelectionModel().getSelectedItem());
+        String path = RegexManager.categoryToPath(categories_list.getSelectionModel().getSelectedItem());
         File category = new File(path);
 
 

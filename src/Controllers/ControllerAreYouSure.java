@@ -1,5 +1,6 @@
 package Controllers;
 
+import Others.RegexManager;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.TextField;
@@ -16,7 +17,7 @@ public class ControllerAreYouSure extends Controller {
         super(name,previousController);
         this.command = command;
         this.file = file;
-        this.category = regexManager.getCategory(this.file);
+        this.category = RegexManager.getCategory(this.file);
     }
 
     public ControllerAreYouSure(String name, Controller previousController, String command, String category) {
@@ -73,7 +74,7 @@ public class ControllerAreYouSure extends Controller {
     }
 
     private void newCategory(){
-        String path = regexManager.categoryToPath(category);
+        String path = RegexManager.categoryToPath(category);
         try {
             Files.createDirectory(Paths.get(path));
             System.out.println("CREATED CATEGORY: " + category);

@@ -1,5 +1,6 @@
 package Controllers;
 
+import Others.RegexManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -36,7 +37,7 @@ public class ControllerFiles extends Controller{
         });
     }
     public void submitFileName(){
-        String path = regexManager.categoryToPath(categories_list.getSelectionModel().getSelectedItem());
+        String path = RegexManager.categoryToPath(categories_list.getSelectionModel().getSelectedItem());
         newFileName.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 String file = path.concat(String.valueOf(newFileName.getCharacters()));

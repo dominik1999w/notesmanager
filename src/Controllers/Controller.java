@@ -18,7 +18,6 @@ import java.util.stream.Collectors;
 public abstract class Controller implements Initializable {
 
     public static StageMaster stageMaster;
-    static RegexManager regexManager = new RegexManager();
 
     String name;
     Controller previousController;
@@ -76,7 +75,7 @@ public abstract class Controller implements Initializable {
             return categories;
         } else {
             for(String path : categories){
-                names.add(regexManager.convertPathToName(path));
+                names.add(RegexManager.convertPathToName(path));
             }
         }
         names.sort(String::compareTo);

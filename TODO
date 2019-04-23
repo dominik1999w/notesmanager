@@ -3,7 +3,5 @@
 -- (Może kiedyś) Żeby działało rozciąganie.
 
 - przycisk do zamknięcie podglądu pliku
-- klikanie save/rename/FullSize/openext bez otwartego pliku powoduje wyjątki
 - malutki bug przy otwieraniu podglądu (coś z wielkościami)
 - zmienić zmienne na globalne (tam gdzie komentarz)
-- poprawić rename

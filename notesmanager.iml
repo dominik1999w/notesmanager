@@ -22,5 +22,14 @@
         <jarDirectory url="file://$USER_HOME$/Downloads/commons-io-2.6" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/JDK/ApacheCommonsIO/commons-io-2.6-bin/commons-io-2.6/commons-io-2.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

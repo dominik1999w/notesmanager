@@ -3,9 +3,11 @@ package Controllers;
 import Management.StageMaster;
 import Others.FilesTreeView;
 import Others.GridManager;
+import Others.RegexManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -48,11 +50,25 @@ public class ControllerPrimary extends Controller implements Initializable{
     @FXML
     ToggleButton rename;
     @FXML
+    ToggleButton edit;
+    @FXML
+    ToggleButton fullSize;
+    @FXML
+    Button save;
+    @FXML
+    Button remove;
+    @FXML
+    Button natively;
+    @FXML
+    Button close;
+    @FXML
     GridPane gridFilesFactory;
     @FXML
     GridPane gridFiles;
     @FXML
     ScrollPane scrollPane;
+    @FXML
+    SplitPane splitPane;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -73,18 +89,17 @@ public class ControllerPrimary extends Controller implements Initializable{
                     @Override
                     public void updateItem(File file, boolean empty){
                         super.updateItem(file,empty);
-                        setText((file==null||empty) ? "" : file.getName());
+                        setText((file == null || empty) ? "" : file.getName());
                     }
                 };
             }
         });
 
-        gridFiles.setHgap(25);
-        gridFiles.setVgap(25);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         scrollPane.setMinViewportHeight(1);
         scrollPane.setMinViewportWidth(1);
+        endWork();
     }
 
 // NAVIGATION ----------------------------------------------------------------------
@@ -134,21 +149,26 @@ public class ControllerPrimary extends Controller implements Initializable{
 // DISPLAY FILE OPTIONS ------------------------------------------------------------
 
     public void rename(){
-        DisplayTitle.setEditable(!DisplayTitle.isEditable());
-        DisplayTitle.setDisable(!DisplayTitle.isDisabled());
-        System.out.println("SET title editable to: " + DisplayTitle.isEditable());
-        if(DisplayTitle.isDisabled())
-            displayTitle(selectedFile.getName());
-        if(rename.isSelected() != DisplayTitle.isEditable())
-            rename.setSelected(!rename.isSelected());
+        if(selectedFile != null) {
+            DisplayTitle.setEditable(!DisplayTitle.isEditable());
+            DisplayTitle.setDisable(!DisplayTitle.isDisabled());
+            System.out.println("SET title editable to: " + DisplayTitle.isEditable());
+            if (DisplayTitle.isDisabled())
+                displayTitle(selectedFile.getName());
+            if (rename.isSelected() != DisplayTitle.isEditable())
+                rename.setSelected(!rename.isSelected());
+        }
     }
 
     public void submitRename(){
         DisplayTitle.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
-                String category = regexManager.getCategory(selectedFile);
-                String pathToCategory = regexManager.categoryToPath(category);
+                String category = RegexManager.getCategory(selectedFile);
+                String pathToCategory = RegexManager.categoryToPath(category);
                 String newPath = pathToCategory.concat(String.valueOf(DisplayTitle.getCharacters()));
+                String extension = RegexManager.getExtension(selectedFile.getName());
+                if(extension.length() > 0)
+                    newPath = newPath.concat(".").concat(extension);
                 try {
                     Path path = Files.move((Paths.get(selectedFile.getPath())), Paths.get(newPath));
                     File newFile = new File(path.toString());
@@ -156,6 +176,7 @@ public class ControllerPrimary extends Controller implements Initializable{
                     System.out.println("RENAMED to: " + selectedFile.getName());
                     rename();
                 } catch (IOException e) {
+                    e.printStackTrace();
                     System.out.println("FAILED to rename: " + selectedFile.getName());
                 }
             }
@@ -163,7 +184,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     }
 
     private void displayTitle(String name){
-        DisplayTitle.setText(regexManager.convertNameToReadable(name));
+        DisplayTitle.setText(RegexManager.convertNameToReadable(name));
     }
 
     public void edit(){
@@ -183,11 +204,17 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
     }
 
+    public void close(){
+        endWork();
+        gridFiles.setVisible(false);
+        scrollPane.setVisible(false);
+    }
+
 // DISPLAY FILE --------------------------------------------------------------------
 
 
     private void displayGridFilesView(File dir){
-        hideFileDisplay();
+        endWork();
         selectedDir = new File(dir.getPath());
         gridManager = new GridManager(selectedDir, gridFilesFactory, gridFiles, scrollPane);
         gridManager.adjustGridFilesView(dir,4); //globalne
@@ -209,6 +236,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
 
     private void displayFile(File file) {
+        startWork();
         List<String> lines = new ArrayList<>();
         String line;
         try {
@@ -229,10 +257,11 @@ public class ControllerPrimary extends Controller implements Initializable{
     }
 
     public void openFileInEditMode(MouseEvent event) throws IOException {
+        startWork();
         Node clicked = event.getPickResult().getIntersectedNode();
-        if(clicked==null) return ;
+        if(clicked == null) return ;
         if(GridPane.getColumnIndex(clicked) != null && GridPane.getRowIndex(clicked) != null){
-            selectedFile = new File(clicked.getId());
+            selectedFile = new File("categories/" + selectedDir.getName() + "/" + clicked.getId());
             DisplayFileText.setPrefWidth(500); //globalne
             DisplayFileText.setVisible(true);
             gridManager.adjustGridFilesView(selectedDir,2); //globalne
@@ -253,8 +282,36 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
     }
 
-    private void hideFileDisplay(){
+
+    public void endWork(){ //called when changing category
         DisplayFileText.setVisible(false);
+        DisplayTitle.setText("");
+        rename.setSelected(false);
+        rename.setDisable(true);
+        edit.setSelected(false);
+        edit.setDisable(true);
+        fullSize.setDisable(true);
+        fullSize.setSelected(false);
+        save.setDisable(true);
+        remove.setDisable(true);
+        natively.setDisable(true);
+        close.setDisable(true);
+        close.setVisible(false);
+        selectedFile = null;
+    }
+
+    private void startWork(){ //called when
+        rename.setSelected(false);
+        rename.setDisable(false);
+        edit.setSelected(false);
+        edit.setDisable(false);
+        fullSize.setDisable(false);
+        fullSize.setSelected(false);
+        save.setDisable(false);
+        remove.setDisable(false);
+        natively.setDisable(false);
+        close.setDisable(false);
+        close.setVisible(true);
     }
 
 }
