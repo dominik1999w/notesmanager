@@ -220,7 +220,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         gridManager.adjustGridFilesView(dir,4); //globalne
     }
 
-    public void displayFile(){
+    public void openFileTree(){
             TreeItem<File> item = FilesView.getSelectionModel().getSelectedItem();
             if(item != null && item.getValue().isDirectory()){
                 selectedDir = item.getValue();
@@ -228,32 +228,13 @@ public class ControllerPrimary extends Controller implements Initializable{
             }
             if(item != null && item.getValue().isFile()) { //if clicked on file display content
                 selectedFile = item.getValue();
-                System.out.println(selectedFile);
-                displayFile(item.getValue());
+                selectedDir = new File(RegexManager.getCategoryPath(selectedFile));
+                System.out.println(selectedFile.getPath());
+                displayGridFilesView(selectedDir);
+                displayFile();
             }
-            if(item!=null)
-            System.out.println(item.getValue());
-        }
-
-    private void displayFile(File file) {
-        startWork();
-        List<String> lines = new ArrayList<>();
-        String line;
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            while ((line = br.readLine()) != null) {
-                lines.add(line);
-            }
-            br.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        displayTitle(file.getName());
-        DisplayFileText.setText("");
-        for(String tmp: lines){
-            DisplayFileText.appendText(tmp + "\n");
-        }
+            if(item != null)
+                System.out.println(item.getValue());
     }
 
     public void openFileInEditMode(MouseEvent event) throws IOException {
@@ -262,13 +243,41 @@ public class ControllerPrimary extends Controller implements Initializable{
         if(clicked == null) return ;
         if(GridPane.getColumnIndex(clicked) != null && GridPane.getRowIndex(clicked) != null){
             selectedFile = new File("categories/" + selectedDir.getName() + "/" + clicked.getId());
-            DisplayFileText.setPrefWidth(500); //globalne
-            DisplayFileText.setVisible(true);
-            gridManager.adjustGridFilesView(selectedDir,2); //globalne
-            displayFile(new File(selectedDir.getPath() + "/" + clicked.getId()));
-            System.out.println(clicked.getId());
+            displayFile();
+            System.out.println(selectedFile);
         }
     }
+
+    private void displayFile() {
+        startWork();
+
+        DisplayFileText.setPrefWidth(500); //globalne
+        DisplayFileText.setVisible(true);
+        gridManager.adjustGridFilesView(selectedDir,2); //globalne
+
+        System.out.println(selectedFile.getPath());
+
+        List<String> lines = new ArrayList<>();
+        String line;
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(selectedFile));
+            while ((line = br.readLine()) != null) {
+                lines.add(line);
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        displayTitle(selectedFile.getName());
+        DisplayFileText.setText("");
+        for(String tmp: lines){
+            DisplayFileText.appendText(tmp + "\n");
+        }
+    }
+
+
 
     public void MakeTextAreaFullSize(){
         if(selectedFile != null){
@@ -297,7 +306,6 @@ public class ControllerPrimary extends Controller implements Initializable{
         natively.setDisable(true);
         close.setDisable(true);
         close.setVisible(false);
-        selectedFile = null;
     }
 
     private void startWork(){ //called when
@@ -312,6 +320,10 @@ public class ControllerPrimary extends Controller implements Initializable{
         natively.setDisable(false);
         close.setDisable(false);
         close.setVisible(true);
+
+        DisplayFileText.setEditable(false);
+        DisplayTitle.setEditable(false);
+        DisplayTitle.setDisable(true);
     }
 
 }

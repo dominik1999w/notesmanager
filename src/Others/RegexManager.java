@@ -39,4 +39,9 @@ public class RegexManager {
         Matcher mat2 = pat2.matcher(path);
         return mat2.replaceAll("");
     }
+
+    public static String getCategoryPath(File file){
+        String category = getCategory(file);
+        return categoryToPath(category);
+    }
 }

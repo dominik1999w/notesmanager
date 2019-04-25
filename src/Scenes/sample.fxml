@@ -21,7 +21,7 @@
       <items>
         <AnchorPane style="-fx-background-color: grey;">
           <children>
-            <TreeView fx:id="FilesView" layoutY="28.0" onMouseClicked="#displayFile" prefHeight="916.0" prefWidth="361.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0" />
+            <TreeView fx:id="FilesView" layoutY="28.0" onMouseClicked="#openFileTree" prefHeight="916.0" prefWidth="361.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0" />
             <Button fx:id="newFileButton" layoutX="0.0" layoutY="0.0" mnemonicParsing="false" onAction="#clickCategoryControllerButton" style="-fx-background-color: white;" text="new file" underline="false" />
             <Button fx:id="remove" layoutX="76.0" mnemonicParsing="false" onAction="#removeFile" style="-fx-background-color: white;" text="remove" underline="false" wrapText="true">
               <font>

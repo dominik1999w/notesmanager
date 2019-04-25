@@ -36,7 +36,7 @@ public class FilesTreeView {
                         for (File childFile : files) {
                             children.add(createNode(childFile));
                         }
-                        return children;
+                        return children.sorted();
                     }
                 }
                 return FXCollections.emptyObservableList();

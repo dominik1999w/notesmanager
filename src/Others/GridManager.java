@@ -10,6 +10,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 
 import static java.lang.Math.round;
@@ -35,11 +38,17 @@ public class GridManager {
 
     public void adjustGridFilesView(File dir, int width){
 
-        String[] files = dir.list(); //list files in dir
-        File[] filesInfo = dir.listFiles();
+        ArrayList<File> filesInfo = new ArrayList<>();
+        Collections.addAll(filesInfo,dir.listFiles());
+        filesInfo.sort(new Comparator<File>() {
+            @Override
+            public int compare(File file1, File file2) {
+                return file1.getName().compareTo(file2.getName());
+            }
+        });
 
         //adjusting size
-        int numberOfItems = files.length;
+        int numberOfItems = filesInfo.size();
         int height = numberOfItems % width == 0 ? (numberOfItems / width) : (numberOfItems / width) + 1;
 
         gridFiles = generateNewGridPane(width,height);
@@ -51,12 +60,12 @@ public class GridManager {
         int c = 0;
         for(int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                if (c < files.length) {
-                    String fileName = RegexManager.convertNameToReadable(files[c]);
-                    File file = filesInfo[c];
+                if (c < filesInfo.size()) {
+                    String fileName = RegexManager.convertNameToReadable(filesInfo.get(c).getName());
+                    File file = filesInfo.get(c);
 
                     Pane pane = new Pane(); //main cell body
-                    pane.setId(files[c]);
+                    pane.setId(filesInfo.get(c).getName());
                     pane.setStyle("-fx-background-color: #383844;" +
                             "-fx-border-color:black;" +
                             "-fx-text-fill:white;");
@@ -75,7 +84,7 @@ public class GridManager {
                     pane.getChildren().add(name);
 
                     //add extension field to cell
-                    String ext = RegexManager.getExtension(files[c]).toUpperCase();
+                    String ext = RegexManager.getExtension(filesInfo.get(c).getName()).toUpperCase();
                     if(ext.length() > 0){
                         Label extension = new Label(ext);
                         extension.setTranslateX(5);
@@ -97,7 +106,7 @@ public class GridManager {
                     }
                     Label size = new Label(sizeString);
                     size.setTranslateY(130);
-                    size.setTranslateX(pane.getWidth() - 5 * sizeString.length() - 40);
+                    size.setTranslateX(pane.getWidth() - 5 * sizeString.length() + 20);
                     pane.getChildren().add(size);
                     gridFiles.add(pane, j, i);
                     c++;

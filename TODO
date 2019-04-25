@@ -2,6 +2,5 @@
 -- Zmienić treeview na jakiś lepszy podgląd samych folderów.
 -- (Może kiedyś) Żeby działało rozciąganie.
 
-- przycisk do zamknięcie podglądu pliku
 - malutki bug przy otwieraniu podglądu (coś z wielkościami)
 - zmienić zmienne na globalne (tam gdzie komentarz)
