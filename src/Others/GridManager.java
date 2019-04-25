@@ -114,6 +114,7 @@ public class GridManager {
             }
         }
     }
+
     private Label[] generate(int width){
         Label[] labels = new Label[width];
         for(int i = 0; i < width; i++){

@@ -1,6 +1,4 @@
+-- Resize
 -- Upiększyć pozostałe ekrany.
--- Zmienić treeview na jakiś lepszy podgląd samych folderów.
--- (Może kiedyś) Żeby działało rozciąganie.
 
-- malutki bug przy otwieraniu podglądu (coś z wielkościami)
 - zmienić zmienne na globalne (tam gdzie komentarz)

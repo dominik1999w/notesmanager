@@ -42,11 +42,11 @@ public class ControllerPrimary extends Controller implements Initializable{
     private File selectedFile;
 
     @FXML
-    TreeView<File> FilesView;
+    TreeView<File> treeView;
     @FXML
-    TextArea DisplayFileText;
+    TextArea fileTextArea;
     @FXML
-    TextField DisplayTitle;
+    TextField fileTitleArea;
     @FXML
     ToggleButton rename;
     @FXML
@@ -70,6 +70,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     @FXML
     SplitPane splitPane;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         FilesTreeView filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
@@ -80,9 +81,9 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
         TreeItem<File> connectRoots = new TreeItem<>(null);
         connectRoots.getChildren().addAll(roots);
-        FilesView.setRoot(connectRoots);
-        FilesView.setShowRoot(false);
-        FilesView.setCellFactory(new Callback<TreeView<File>, TreeCell<File>>() { //replace path with file name
+        treeView.setRoot(connectRoots);
+        treeView.setShowRoot(false);
+        treeView.setCellFactory(new Callback<TreeView<File>, TreeCell<File>>() { //replace path with file name
             @Override
             public TreeCell<File> call(TreeView<File> fileTreeView) {
                 return new TreeCell<File>(){
@@ -99,6 +100,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         scrollPane.setMinViewportHeight(1);
         scrollPane.setMinViewportWidth(1);
+
         endWork();
     }
 
@@ -139,7 +141,7 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     public void removeFile() throws IOException {
         try{
-            File file = FilesView.getSelectionModel().getSelectedItem().getValue();
+            File file = treeView.getSelectionModel().getSelectedItem().getValue();
             Controller.stageMaster.loadNewScene(new ControllerAreYouSure("/Scenes/AreYouSure.fxml", this,"remove",file));
         } catch (NullPointerException e){
             System.out.println("You can't remove nothing. ;)");
@@ -150,22 +152,22 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     public void rename(){
         if(selectedFile != null) {
-            DisplayTitle.setEditable(!DisplayTitle.isEditable());
-            DisplayTitle.setDisable(!DisplayTitle.isDisabled());
-            System.out.println("SET title editable to: " + DisplayTitle.isEditable());
-            if (DisplayTitle.isDisabled())
+            fileTitleArea.setEditable(!fileTitleArea.isEditable());
+            fileTitleArea.setDisable(!fileTitleArea.isDisabled());
+            System.out.println("SET title editable to: " + fileTitleArea.isEditable());
+            if (fileTitleArea.isDisabled())
                 displayTitle(selectedFile.getName());
-            if (rename.isSelected() != DisplayTitle.isEditable())
+            if (rename.isSelected() != fileTitleArea.isEditable())
                 rename.setSelected(!rename.isSelected());
         }
     }
 
     public void submitRename(){
-        DisplayTitle.setOnKeyPressed(event -> {
+        fileTitleArea.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 String category = RegexManager.getCategory(selectedFile);
                 String pathToCategory = RegexManager.categoryToPath(category);
-                String newPath = pathToCategory.concat(String.valueOf(DisplayTitle.getCharacters()));
+                String newPath = pathToCategory.concat(String.valueOf(fileTitleArea.getCharacters()));
                 String extension = RegexManager.getExtension(selectedFile.getName());
                 if(extension.length() > 0)
                     newPath = newPath.concat(".").concat(extension);
@@ -175,6 +177,8 @@ public class ControllerPrimary extends Controller implements Initializable{
                     selectedFile = newFile;
                     System.out.println("RENAMED to: " + selectedFile.getName());
                     rename();
+                    stageMaster.refresh(this);
+                    returnBeforeRefresh();
                 } catch (IOException e) {
                     e.printStackTrace();
                     System.out.println("FAILED to rename: " + selectedFile.getName());
@@ -184,18 +188,18 @@ public class ControllerPrimary extends Controller implements Initializable{
     }
 
     private void displayTitle(String name){
-        DisplayTitle.setText(RegexManager.convertNameToReadable(name));
+        fileTitleArea.setText(RegexManager.convertNameToReadable(name));
     }
 
     public void edit(){
-        DisplayFileText.setEditable(!DisplayFileText.isEditable());
-        System.out.println("SET editable to: " + DisplayFileText.isEditable());
+        fileTextArea.setEditable(!fileTextArea.isEditable());
+        System.out.println("SET editable to: " + fileTextArea.isEditable());
     }
 
     public void save(){
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(selectedFile);
-            fileOutputStream.write(DisplayFileText.getText().getBytes());
+            fileOutputStream.write(fileTextArea.getText().getBytes());
             System.out.println("SAVED to: " + selectedFile.getName());
         } catch (FileNotFoundException e) {
             System.out.println("FAILED to find: " + selectedFile.getName());
@@ -221,7 +225,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     }
 
     public void openFileTree(){
-            TreeItem<File> item = FilesView.getSelectionModel().getSelectedItem();
+            TreeItem<File> item = treeView.getSelectionModel().getSelectedItem();
             if(item != null && item.getValue().isDirectory()){
                 selectedDir = item.getValue();
                 displayGridFilesView(item.getValue());
@@ -251,8 +255,8 @@ public class ControllerPrimary extends Controller implements Initializable{
     private void displayFile() {
         startWork();
 
-        DisplayFileText.setPrefWidth(500); //globalne
-        DisplayFileText.setVisible(true);
+        fileTextArea.setPrefWidth(500); //globalne
+        fileTextArea.setVisible(true);
         gridManager.adjustGridFilesView(selectedDir,2); //globalne
 
         System.out.println(selectedFile.getPath());
@@ -271,30 +275,29 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
 
         displayTitle(selectedFile.getName());
-        DisplayFileText.setText("");
+        fileTextArea.setText("");
         for(String tmp: lines){
-            DisplayFileText.appendText(tmp + "\n");
+            fileTextArea.appendText(tmp + "\n");
         }
     }
-
 
 
     public void MakeTextAreaFullSize(){
         if(selectedFile != null){
             gridFiles.setVisible(!gridFiles.isVisible());
             scrollPane.setVisible(!scrollPane.isVisible());
-            if (DisplayFileText.getPrefWidth() == 940) { //globalne
-                DisplayFileText.setPrefWidth(500); //globalne
+            if (fileTextArea.getPrefWidth() == 940) { //globalne
+                fileTextArea.setPrefWidth(500); //globalne
             } else {
-                DisplayFileText.setPrefWidth(940); //globalne
+                fileTextArea.setPrefWidth(940); //globalne
             }
         }
     }
 
 
     public void endWork(){ //called when changing category
-        DisplayFileText.setVisible(false);
-        DisplayTitle.setText("");
+        fileTextArea.setVisible(false);
+        fileTitleArea.setText("");
         rename.setSelected(false);
         rename.setDisable(true);
         edit.setSelected(false);
@@ -321,9 +324,17 @@ public class ControllerPrimary extends Controller implements Initializable{
         close.setDisable(false);
         close.setVisible(true);
 
-        DisplayFileText.setEditable(false);
-        DisplayTitle.setEditable(false);
-        DisplayTitle.setDisable(true);
+        fileTextArea.setEditable(false);
+        fileTitleArea.setEditable(false);
+        fileTitleArea.setDisable(true);
+    }
+
+    private void returnBeforeRefresh(){
+        if(selectedDir != null){
+            displayGridFilesView(selectedDir);
+            if(selectedFile != null)
+                displayFile();
+        }
     }
 
 }

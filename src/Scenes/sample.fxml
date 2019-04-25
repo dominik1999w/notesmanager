@@ -21,7 +21,7 @@
       <items>
         <AnchorPane style="-fx-background-color: grey;">
           <children>
-            <TreeView fx:id="FilesView" layoutY="28.0" onMouseClicked="#openFileTree" prefHeight="916.0" prefWidth="361.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0" />
+            <TreeView fx:id="treeView" layoutY="28.0" onMouseClicked="#openFileTree" prefHeight="916.0" prefWidth="361.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0" />
             <Button fx:id="newFileButton" layoutX="0.0" layoutY="0.0" mnemonicParsing="false" onAction="#clickCategoryControllerButton" style="-fx-background-color: white;" text="new file" underline="false" />
             <Button fx:id="remove" layoutX="76.0" mnemonicParsing="false" onAction="#removeFile" style="-fx-background-color: white;" text="remove" underline="false" wrapText="true">
               <font>
@@ -37,7 +37,7 @@
                   <ToggleButton fx:id="rename" layoutX="418.0" layoutY="14.0" mnemonicParsing="false" onAction="#rename" text="rename" />
                   <Button fx:id="save" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#save" text="save" />
                   <ToggleButton fx:id="edit" layoutX="81.0" layoutY="14.0" mnemonicParsing="false" onAction="#edit" text="edit" />
-            <TextField fx:id="DisplayTitle" disable="true" editable="false" layoutX="162.0" layoutY="11.0" onKeyPressed="#submitRename">
+            <TextField fx:id="fileTitleArea" disable="true" editable="false" layoutX="162.0" layoutY="11.0" onKeyPressed="#submitRename">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -57,7 +57,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   </rowConstraints>
               </GridPane>
-                  <ScrollPane fx:id="scrollPane" layoutX="14.0" layoutY="51.0" prefHeight="900.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
+                  <ScrollPane fx:id="scrollPane"  layoutX="14.0" layoutY="51.0" prefHeight="1000.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
                         <GridPane fx:id="gridFiles" layoutX="14.0" layoutY="51.0" onMouseClicked="#openFileInEditMode" prefHeight="890.0" prefWidth="975.0" visible="false">
                             <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -76,8 +76,8 @@
 
                   </ScrollPane>
               <ToggleButton fx:id="fullSize" layoutX="512.0" layoutY="14.0" mnemonicParsing="false" onAction="#MakeTextAreaFullSize" text="FullSize" />
-            <TextArea fx:id="DisplayFileText" editable="false" layoutX="547.0" layoutY="51.0" prefHeight="886.0" prefWidth="400.0" text="" visible="false" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
-                  <Button fx:id="close" onAction="#close" layoutX="943.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: black;" text="X" textFill="#ee0404" />
+            <TextArea fx:id="fileTextArea" editable="false" layoutX="547.0" layoutY="51.0" prefHeight="886.0" prefWidth="400.0" text="" visible="false" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
+                  <Button fx:id="close" layoutX="943.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: black;" text="X" textFill="#ee0404" />
           </children>
         </AnchorPane>
       </items>
