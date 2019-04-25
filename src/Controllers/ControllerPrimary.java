@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -44,9 +45,12 @@ public class ControllerPrimary extends Controller implements Initializable{
     @FXML
     TreeView<File> treeView;
     @FXML
-    TextArea fileTextArea;
-    @FXML
     TextField fileTitleArea;
+    @FXML
+    TextArea textAreaFullScreen; //visibility changeable
+    @FXML
+    TextArea textAreaHalfScreen;
+
     @FXML
     ToggleButton rename;
     @FXML
@@ -54,21 +58,36 @@ public class ControllerPrimary extends Controller implements Initializable{
     @FXML
     ToggleButton fullSize;
     @FXML
+    Button close;
+
+    @FXML
     Button save;
     @FXML
     Button remove;
     @FXML
     Button natively;
+
     @FXML
-    Button close;
+    GridPane gridFilesFactory2;
     @FXML
-    GridPane gridFilesFactory;
+    GridPane gridFilesFactory4;
     @FXML
-    GridPane gridFiles;
+    GridPane gridFiles2;
+    @FXML
+    GridPane gridFiles4;
     @FXML
     ScrollPane scrollPane;
     @FXML
-    SplitPane splitPane;
+    ScrollPane scrollPaneFull; //visibility changeable
+    @FXML
+    SplitPane splitPaneEditMode; //visibility changeable
+
+    @FXML
+    AnchorPane textPane;
+    @FXML
+    AnchorPane smallGridPane;
+    @FXML
+    AnchorPane treePane;
 
 
     @Override
@@ -98,8 +117,15 @@ public class ControllerPrimary extends Controller implements Initializable{
 
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-        scrollPane.setMinViewportHeight(1);
-        scrollPane.setMinViewportWidth(1);
+
+        scrollPaneFull.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPaneFull.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+
+        smallGridPane.setMinWidth(510);
+        smallGridPane.setMaxWidth(511);
+
+        treePane.setMinWidth(360);
+        treePane.setMaxWidth(380);
 
         endWork();
     }
@@ -192,14 +218,19 @@ public class ControllerPrimary extends Controller implements Initializable{
     }
 
     public void edit(){
-        fileTextArea.setEditable(!fileTextArea.isEditable());
-        System.out.println("SET editable to: " + fileTextArea.isEditable());
+        textAreaFullScreen.setEditable(!textAreaFullScreen.isEditable());
+        textAreaHalfScreen.setEditable(!textAreaHalfScreen.isEditable());
+        System.out.println("SET editable to: " + textAreaFullScreen.isEditable());
     }
 
     public void save(){
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(selectedFile);
-            fileOutputStream.write(fileTextArea.getText().getBytes());
+            if(textAreaFullScreen.isVisible()){
+                fileOutputStream.write(textAreaFullScreen.getText().getBytes());
+            } else {
+                fileOutputStream.write(textAreaHalfScreen.getText().getBytes());
+            }
             System.out.println("SAVED to: " + selectedFile.getName());
         } catch (FileNotFoundException e) {
             System.out.println("FAILED to find: " + selectedFile.getName());
@@ -210,8 +241,8 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     public void close(){
         endWork();
-        gridFiles.setVisible(false);
-        scrollPane.setVisible(false);
+        textAreaFullScreen.setVisible(false);
+        splitPaneEditMode.setVisible(false);
     }
 
 // DISPLAY FILE --------------------------------------------------------------------
@@ -219,8 +250,9 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     private void displayGridFilesView(File dir){
         endWork();
+        textPane.setVisible(true);
         selectedDir = new File(dir.getPath());
-        gridManager = new GridManager(selectedDir, gridFilesFactory, gridFiles, scrollPane);
+        gridManager = new GridManager(selectedDir, gridFilesFactory4, gridFiles4, scrollPaneFull);
         gridManager.adjustGridFilesView(dir,4); //globalne
     }
 
@@ -255,8 +287,10 @@ public class ControllerPrimary extends Controller implements Initializable{
     private void displayFile() {
         startWork();
 
-        fileTextArea.setPrefWidth(500); //globalne
-        fileTextArea.setVisible(true);
+        splitPaneEditMode.setVisible(true);
+        gridManager.setGridFilesFactory(gridFilesFactory2);
+        gridManager.setGridPane(gridFiles2);
+        gridManager.setScrollPane(scrollPane);
         gridManager.adjustGridFilesView(selectedDir,2); //globalne
 
         System.out.println(selectedFile.getPath());
@@ -275,28 +309,43 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
 
         displayTitle(selectedFile.getName());
-        fileTextArea.setText("");
+        textAreaHalfScreen.setVisible(true);
+        textAreaHalfScreen.setText("");
         for(String tmp: lines){
-            fileTextArea.appendText(tmp + "\n");
+            textAreaHalfScreen.appendText(tmp + "\n");
         }
     }
 
 
     public void MakeTextAreaFullSize(){
         if(selectedFile != null){
-            gridFiles.setVisible(!gridFiles.isVisible());
+            gridFiles2.setVisible(!gridFiles2.isVisible());
             scrollPane.setVisible(!scrollPane.isVisible());
-            if (fileTextArea.getPrefWidth() == 940) { //globalne
-                fileTextArea.setPrefWidth(500); //globalne
+            if (textAreaFullScreen.isVisible()) {
+                textAreaFullScreen.setVisible(false);
+                splitPaneEditMode.setVisible(true);
+                prepareSmallScreen();
             } else {
-                fileTextArea.setPrefWidth(940); //globalne
+                scrollPaneFull.setVisible(false);
+                splitPaneEditMode.setVisible(false);
+                prepareFullScreen();
             }
+        }
+    }
+
+    private void prepareFullScreen(){
+        textAreaFullScreen.setVisible(true);
+        textAreaFullScreen.setText(textAreaHalfScreen.getText());
+    }
+
+    private void prepareSmallScreen(){
+        if(textAreaFullScreen.getText() != ""){
+            textAreaHalfScreen.setText(textAreaFullScreen.getText());
         }
     }
 
 
     public void endWork(){ //called when changing category
-        fileTextArea.setVisible(false);
         fileTitleArea.setText("");
         rename.setSelected(false);
         rename.setDisable(true);
@@ -309,6 +358,12 @@ public class ControllerPrimary extends Controller implements Initializable{
         natively.setDisable(true);
         close.setDisable(true);
         close.setVisible(false);
+
+        textAreaFullScreen.setVisible(false);
+        textAreaFullScreen.clear();
+        scrollPaneFull.setVisible(false);
+
+        splitPaneEditMode.setVisible(false);
     }
 
     private void startWork(){ //called when
@@ -324,7 +379,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         close.setDisable(false);
         close.setVisible(true);
 
-        fileTextArea.setEditable(false);
+        textAreaFullScreen.setEditable(false);
         fileTitleArea.setEditable(false);
         fileTitleArea.setDisable(true);
     }

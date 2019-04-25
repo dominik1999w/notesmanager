@@ -19,7 +19,7 @@
   <children>
     <SplitPane fx:id="splitPane" dividerPositions="0.2717795979151154" focusTraversable="true" VBox.vgrow="ALWAYS">
       <items>
-        <AnchorPane style="-fx-background-color: grey;">
+        <AnchorPane fx:id="treePane" style="-fx-background-color: grey;">
           <children>
             <TreeView fx:id="treeView" layoutY="28.0" onMouseClicked="#openFileTree" prefHeight="916.0" prefWidth="361.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0" />
             <Button fx:id="newFileButton" layoutX="0.0" layoutY="0.0" mnemonicParsing="false" onAction="#clickCategoryControllerButton" style="-fx-background-color: white;" text="new file" underline="false" />
@@ -34,6 +34,59 @@
         </AnchorPane>
         <AnchorPane fx:id="MainPane" styleClass="MainPane">
           <children>
+                  <AnchorPane fx:id="textPane" layoutY="54.0" prefHeight="944.0" prefWidth="989.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="54.0">
+                     <children>
+                        <TextArea fx:id="textAreaFullScreen" prefHeight="944.0" prefWidth="989.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <ScrollPane fx:id="scrollPaneFull" visible="false" prefHeight="944.0" prefWidth="989.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                               <GridPane fx:id="gridFiles4" onMouseClicked="#openFileInEditMode" prefHeight="890.0" prefWidth="975.0" visible="false">
+                                   <columnConstraints>
+                                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                   </columnConstraints>
+                                   <rowConstraints>
+                                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                   </rowConstraints>
+                               </GridPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+                  <SplitPane fx:id="splitPaneEditMode" dividerPositions="0.4879759519038076" layoutY="54.0" prefHeight="944.0" prefWidth="989.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="54.0">
+                    <items>
+                      <AnchorPane fx:id="smallGridPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <ScrollPane fx:id="scrollPane" prefHeight="942.0" prefWidth="478.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <GridPane fx:id="gridFiles2" layoutX="14.0" layoutY="51.0" onMouseClicked="#openFileInEditMode" visible="false">
+                                        <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        </rowConstraints>
+                                    </GridPane>
+            
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane fx:id="textHalfPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                        <TextArea fx:id="textAreaHalfScreen" editable="false" prefHeight="942.0" prefWidth="501.0" text="" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
                   <ToggleButton fx:id="rename" layoutX="418.0" layoutY="14.0" mnemonicParsing="false" onAction="#rename" text="rename" />
                   <Button fx:id="save" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#save" text="save" />
                   <ToggleButton fx:id="edit" layoutX="81.0" layoutY="14.0" mnemonicParsing="false" onAction="#edit" text="edit" />
@@ -42,7 +95,7 @@
                         <Font size="17.0" />
                      </font>
                   </TextField>
-              <GridPane fx:id="gridFilesFactory" layoutX="14.0" layoutY="51.0" onMouseClicked="#openFileInEditMode" prefHeight="890.0" prefWidth="975.0" visible="false">
+              <GridPane fx:id="gridFilesFactory4" layoutX="14.0" layoutY="51.0" onMouseClicked="#openFileInEditMode" prefHeight="890.0" prefWidth="975.0" visible="false">
                   <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -57,26 +110,22 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   </rowConstraints>
               </GridPane>
-                  <ScrollPane fx:id="scrollPane"  layoutX="14.0" layoutY="51.0" prefHeight="1000.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
-                        <GridPane fx:id="gridFiles" layoutX="14.0" layoutY="51.0" onMouseClicked="#openFileInEditMode" prefHeight="890.0" prefWidth="975.0" visible="false">
-                            <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            </columnConstraints>
-                            <rowConstraints>
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            </rowConstraints>
-                        </GridPane>
-
-                  </ScrollPane>
+              <GridPane fx:id="gridFilesFactory2" layoutX="14.0" layoutY="51.0" onMouseClicked="#openFileInEditMode" prefHeight="890.0" prefWidth="975.0" visible="false">
+                  <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+              </GridPane>
               <ToggleButton fx:id="fullSize" layoutX="512.0" layoutY="14.0" mnemonicParsing="false" onAction="#MakeTextAreaFullSize" text="FullSize" />
-            <TextArea fx:id="fileTextArea" editable="false" layoutX="547.0" layoutY="51.0" prefHeight="886.0" prefWidth="400.0" text="" visible="false" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
                   <Button fx:id="close" layoutX="943.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: black;" text="X" textFill="#ee0404" />
           </children>
         </AnchorPane>

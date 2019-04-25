@@ -21,20 +21,33 @@ public class GridManager {
 
     public GridManager() {}
 
-    public GridManager(File selectedDir, GridPane gridFilesFactory, GridPane gridFiles, ScrollPane scrollPane) {
+    public GridManager(File selectedDir, GridPane gridFilesFactory, GridPane gridPane, ScrollPane scrollPane) {
         this.selectedDir = selectedDir;
         this.gridFilesFactory = gridFilesFactory;
-        this.gridFiles = gridFiles;
+        this.gridPane = gridPane;
         this.scrollPane = scrollPane;
     }
 
     File selectedDir;
+
     @FXML
     GridPane gridFilesFactory;
     @FXML
-    GridPane gridFiles;
+    GridPane gridPane;
     @FXML
     ScrollPane scrollPane;
+
+    public void setGridFilesFactory(GridPane gridFilesFactory) {
+        this.gridFilesFactory = gridFilesFactory;
+    }
+
+    public void setGridPane(GridPane gridPane) {
+        this.gridPane = gridPane;
+    }
+
+    public void setScrollPane(ScrollPane scrollPane) {
+        this.scrollPane = scrollPane;
+    }
 
     public void adjustGridFilesView(File dir, int width){
 
@@ -51,11 +64,11 @@ public class GridManager {
         int numberOfItems = filesInfo.size();
         int height = numberOfItems % width == 0 ? (numberOfItems / width) : (numberOfItems / width) + 1;
 
-        gridFiles = generateNewGridPane(width,height);
-        scrollPane.setContent(gridFiles);
-        gridFiles.setVisible(true);
+        gridPane = generateNewGridPane(width,height);
+        scrollPane.setContent(gridPane);
+        gridPane.setVisible(true);
         scrollPane.setVisible(true);
-        gridFiles.getStylesheets().addAll(getClass().getResource("../Others/sample.css").toExternalForm());
+        gridPane.getStylesheets().addAll(getClass().getResource("../Others/sample.css").toExternalForm());
 
         int c = 0;
         for(int i = 0; i < height; i++) {
@@ -108,7 +121,7 @@ public class GridManager {
                     size.setTranslateY(130);
                     size.setTranslateX(pane.getWidth() - 5 * sizeString.length() + 20);
                     pane.getChildren().add(size);
-                    gridFiles.add(pane, j, i);
+                    gridPane.add(pane, j, i);
                     c++;
                 }
             }
@@ -149,7 +162,6 @@ public class GridManager {
             rowConstraints.add(gridFilesFactory.getRowConstraints().get(0));
         gridPane.getRowConstraints().addAll(rowConstraints);
 
-        gridPane.setId("gridFiles");
         gridPane.setVisible(true);
         gridPane.setHgap(25); //globalne
         gridPane.setVgap(25); //globalne
