@@ -6,19 +6,29 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Fixed rename bug.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Matematyka Dyskretna/grafy" beforeDir="false" afterPath="$PROJECT_DIR$/categories/Matematyka Dyskretna/grafy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Metody Programowania/binsearch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$ExternalThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$ExternalThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Others/GridManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Others/GridManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Others/sample.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Others/sample.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Scenes/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Scenes/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/ControllerPrimary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/ControllerPrimary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Others/GridManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Others/GridManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Others/sample.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Others/sample.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Scenes/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scenes/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/aa.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/b.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/c.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/h.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/i.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/l.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/m.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/n.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/o.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/p" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/wqe.weas.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/xx.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Inżynieria Danych/BIG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Matematyka Dyskretna/grafy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Matematyka Dyskretna/zliczanie" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Metody Programowania/haszowanie" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Programowanie Obiektowe/Sprawdz Egzamin prosze" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Programowanie Obiektowe/refleksje" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Programowanie Obiektowe/wątki" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/a.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/null" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/test.txt" beforeDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,48 +91,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerPrimary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="127" column="34" lean-forward="true" selection-start-line="127" selection-start-column="34" selection-end-line="127" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#clickCategoryControllerButton#0;class#ControllerPrimary#0" />
-                <element signature="method#clickNewCategoryButton#0;class#ControllerPrimary#0" />
-                <element signature="method#openFileNatively#0;class#ControllerPrimary#0" />
-                <element signature="class#ExternalThread#0;class#ControllerPrimary#0" />
-                <element signature="method#removeFile#0;class#ControllerPrimary#0" />
-                <element signature="method#rename#0;class#ControllerPrimary#0" />
-                <element signature="method#submitRename#0;class#ControllerPrimary#0" />
-                <element signature="method#edit#0;class#ControllerPrimary#0" />
-                <element signature="method#save#0;class#ControllerPrimary#0" />
-                <element signature="method#close#0;class#ControllerPrimary#0" />
-                <element signature="method#displayFile#0;class#ControllerPrimary#0" />
-                <element signature="method#openFileInEditMode#0;class#ControllerPrimary#0" />
-                <element signature="method#MakeTextAreaFullSize#0;class#ControllerPrimary#0" />
-                <element signature="e#11477#11627#0" />
-                <element signature="e#11674#11785#0" />
-                <element signature="method#endWork#0;class#ControllerPrimary#0" />
-                <element signature="method#startWork#0;class#ControllerPrimary#0" />
-                <element signature="e#13079#13278#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Others/sample.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="40" column="35" lean-forward="true" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Scenes/sample.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+            <state relative-caret-position="-1188">
+              <caret line="155" column="34" selection-start-line="155" selection-start-column="34" selection-end-line="155" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -130,20 +100,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Others/GridManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="153" column="24" selection-start-line="153" selection-start-column="24" selection-end-line="153" selection-end-column="24" />
+            <state relative-caret-position="2380">
+              <caret line="166" column="24" selection-start-line="166" selection-start-column="24" selection-end-line="166" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1035#1036#0" expanded="true" />
-                <element signature="e#1091#1092#0" expanded="true" />
-                <element signature="e#1141#1142#0" expanded="true" />
-                <element signature="e#1181#1182#0" expanded="true" />
-                <element signature="e#1229#1230#0" expanded="true" />
-                <element signature="e#1273#1274#0" expanded="true" />
-                <element signature="method#adjustGridFilesView#0;class#GridManager#0" />
-                <element signature="e#1356#1357#0" expanded="true" />
-                <element signature="e#1396#1397#0" expanded="true" />
-                <element signature="method#generate#0;class#GridManager#0" />
               </folding>
             </state>
           </provider>
@@ -152,8 +112,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TODO">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="51" lean-forward="true" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
+            <state relative-caret-position="34">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -161,7 +121,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Others/FilesTreeView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
+            <state relative-caret-position="357">
               <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -173,7 +133,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Others/RegexManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
+            <state relative-caret-position="646">
               <caret line="42" column="37" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -185,7 +145,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerFiles.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="289">
               <caret line="30" column="43" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="43" />
             </state>
           </provider>
@@ -194,7 +154,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Management/StageMaster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
+            <state relative-caret-position="459">
               <caret line="35" selection-start-line="35" selection-end-line="35" />
             </state>
           </provider>
@@ -203,10 +163,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Management/Launcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="391">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerAreYouSure.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#initialize#0;class#ControllerAreYouSure#0" />
+                <element signature="method#yes#0;class#ControllerAreYouSure#0" />
+                <element signature="method#no#0;class#ControllerAreYouSure#0" />
+                <element signature="method#remove#0;class#ControllerAreYouSure#0" />
+                <element signature="method#removeCategory#0;class#ControllerAreYouSure#0" />
+                <element signature="method#delete#0;class#ControllerAreYouSure#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerCategories.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="597">
+              <caret line="62" column="34" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#submitCategoryName#0;class#ControllerCategories#0" />
               </folding>
             </state>
           </provider>
@@ -307,10 +298,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="67" />
-    <option name="y" value="27" />
-    <option name="width" value="842" />
-    <option name="height" value="1048" />
+    <option name="x" value="961" />
+    <option name="width" value="959" />
+    <option name="height" value="1052" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -477,7 +467,6 @@
       </method>
     </configuration>
     <configuration default="true" type="TestNG">
-      <option name="TEST_OBJECT" value="CLASS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
@@ -669,10 +658,10 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="0" y="-1" width="1920" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.16657443" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.17129135" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -681,7 +670,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3265086" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2937365" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29278794" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39935413" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -901,12 +890,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Scenes/AreYouSure.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/categories/a.txt">
       <provider selected="true" editor-type-id="text-editor" />
@@ -928,20 +917,111 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Pochodne" />
-    <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerCategories.java">
+    <entry file="file://$PROJECT_DIR$/src/Scenes/Files.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="62" column="34" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
+        <state relative-caret-position="165">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="77" column="38" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#submitCategoryName#0;class#ControllerCategories#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scenes/Categories.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="133" selection-start-line="28" selection-start-column="133" selection-end-line="28" selection-end-column="133" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Others/sample.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scenes/sample.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Others/GridManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2380">
+          <caret line="166" column="24" selection-start-line="166" selection-start-column="24" selection-end-line="166" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TODO">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Others/FilesTreeView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Others/RegexManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="42" column="37" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerFiles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="30" column="43" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Management/StageMaster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Management/Launcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerAreYouSure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-103">
+        <state relative-caret-position="17">
           <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -955,143 +1035,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scenes/Files.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerCategories.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="77" column="38" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
+        <state relative-caret-position="597">
+          <caret line="62" column="34" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#submitCategoryName#0;class#ControllerCategories#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scenes/Categories.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="133" selection-start-line="28" selection-start-column="133" selection-end-line="28" selection-end-column="133" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Management/StageMaster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Others/RegexManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="42" column="37" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TODO">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="51" lean-forward="true" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerFiles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="30" column="43" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Others/GridManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="153" column="24" selection-start-line="153" selection-start-column="24" selection-end-line="153" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1035#1036#0" expanded="true" />
-            <element signature="e#1091#1092#0" expanded="true" />
-            <element signature="e#1141#1142#0" expanded="true" />
-            <element signature="e#1181#1182#0" expanded="true" />
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1273#1274#0" expanded="true" />
-            <element signature="method#adjustGridFilesView#0;class#GridManager#0" />
-            <element signature="e#1356#1357#0" expanded="true" />
-            <element signature="e#1396#1397#0" expanded="true" />
-            <element signature="method#generate#0;class#GridManager#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Others/FilesTreeView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Management/Launcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scenes/sample.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Others/sample.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="40" column="35" lean-forward="true" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerPrimary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="127" column="34" lean-forward="true" selection-start-line="127" selection-start-column="34" selection-end-line="127" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#clickCategoryControllerButton#0;class#ControllerPrimary#0" />
-            <element signature="method#clickNewCategoryButton#0;class#ControllerPrimary#0" />
-            <element signature="method#openFileNatively#0;class#ControllerPrimary#0" />
-            <element signature="class#ExternalThread#0;class#ControllerPrimary#0" />
-            <element signature="method#removeFile#0;class#ControllerPrimary#0" />
-            <element signature="method#rename#0;class#ControllerPrimary#0" />
-            <element signature="method#submitRename#0;class#ControllerPrimary#0" />
-            <element signature="method#edit#0;class#ControllerPrimary#0" />
-            <element signature="method#save#0;class#ControllerPrimary#0" />
-            <element signature="method#close#0;class#ControllerPrimary#0" />
-            <element signature="method#displayFile#0;class#ControllerPrimary#0" />
-            <element signature="method#openFileInEditMode#0;class#ControllerPrimary#0" />
-            <element signature="method#MakeTextAreaFullSize#0;class#ControllerPrimary#0" />
-            <element signature="e#11477#11627#0" />
-            <element signature="e#11674#11785#0" />
-            <element signature="method#endWork#0;class#ControllerPrimary#0" />
-            <element signature="method#startWork#0;class#ControllerPrimary#0" />
-            <element signature="e#13079#13278#0" />
-          </folding>
+        <state relative-caret-position="-1188">
+          <caret line="155" column="34" selection-start-line="155" selection-start-column="34" selection-end-line="155" selection-end-column="34" />
         </state>
       </provider>
     </entry>
