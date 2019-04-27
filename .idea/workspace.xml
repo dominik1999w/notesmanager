@@ -6,29 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Fixed rename bug.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/aa.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/b.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/c.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/h.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/i.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/l.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/m.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/n.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/o.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/p" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/wqe.weas.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/xx.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Analiza Matematyczna/zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Inżynieria Danych/BIG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Matematyka Dyskretna/grafy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Matematyka Dyskretna/zliczanie" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Metody Programowania/haszowanie" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Programowanie Obiektowe/Sprawdz Egzamin prosze" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Programowanie Obiektowe/refleksje" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Programowanie Obiektowe/wątki" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/a.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/null" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Others/sample.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Others/sample.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/ControllerPrimary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/ControllerPrimary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Others/sample.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Others/sample.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Scenes/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scenes/sample.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -91,17 +72,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerPrimary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1188">
-              <caret line="155" column="34" selection-start-line="155" selection-start-column="34" selection-end-line="155" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Others/GridManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2380">
-              <caret line="166" column="24" selection-start-line="166" selection-start-column="24" selection-end-line="166" selection-end-column="24" />
+            <state relative-caret-position="323">
+              <caret line="104" column="44" lean-forward="true" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -110,36 +82,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TODO">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/Others/sample.css">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Others/FilesTreeView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/Images/icon.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Others/RegexManager.java">
+        <entry file="file://$PROJECT_DIR$/src/Images/background2">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Scenes/sample.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="42" column="37" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="201">
+              <caret line="89" column="45" selection-start-line="89" selection-start-column="45" selection-end-line="89" selection-end-column="45" />
             </state>
           </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -163,8 +127,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Management/Launcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="255">
+              <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -228,7 +192,6 @@
       <find>grid</find>
       <find>displayGrid</find>
       <find>DisplayF</find>
-      <find>full</find>
       <find>edit</find>
       <find>setI</find>
       <find>Dis</find>
@@ -236,6 +199,10 @@
       <find>visi</find>
       <find>min</find>
       <find>endWo</find>
+      <find>close</find>
+      <find>full</find>
+      <find>Image</find>
+      <find>rename</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -288,10 +255,10 @@
         <option value="$PROJECT_DIR$/src/Others/RegexManager.java" />
         <option value="$PROJECT_DIR$/src/Others/FilesTreeView.java" />
         <option value="$PROJECT_DIR$/TODO" />
-        <option value="$PROJECT_DIR$/src/Others/sample.css" />
         <option value="$PROJECT_DIR$/src/Others/GridManager.java" />
         <option value="$PROJECT_DIR$/src/Management/Launcher.java" />
         <option value="$PROJECT_DIR$/src/Scenes/sample.fxml" />
+        <option value="$PROJECT_DIR$/src/Others/sample.css" />
         <option value="$PROJECT_DIR$/src/Controllers/ControllerPrimary.java" />
       </list>
     </option>
@@ -372,7 +339,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556221820063" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556382844801" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/JDK/ApacheCommonsIO/commons-io-2.6-bin/commons-io-2.6/commons-io-2.6.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -658,10 +625,10 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-1" width="1920" height="1053" extended-state="6" />
+    <frame x="961" y="0" width="959" height="1052" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.17129135" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.35158816" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -670,7 +637,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3265086" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29278794" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29310346" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39935413" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -903,9 +870,6 @@
     <entry file="file://$PROJECT_DIR$/src/Images/b" />
     <entry file="file://$PROJECT_DIR$/src/Images/.comments/background.xml" />
     <entry file="file://$PROJECT_DIR$/src/Images/a" />
-    <entry file="file://$PROJECT_DIR$/src/Images/background">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/categories/test.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -939,21 +903,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" column="133" selection-start-line="28" selection-start-column="133" selection-end-line="28" selection-end-column="133" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Others/sample.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scenes/sample.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -1009,16 +958,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Management/Launcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerAreYouSure.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1046,10 +985,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/background">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/icon.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/background2">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Management/Launcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scenes/sample.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="89" column="45" selection-start-line="89" selection-start-column="45" selection-end-line="89" selection-end-column="45" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Others/sample.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerPrimary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1188">
-          <caret line="155" column="34" selection-start-line="155" selection-start-column="34" selection-end-line="155" selection-end-column="34" />
+        <state relative-caret-position="323">
+          <caret line="104" column="44" lean-forward="true" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

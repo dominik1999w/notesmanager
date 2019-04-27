@@ -12,6 +12,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -81,7 +83,6 @@ public class ControllerPrimary extends Controller implements Initializable{
     ScrollPane scrollPaneFull; //visibility changeable
     @FXML
     SplitPane splitPaneEditMode; //visibility changeable
-
     @FXML
     AnchorPane textPane;
     @FXML
@@ -100,6 +101,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
         TreeItem<File> connectRoots = new TreeItem<>(null);
         connectRoots.getChildren().addAll(roots);
+        setFullSizeButton();
         treeView.setRoot(connectRoots);
         treeView.setShowRoot(false);
         treeView.setCellFactory(new Callback<TreeView<File>, TreeCell<File>>() { //replace path with file name
@@ -316,7 +318,14 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
     }
 
-
+    public void setFullSizeButton(){
+        javafx.scene.image.Image image=new Image(getClass().getResourceAsStream("../Images/icon.png"));
+        ImageView fullSizeIcon= new ImageView(image);
+        fullSizeIcon.setPreserveRatio(true);
+        fullSizeIcon.setFitHeight(18);
+        fullSizeIcon.setFitWidth(50);
+        fullSize.setGraphic(fullSizeIcon);
+    }
     public void MakeTextAreaFullSize(){
         if(selectedFile != null){
             gridFiles2.setVisible(!gridFiles2.isVisible());

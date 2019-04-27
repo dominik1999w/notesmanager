@@ -16,10 +16,9 @@
 }
 #MainPane{
   -fx-background-image: url("../Images/background");
-  -fx-height: 500px;
   -fx-background-position: center;
   -fx-background-repeat: no-repeat;
-  -fx-background-size: cover;
+  -fx-background-size: cover ;
   -fx-position: relative;
 }
 #gridFiles{
