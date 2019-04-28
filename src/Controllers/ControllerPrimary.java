@@ -1,6 +1,7 @@
 package Controllers;
 
 import Management.StageMaster;
+import Others.Buttons;
 import Others.FilesTreeView;
 import Others.GridManager;
 import Others.RegexManager;
@@ -12,8 +13,6 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -35,11 +34,12 @@ import java.util.ResourceBundle;
 public class ControllerPrimary extends Controller implements Initializable{
 
     public ControllerPrimary(String name, Stage stage) {
+        buttons=new Buttons();
         this.name = name;
         this.previousController = this;
         Controller.stageMaster = new StageMaster(stage); //One and only stageMaster
     }
-
+    private Buttons buttons;
     private GridManager gridManager = new GridManager();
     private File selectedDir;
     private File selectedFile;
@@ -61,14 +61,12 @@ public class ControllerPrimary extends Controller implements Initializable{
     ToggleButton fullSize;
     @FXML
     Button close;
-
     @FXML
     Button save;
     @FXML
     Button remove;
     @FXML
     Button natively;
-
     @FXML
     GridPane gridFilesFactory2;
     @FXML
@@ -89,8 +87,6 @@ public class ControllerPrimary extends Controller implements Initializable{
     AnchorPane smallGridPane;
     @FXML
     AnchorPane treePane;
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         FilesTreeView filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
@@ -101,7 +97,10 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
         TreeItem<File> connectRoots = new TreeItem<>(null);
         connectRoots.getChildren().addAll(roots);
-        setFullSizeButton();
+        fullSize.setGraphic(buttons.setFullSizeButton());
+        save.setGraphic(buttons.setSaveButton());
+        edit.setGraphic(buttons.setEditButton());
+        rename.setGraphic(buttons.setRenameButton());
         treeView.setRoot(connectRoots);
         treeView.setShowRoot(false);
         treeView.setCellFactory(new Callback<TreeView<File>, TreeCell<File>>() { //replace path with file name
@@ -316,15 +315,6 @@ public class ControllerPrimary extends Controller implements Initializable{
         for(String tmp: lines){
             textAreaHalfScreen.appendText(tmp + "\n");
         }
-    }
-
-    public void setFullSizeButton(){
-        javafx.scene.image.Image image=new Image(getClass().getResourceAsStream("../Images/icon.png"));
-        ImageView fullSizeIcon= new ImageView(image);
-        fullSizeIcon.setPreserveRatio(true);
-        fullSizeIcon.setFitHeight(18);
-        fullSizeIcon.setFitWidth(50);
-        fullSize.setGraphic(fullSizeIcon);
     }
     public void MakeTextAreaFullSize(){
         if(selectedFile != null){

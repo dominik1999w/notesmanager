@@ -11,7 +11,7 @@
     -fx-padding: 0.25em ;
 }
 .tree-view, .tree-cell {
-    -fx-background-color: #000033 ;
+    -fx-background-color:#082745 ;
     -fx-text-fill: white ;
 }
 #MainPane{
@@ -25,17 +25,17 @@
     -fx-padding: 10px;
     -fx-border-insets: 10px;
     -fx-background-insets: 10px;
-    -fx-background-color: #000033 ;
+    -fx-background-color: #082745 ;
 }
 #scrollPane{
-    -fx-background: #000033;
-    -fx-background-color: #000033 ;
+    -fx-background: #082745;
+    -fx-background-color: #082745 ;
 }
 #scrollPaneFull{
-    -fx-background: #000033;
-    -fx-background-color: #000033 ;
+    -fx-background: #082745;
+    -fx-background-color: #082745 ;
 }
 #splitPaneEditMode{
-    -fx-background: #000033;
-    -fx-background-color: #000033 ;
+    -fx-background: #082745;
+    -fx-background-color: #082745 ;
 }

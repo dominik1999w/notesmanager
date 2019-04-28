@@ -87,10 +87,10 @@
                         </AnchorPane>
                     </items>
                   </SplitPane>
-                  <ToggleButton fx:id="rename" layoutX="418.0" layoutY="14.0" mnemonicParsing="false" onAction="#rename" text="rename" />
+                  <ToggleButton fx:id="rename" layoutX="427.0" layoutY="15.0" mnemonicParsing="false" onAction="#rename" text="rename" />
                   <Button fx:id="save" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#save" text="save" />
-                  <ToggleButton fx:id="edit" layoutX="81.0" layoutY="14.0" mnemonicParsing="false" onAction="#edit" text="edit" />
-            <TextField fx:id="fileTitleArea" disable="true" editable="false" layoutX="162.0" layoutY="11.0" onKeyPressed="#submitRename">
+                  <ToggleButton fx:id="edit" layoutX="108.0" layoutY="15.0" mnemonicParsing="false" onAction="#edit" text="edit" />
+            <TextField fx:id="fileTitleArea" disable="true" editable="false" layoutX="190.0" layoutY="13.0" onKeyPressed="#submitRename">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -125,7 +125,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   </rowConstraints>
               </GridPane>
-              <ToggleButton fx:id="fullSize" layoutX="512.0" layoutY="14.0" mnemonicParsing="false" onAction="#MakeTextAreaFullSize" styleClass="button" text="Full Size" />
+              <ToggleButton fx:id="fullSize" layoutX="540.0" layoutY="15.0" mnemonicParsing="false" onAction="#MakeTextAreaFullSize" styleClass="button" text="full size" />
                   <Button fx:id="close" layoutX="965.0" layoutY="16.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: black;" text="X" textFill="#ee0404" />
           </children>
         </AnchorPane>
