@@ -126,8 +126,8 @@ public class ControllerPrimary extends Controller implements Initializable{
         smallGridPane.setMinWidth(510);
         smallGridPane.setMaxWidth(510);
 
-        treePane.setMinWidth(360);
-        treePane.setMaxWidth(360);
+        treePane.setMinWidth(318);
+        treePane.setMaxWidth(318);
 
         endWork();
     }

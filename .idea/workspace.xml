@@ -6,18 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Fixed rename bug.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Others/FilesTreeView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Others/FilesTreeView$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Others/GridManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Others/GridManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Scenes/AreYouSure.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Scenes/AreYouSure.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Scenes/Categories.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Scenes/Categories.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Scenes/Files.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Scenes/Files.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Others/sample.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Others/sample.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Scenes/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Scenes/sample.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/ControllerPrimary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/ControllerPrimary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Others/GridManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Others/GridManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Others/sample.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Others/sample.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Scenes/AreYouSure.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scenes/AreYouSure.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Scenes/Categories.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scenes/Categories.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Scenes/Files.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scenes/Files.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Scenes/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scenes/sample.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -78,11 +70,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerPrimary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="119" column="55" selection-start-line="119" selection-start-column="55" selection-end-line="119" selection-end-column="55" />
+            <state relative-caret-position="403">
+              <caret line="129" column="32" selection-start-line="129" selection-start-column="32" selection-end-line="129" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -94,16 +86,16 @@
         <entry file="file://$PROJECT_DIR$/src/Scenes/AreYouSure.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="306">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Others/sample.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
+            <state relative-caret-position="221">
               <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
             </state>
           </provider>
@@ -113,8 +105,8 @@
         <entry file="file://$PROJECT_DIR$/src/Scenes/Categories.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+            <state relative-caret-position="187">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -123,8 +115,8 @@
         <entry file="file://$PROJECT_DIR$/src/Scenes/sample.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="125" column="35" lean-forward="true" selection-start-line="128" selection-start-column="176" selection-end-line="128" selection-end-column="177" />
+            <state relative-caret-position="2125">
+              <caret line="125" column="35" selection-start-line="125" selection-start-column="35" selection-end-line="125" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -133,8 +125,8 @@
         <entry file="file://$PROJECT_DIR$/src/Scenes/Files.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+            <state relative-caret-position="272">
+              <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -142,7 +134,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerFiles.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="289">
               <caret line="30" column="43" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="43" />
             </state>
           </provider>
@@ -151,7 +143,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerAreYouSure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
+            <state relative-caret-position="578">
               <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -168,7 +160,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Management/StageMaster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
+            <state relative-caret-position="493">
               <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
             </state>
           </provider>
@@ -177,8 +169,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Management/Launcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+            <state relative-caret-position="238">
+              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -275,11 +267,11 @@
         <option value="$PROJECT_DIR$/src/Others/GridManager.java" />
         <option value="$PROJECT_DIR$/src/Management/StageMaster.java" />
         <option value="$PROJECT_DIR$/src/Scenes/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/Management/Launcher.java" />
         <option value="$PROJECT_DIR$/src/Controllers/ControllerAreYouSure.java" />
         <option value="$PROJECT_DIR$/src/Scenes/AreYouSure.fxml" />
-        <option value="$PROJECT_DIR$/src/Controllers/ControllerPrimary.java" />
         <option value="$PROJECT_DIR$/src/Others/sample.css" />
+        <option value="$PROJECT_DIR$/src/Management/Launcher.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/ControllerPrimary.java" />
       </list>
     </option>
   </component>
@@ -354,7 +346,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556472979746" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556478447043" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -449,7 +441,6 @@
       </method>
     </configuration>
     <configuration default="true" type="TestNG">
-      <option name="TEST_OBJECT" value="CLASS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
@@ -641,10 +632,10 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="0" y="-1" width="1920" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.3514112" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.24439701" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -653,7 +644,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3265086" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2926566" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2917115" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39848813" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -940,49 +931,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Management/StageMaster.java">
+    <entry file="file://$PROJECT_DIR$/src/Scenes/AreYouSure.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+        <state relative-caret-position="306">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Scenes/Categories.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+        <state relative-caret-position="187">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerFiles.java">
+    <entry file="file://$PROJECT_DIR$/src/Scenes/sample.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="30" column="43" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Management/Launcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="2125">
+          <caret line="125" column="35" selection-start-line="125" selection-start-column="35" selection-end-line="125" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Scenes/Files.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+        <state relative-caret-position="272">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerFiles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="30" column="43" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerAreYouSure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
+        <state relative-caret-position="578">
           <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -995,36 +985,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scenes/sample.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/src/Management/StageMaster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="125" column="35" lean-forward="true" selection-start-line="128" selection-start-column="176" selection-end-line="128" selection-end-column="177" />
+        <state relative-caret-position="493">
+          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerPrimary.java">
+    <entry file="file://$PROJECT_DIR$/src/Management/Launcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="119" column="55" selection-start-line="119" selection-start-column="55" selection-end-line="119" selection-end-column="55" />
+        <state relative-caret-position="238">
+          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scenes/AreYouSure.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/src/Others/sample.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="221">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Others/sample.css">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerPrimary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+        <state relative-caret-position="403">
+          <caret line="129" column="32" selection-start-line="129" selection-start-column="32" selection-end-line="129" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
