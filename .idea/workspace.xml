@@ -5,21 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Fixed rename bug.">
-      <change afterPath="$PROJECT_DIR$/src/Images/edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/save.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Others/Buttons.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Calculus/Antiderivatives.txt" beforeDir="false" afterPath="$PROJECT_DIR$/categories/Calculus/Antiderivatives.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Calculus/Continuity.txt" beforeDir="false" afterPath="$PROJECT_DIR$/categories/Calculus/Continuity.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$ExternalThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary$ExternalThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Controllers/ControllerPrimary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Images/background" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Images/background" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Images/background2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Others/sample.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Others/sample.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/notesmanager/Scenes/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/notesmanager/Scenes/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/ControllerPrimary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/ControllerPrimary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/background2" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/background" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Others/sample.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Others/sample.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Scenes/AreYouSure.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scenes/AreYouSure.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Scenes/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scenes/sample.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -132,10 +123,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Others/FilesTreeView.java">
+        <entry file="file://$PROJECT_DIR$/src/Others/sample.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+            <state relative-caret-position="411">
+              <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -143,13 +143,9 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Others/sample.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
-            </state>
-          </provider>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Images/background">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -157,18 +153,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
               <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Management/Launcher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -346,7 +330,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556482363499" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556483303443" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/trash/TestCraft" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -867,23 +851,7 @@
     <entry file="file://$PROJECT_DIR$/categories/test.txt" />
     <entry file="file://$PROJECT_DIR$/categories/Matematyka Dyskretna/grafy" />
     <entry file="file://$PROJECT_DIR$/Pochodne" />
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="77" column="38" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TODO" />
-    <entry file="file://$PROJECT_DIR$/src/Images/background">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Images/background2">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerCategories.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
@@ -1031,10 +999,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/background">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/background">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Others/sample.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+        <state relative-caret-position="411">
+          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
