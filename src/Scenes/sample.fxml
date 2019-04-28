@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootBox" prefHeight="1000.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootBox" prefHeight="1000.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <SplitPane fx:id="splitPane" dividerPositions="0.5" focusTraversable="true" prefHeight="1000.0" prefWidth="1320.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="ALWAYS">
       <items>
@@ -126,7 +126,7 @@
                   </rowConstraints>
               </GridPane>
               <ToggleButton fx:id="fullSize" layoutX="540.0" layoutY="15.0" mnemonicParsing="false" onAction="#MakeTextAreaFullSize" styleClass="button" text="full size" />
-                  <Button fx:id="close" layoutX="965.0" layoutY="16.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: black;" text="X" textFill="#ee0404" />
+                  <Button fx:id="close" layoutX="668.0" layoutY="16.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: black;" text="X" textFill="#ee0404" />
           </children>
         </AnchorPane>
       </items>

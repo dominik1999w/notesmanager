@@ -87,6 +87,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     AnchorPane smallGridPane;
     @FXML
     AnchorPane treePane;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         FilesTreeView filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
@@ -168,8 +169,7 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     public void removeFile() throws IOException {
         try{
-            File file = treeView.getSelectionModel().getSelectedItem().getValue();
-            Controller.stageMaster.loadNewScene(new ControllerAreYouSure("/Scenes/AreYouSure.fxml", this,"remove",file));
+            Controller.stageMaster.loadNewScene(new ControllerAreYouSure("/Scenes/AreYouSure.fxml", this,"remove",selectedFile));
         } catch (NullPointerException e){
             System.out.println("You can't remove nothing. ;)");
         }

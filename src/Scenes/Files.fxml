@@ -6,30 +6,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-
+<?import javafx.scene.text.Text?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: slategrey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane prefHeight="1000.0" prefWidth="1320.0" style="-fx-background-color: slategrey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
           <children>
               <Button fx:id="Back_Button" layoutX="18.0" layoutY="13.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
               <ListView fx:id="categories_list" layoutX="50.0" layoutY="99.0" prefHeight="569.0" prefWidth="219.0" />
-              <TextField disable="true" editable="false" layoutX="50.0" layoutY="73.0" prefHeight="26.0" prefWidth="219.0" style="-fx-background-color: grey;" text="Categories">
-                  <font>
-                      <Font size="14.0" />
-                  </font>
-              </TextField>
               <TextField fx:id="newFileName" disable="true" editable="false" layoutX="650.0" layoutY="642.0" onKeyPressed="#submitFileName" prefHeight="26.0" prefWidth="317.0" style="-fx-background-color: white;" />
-            <TextField disable="true" editable="false" layoutX="650.0" layoutY="616.0" prefHeight="26.0" prefWidth="317.0" style="-fx-background-color: grey;" text="Press enter to create new file">
+            <Text layoutX="50.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories:" wrappingWidth="219.00002717971802">
                <font>
-                  <Font size="14.0" />
+                  <Font size="16.0" />
                </font>
-            </TextField>
-            <TextField disable="true" editable="false" layoutX="597.0" layoutY="642.0" prefHeight="26.0" prefWidth="53.0" style="-fx-background-color: grey;" text="File:">
+            </Text>
+            <Text layoutX="610.0" layoutY="663.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File:" wrappingWidth="39.0791015625">
                <font>
-                  <Font size="14.0" />
+                  <Font size="16.0" />
                </font>
-            </TextField>
+            </Text>
+            <Text layoutX="650.0" layoutY="638.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Press enter to create new file">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
           </children>
       </Pane>
    </children>
