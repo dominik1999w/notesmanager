@@ -15,9 +15,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="rootBox" alignment="CENTER" prefHeight="1000.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootBox" prefHeight="1000.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <SplitPane fx:id="splitPane" dividerPositions="0.2717795979151154" focusTraversable="true" VBox.vgrow="ALWAYS">
+    <SplitPane fx:id="splitPane" dividerPositions="0.5" focusTraversable="true" prefHeight="1000.0" prefWidth="1363.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="ALWAYS">
       <items>
         <AnchorPane fx:id="treePane" style="-fx-background-color: grey;">
           <children>
@@ -82,7 +82,7 @@
                         </AnchorPane>
                       <AnchorPane fx:id="textHalfPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                        <TextArea fx:id="textAreaHalfScreen" editable="false" layoutY="33.0" prefHeight="909.0" prefWidth="501.0" text="" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0" />
+                        <TextArea fx:id="textAreaHalfScreen" editable="false" prefHeight="942.0" prefWidth="503.0" text="" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                     </items>
@@ -135,4 +135,4 @@
   <stylesheets>
     <URL value="@../Others/sample.css" />
   </stylesheets>
-</VBox>
+</AnchorPane>

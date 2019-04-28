@@ -149,7 +149,6 @@ public class GridManager {
         gridPane.setOnMouseClicked(gridFilesFactory.getOnMouseClicked());
         gridPane.setPrefHeight(prefHeight);
         gridPane.setPrefWidth(prefWidth);
-        gridPane.setGridLinesVisible(true);
 
         LinkedList<ColumnConstraints> columnConstraints = new LinkedList<>();
         for(int i = 0; i < width; i++)

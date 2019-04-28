@@ -124,10 +124,10 @@ public class ControllerPrimary extends Controller implements Initializable{
         scrollPaneFull.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
 
         smallGridPane.setMinWidth(510);
-        smallGridPane.setMaxWidth(511);
+        smallGridPane.setMaxWidth(510);
 
         treePane.setMinWidth(360);
-        treePane.setMaxWidth(380);
+        treePane.setMaxWidth(360);
 
         endWork();
     }

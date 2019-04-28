@@ -15,7 +15,7 @@
     -fx-text-fill: white ;
 }
 #MainPane{
-  -fx-background-image: url("../Images/background");
+  -fx-background-image: url("../Images/background2");
   -fx-background-position: center;
   -fx-background-repeat: no-repeat;
   -fx-background-size: cover ;
