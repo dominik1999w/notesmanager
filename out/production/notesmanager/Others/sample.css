@@ -39,3 +39,8 @@
     -fx-background: #082745;
     -fx-background-color: #082745 ;
 }
+#fileTitleArea{
+    -fx-text-inner-color: white ;
+    -fx-background: #082745;
+    -fx-background-color: #082745 ;
+}
