@@ -19,6 +19,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import org.controlsfx.control.textfield.TextFields;
 
 import java.awt.*;
 import java.io.*;
@@ -43,7 +44,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     private GridManager gridManager = new GridManager();
     private File selectedDir;
     private File selectedFile;
-
+    private List<String> autoList=new LinkedList<>();
     @FXML
     TreeView<File> treeView;
     @FXML
@@ -52,7 +53,6 @@ public class ControllerPrimary extends Controller implements Initializable{
     TextArea textAreaFullScreen; //visibility changeable
     @FXML
     TextArea textAreaHalfScreen;
-
     @FXML
     ToggleButton rename;
     @FXML
@@ -87,7 +87,8 @@ public class ControllerPrimary extends Controller implements Initializable{
     AnchorPane smallGridPane;
     @FXML
     AnchorPane treePane;
-
+    @FXML
+    TextField autoFillText;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         FilesTreeView filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
@@ -116,22 +117,17 @@ public class ControllerPrimary extends Controller implements Initializable{
                 };
             }
         });
-
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-
         scrollPaneFull.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPaneFull.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-
         smallGridPane.setMinWidth(510);
         smallGridPane.setMaxWidth(510);
-
-        treePane.setMinWidth(318);
-        treePane.setMaxWidth(318);
-
+        treePane.setMinWidth(310);
+        treePane.setMaxWidth(310);
+        prepareAutoTextField();
         endWork();
     }
-
 // NAVIGATION ----------------------------------------------------------------------
 
     public void clickCategoryControllerButton() throws IOException {
@@ -154,7 +150,6 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
 
     }
-
     class ExternalThread extends Thread{
         @Override
         public void run(){
@@ -165,8 +160,6 @@ public class ControllerPrimary extends Controller implements Initializable{
             }
         }
     }
-
-
     public void removeFile() throws IOException {
         try{
             Controller.stageMaster.loadNewScene(new ControllerAreYouSure("/Scenes/AreYouSure.fxml", this,"remove",selectedFile));
@@ -188,7 +181,6 @@ public class ControllerPrimary extends Controller implements Initializable{
                 rename.setSelected(!rename.isSelected());
         }
     }
-
     public void submitRename(){
         fileTitleArea.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
@@ -390,5 +382,23 @@ public class ControllerPrimary extends Controller implements Initializable{
                 displayFile();
         }
     }
+//CONFIGURE SEARCH BAR AND SEARCH BUTTON
+    private void prepareAutoTextField(){
+        for(int i=0;i<treeView.getRoot().getChildren().size();i++) {
+            for(int j=0;j<treeView.getTreeItem(i).getChildren().size();j++){
+                String s= String.valueOf(treeView.getTreeItem(i).getChildren().get(j).getValue());
+                autoList.add(s);
+            }
+        }
+        TextFields.bindAutoCompletion(autoFillText,autoList);
+    }
+    public void autoOpenFile() throws InterruptedException {
+        String s= String.valueOf(autoFillText.getCharacters());
+        System.out.println(autoFillText.getCharacters());
+        selectedFile=new File(s);
+        File dir=new File(RegexManager.getCategoryPath(selectedFile));
+        displayGridFilesView(dir);
+        displayFile();
 
+    }
 }

@@ -17,7 +17,6 @@ public class RegexManager {
         Matcher mat = pat.matcher(name);
         return mat.replaceAll("");
     }
-
     public static String getExtension(String name){
         Pattern pat = Pattern.compile("^.+[.]");
         Matcher mat = pat.matcher(name);

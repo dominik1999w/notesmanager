@@ -52,14 +52,15 @@ public class GridManager {
     public void adjustGridFilesView(File dir, int width){
 
         ArrayList<File> filesInfo = new ArrayList<>();
-        Collections.addAll(filesInfo,dir.listFiles());
-        filesInfo.sort(new Comparator<File>() {
-            @Override
-            public int compare(File file1, File file2) {
-                return file1.getName().compareTo(file2.getName());
-            }
-        });
-
+        if(dir!=null) {
+            Collections.addAll(filesInfo, dir.listFiles());
+            filesInfo.sort(new Comparator<File>() {
+                @Override
+                public int compare(File file1, File file2) {
+                    return file1.getName().compareTo(file2.getName());
+                }
+            });
+        }
         //adjusting size
         int numberOfItems = filesInfo.size();
         int height = numberOfItems % width == 0 ? (numberOfItems / width) : (numberOfItems / width) + 1;
