@@ -13,6 +13,7 @@ public class Launcher extends Application {
         //primaryStage.setFullScreen(true);
         primaryStage.setMinHeight(1000);
         primaryStage.setMinWidth(1320);
+        primaryStage.setTitle("NotesManager");
         //Make first primary controller, set its name. It will create static field for
         //Controller named StageMaster, who will receive primaryStage and will store & use it for every scene.
         Controller controllerPrimary = new ControllerPrimary("/Scenes/sample.fxml", primaryStage);
