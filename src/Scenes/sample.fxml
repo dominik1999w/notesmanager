@@ -19,18 +19,18 @@
   <children>
     <SplitPane fx:id="splitPane" dividerPositions="0.23975720789074356" focusTraversable="true" prefHeight="1000.0" prefWidth="1320.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="ALWAYS">
       <items>
-        <AnchorPane fx:id="treePane" style="-fx-background-color: slategrey;">
+        <AnchorPane fx:id="treePane" maxWidth="310.0" minWidth="310.0" prefWidth="310.0" style="-fx-background-color: slategrey;">
           <children>
             <TreeView fx:id="treeView" layoutY="56.0" onMouseClicked="#openFileTree" prefHeight="942.0" prefWidth="310.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0" />
-            <Button fx:id="newFileButton" layoutX="0.0" layoutY="0.0" mnemonicParsing="false" onAction="#clickCategoryControllerButton" style="-fx-background-color: white;" text="new file" underline="false" />
-            <Button fx:id="remove" layoutX="81.0" mnemonicParsing="false" onAction="#removeFile" style="-fx-background-color: white;" text="remove" underline="false" wrapText="true">
+            <Button fx:id="newFileButton" layoutX="0.0" layoutY="1.0" maxWidth="70.0" minWidth="70.0" mnemonicParsing="false" onAction="#clickCategoryControllerButton" prefWidth="70.0" style="-fx-background-color: white;" text="new file" underline="false" />
+            <Button fx:id="remove" layoutX="80.0" layoutY="1.0" maxWidth="70.0" minWidth="70.0" mnemonicParsing="false" onAction="#removeFile" prefWidth="70.0" style="-fx-background-color: white;" text="remove" underline="false" wrapText="true">
               <font>
                 <Font size="13.0" />
               </font>
             </Button>
-            <Button fx:id="newCategoryButton" layoutX="241.0" mnemonicParsing="false" onAction="#clickNewCategoryButton" style="-fx-background-color: white;" text="new cat" />
-                  <Button fx:id="natively" layoutX="160.0" mnemonicParsing="false" onMouseClicked="#openFileNatively" style="-fx-background-color: white;" text="ext app" />
-                  <TextField fx:id="autoFillText" layoutY="30.0" onKeyPressed="#autoOpenFile" prefHeight="26.0" prefWidth="312.0" />
+            <Button fx:id="newCategoryButton" layoutX="240.0" layoutY="1.0" maxWidth="70.0" minWidth="70.0" mnemonicParsing="false" onAction="#clickNewCategoryButton" prefWidth="70.0" style="-fx-background-color: white;" text="new cat" />
+                  <Button fx:id="natively" layoutX="160.0" layoutY="1.0" maxWidth="70.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#openFileNatively" prefWidth="70.0" style="-fx-background-color: white;" text="ext app" />
+                  <TextField fx:id="autoFillText" layoutY="30.0" onKeyPressed="#autoOpenFile" prefHeight="26.0" prefWidth="310.0" />
           </children>
         </AnchorPane>
         <AnchorPane fx:id="MainPane" styleClass="MainPane">
