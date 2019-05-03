@@ -24,6 +24,9 @@ public class RegexManager {
             return "";
         return mat.replaceAll("");
     }
+    public static String convertFullPathToShort(String name){
+        return name.substring(name.indexOf('/')+1);
+    }
 
     public static String categoryToPath(String category){
         return "categories/" + category + "/";

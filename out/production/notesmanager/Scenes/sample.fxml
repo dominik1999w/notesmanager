@@ -21,7 +21,6 @@
       <items>
         <AnchorPane fx:id="treePane" style="-fx-background-color: slategrey;">
           <children>
-                  <Button fx:id="autoButton" layoutX="255.0" layoutY="30.0" mnemonicParsing="false" onMouseClicked="#autoOpenFile" prefHeight="26.0" prefWidth="57.0" text="OK" />
             <TreeView fx:id="treeView" layoutY="56.0" onMouseClicked="#openFileTree" prefHeight="942.0" prefWidth="310.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0" />
             <Button fx:id="newFileButton" layoutX="0.0" layoutY="0.0" mnemonicParsing="false" onAction="#clickCategoryControllerButton" style="-fx-background-color: white;" text="new file" underline="false" />
             <Button fx:id="remove" layoutX="81.0" mnemonicParsing="false" onAction="#removeFile" style="-fx-background-color: white;" text="remove" underline="false" wrapText="true">
@@ -31,7 +30,7 @@
             </Button>
             <Button fx:id="newCategoryButton" layoutX="241.0" mnemonicParsing="false" onAction="#clickNewCategoryButton" style="-fx-background-color: white;" text="new cat" />
                   <Button fx:id="natively" layoutX="160.0" mnemonicParsing="false" onMouseClicked="#openFileNatively" style="-fx-background-color: white;" text="ext app" />
-                  <TextField fx:id="autoFillText" layoutY="30.0" prefHeight="26.0" prefWidth="254.0" />
+                  <TextField fx:id="autoFillText" layoutY="30.0" onKeyPressed="#autoOpenFile" prefHeight="26.0" prefWidth="312.0" />
           </children>
         </AnchorPane>
         <AnchorPane fx:id="MainPane" styleClass="MainPane">

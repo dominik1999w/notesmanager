@@ -44,7 +44,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     private GridManager gridManager = new GridManager();
     private File selectedDir;
     private File selectedFile;
-    private List<String> autoList=new LinkedList<>();
+    private List<String> autoPaths =new LinkedList<>();
     @FXML
     TreeView<File> treeView;
     @FXML
@@ -387,18 +387,23 @@ public class ControllerPrimary extends Controller implements Initializable{
         for(int i=0;i<treeView.getRoot().getChildren().size();i++) {
             for(int j=0;j<treeView.getTreeItem(i).getChildren().size();j++){
                 String s= String.valueOf(treeView.getTreeItem(i).getChildren().get(j).getValue());
-                autoList.add(s);
+                autoPaths.add(RegexManager.convertFullPathToShort(s));
             }
         }
-        TextFields.bindAutoCompletion(autoFillText,autoList);
+        TextFields.bindAutoCompletion(autoFillText, autoPaths);
     }
-    public void autoOpenFile() throws InterruptedException {
-        String s= String.valueOf(autoFillText.getCharacters());
-        System.out.println(autoFillText.getCharacters());
-        selectedFile=new File(s);
-        File dir=new File(RegexManager.getCategoryPath(selectedFile));
-        displayGridFilesView(dir);
-        displayFile();
-
+    public void autoOpenFile(){
+        autoFillText.setOnKeyPressed(event->{
+            if(event.getCode()==KeyCode.ENTER){
+                String s= String.valueOf(autoFillText.getCharacters());
+                if(!autoPaths.contains(s)){
+                    return; //invalid file name
+                }
+                selectedFile=new File("categories/"+s);
+                File dir=new File(RegexManager.getCategoryPath(selectedFile));
+                displayGridFilesView(dir);
+                displayFile();
+            }
+        });
     }
 }
