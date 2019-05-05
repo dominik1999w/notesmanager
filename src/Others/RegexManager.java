@@ -17,6 +17,7 @@ public class RegexManager {
         Matcher mat = pat.matcher(name);
         return mat.replaceAll("");
     }
+
     public static String getExtension(String name){
         Pattern pat = Pattern.compile("^.+[.]");
         Matcher mat = pat.matcher(name);
@@ -24,6 +25,7 @@ public class RegexManager {
             return "";
         return mat.replaceAll("");
     }
+
     public static String convertFullPathToShort(String name){
         return name.substring(name.indexOf('/')+1);
     }

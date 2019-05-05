@@ -52,7 +52,7 @@ public class GridManager {
     public void adjustGridFilesView(File dir, int width){
 
         ArrayList<File> filesInfo = new ArrayList<>();
-        if(dir!=null) {
+        if(dir != null) {
             Collections.addAll(filesInfo, dir.listFiles());
             filesInfo.sort(new Comparator<File>() {
                 @Override
@@ -127,14 +127,6 @@ public class GridManager {
                 }
             }
         }
-    }
-
-    private Label[] generate(int width){
-        Label[] labels = new Label[width];
-        for(int i = 0; i < width; i++){
-            labels[i] = new Label();
-        }
-        return labels;
     }
 
     private GridPane generateNewGridPane(int width, int height){

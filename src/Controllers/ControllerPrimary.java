@@ -16,10 +16,12 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javafx.util.Pair;
 import org.controlsfx.control.textfield.TextFields;
 
 import java.awt.*;
@@ -48,6 +50,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     private File selectedDir;
     private File selectedFile;
     private List<String> autoPaths =new LinkedList<>();
+
     @FXML
     TreeView<File> treeView;
     @FXML
@@ -96,6 +99,11 @@ public class ControllerPrimary extends Controller implements Initializable{
     TextField autoFillText;
     @FXML
     Text findCounter;
+    @FXML
+    AnchorPane optionsBarAnchor;
+    @FXML
+    BorderPane optionsBarBorder;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         FilesTreeView filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
@@ -124,17 +132,23 @@ public class ControllerPrimary extends Controller implements Initializable{
                 };
             }
         });
+
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         scrollPaneFull.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPaneFull.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+
         smallGridPane.setMinWidth(510);
         smallGridPane.setMaxWidth(510);
         treePane.setMinWidth(310);
         treePane.setMaxWidth(310);
+        optionsBarAnchor.setMinHeight(53);
+        optionsBarAnchor.setMaxHeight(53);
+
         prepareAutoTextField();
         endWork();
     }
+
 // NAVIGATION ----------------------------------------------------------------------
 
     public void clickCategoryControllerButton() throws IOException {
@@ -365,7 +379,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         searchText.setDisable(true);
         findCounter.setText("");
         searchText.setText("");
-        rememberedWord="";
+        rememberedWord = "";
     }
 
     private void startWork(){ //called when
@@ -395,25 +409,27 @@ public class ControllerPrimary extends Controller implements Initializable{
                 displayFile();
         }
     }
+
 //CONFIGURE SEARCH BAR AND SEARCH BUTTON
+
     private void prepareAutoTextField(){
-        for(int i=0;i<treeView.getRoot().getChildren().size();i++) {
-            for(int j=0;j<treeView.getTreeItem(i).getChildren().size();j++){
-                String s= String.valueOf(treeView.getTreeItem(i).getChildren().get(j).getValue());
+        for(int i = 0; i < treeView.getRoot().getChildren().size(); i++) {
+            for(int j = 0; j < treeView.getTreeItem(i).getChildren().size(); j++){
+                String s = String.valueOf(treeView.getTreeItem(i).getChildren().get(j).getValue());
                 autoPaths.add(RegexManager.convertFullPathToShort(s));
             }
         }
         TextFields.bindAutoCompletion(autoFillText, autoPaths);
     }
     public void autoOpenFile(){
-        autoFillText.setOnKeyPressed(event->{
-            if(event.getCode()==KeyCode.ENTER){
-                String s= String.valueOf(autoFillText.getCharacters());
+        autoFillText.setOnKeyPressed(event -> {
+            if(event.getCode() == KeyCode.ENTER){
+                String s = String.valueOf(autoFillText.getCharacters());
                 if(!autoPaths.contains(s)){
                     return; //invalid file name
                 }
-                selectedFile=new File("categories/"+s);
-                File dir=new File(RegexManager.getCategoryPath(selectedFile));
+                selectedFile = new File("categories/" + s);
+                File dir = new File(RegexManager.getCategoryPath(selectedFile));
                 displayGridFilesView(dir);
                 displayFile();
             }
@@ -423,23 +439,17 @@ public class ControllerPrimary extends Controller implements Initializable{
 
 // CONFIGURE FIND OPTIONS--------------------------------------------------------------------
 
-    private class pair {
-        final int start, end;
-        pair(int start, int end) {
-            this.start = start;
-            this.end = end;
-        }
-    }
-    private int counter=0;
-    private String rememberedWord="";
-    private List<pair> positions;
+    private int counter = 0;
+    private String rememberedWord = "";
+    private List<Pair<Integer,Integer>> positions;
+
     public void findText() {
         searchText.setOnKeyReleased(event -> {
-            if(searchText.getCharacters().length()==0){
+            if(searchText.getCharacters().length() == 0){
                 textAreaHalfScreen.selectRange(0,0);
                 findCounter.setText("");
             }
-            else if(searchText.getCharacters().length()>0){
+            else if(searchText.getCharacters().length() > 0){
                 if (!rememberedWord.equals(String.valueOf(searchText.getCharacters()))) { //if a new word
                     counter = 0;
                     rememberedWord = String.valueOf(searchText.getCharacters());
@@ -447,7 +457,7 @@ public class ControllerPrimary extends Controller implements Initializable{
                     Pattern pattern = Pattern.compile(String.valueOf(searchText.getCharacters()));
                     Matcher matcher = pattern.matcher(textAreaHalfScreen.getText());
                     while (matcher.find()) {
-                        positions.add(new pair(matcher.start(), matcher.end()));
+                        positions.add(new Pair(matcher.start(), matcher.end()));
                     }
                 }
                 if (event.getCode() == KeyCode.ENTER) { //go to the next found pattern
@@ -457,9 +467,9 @@ public class ControllerPrimary extends Controller implements Initializable{
                     counter = 0;
                 }
                 textAreaHalfScreen.setStyle("-fx-highlight-fill: lightgray; -fx-highlight-text-fill: firebrick;");
-                if(positions.size()>0){
-                    findCounter.setText(counter+1+"/"+positions.size());
-                    textAreaHalfScreen.selectRange(positions.get(counter).start, positions.get(counter).end);
+                if(positions.size() > 0){
+                    findCounter.setText(counter + 1 + "/" + positions.size());
+                    textAreaHalfScreen.selectRange(positions.get(counter).getKey(), positions.get(counter).getValue());
                 }
             }
         });
