@@ -107,6 +107,8 @@ public class ControllerPrimary extends Controller implements Initializable{
     Button newFileButton;
     @FXML
     Button newCategoryButton;
+    @FXML
+    Text titleText;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -205,6 +207,8 @@ public class ControllerPrimary extends Controller implements Initializable{
         if(selectedFile != null) {
             fileTitleArea.setEditable(!fileTitleArea.isEditable());
             fileTitleArea.setDisable(!fileTitleArea.isDisabled());
+            fileTitleArea.setVisible(!fileTitleArea.isVisible());
+            titleText.setVisible(!titleText.isVisible());
             System.out.println("SET title editable to: " + fileTitleArea.isEditable());
             if (fileTitleArea.isDisabled())
                 displayTitle(selectedFile.getName());
@@ -239,6 +243,7 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     private void displayTitle(String name){
         fileTitleArea.setText(RegexManager.convertNameToReadable(name));
+        titleText.setText(RegexManager.convertNameToReadable(name));
     }
 
     public void edit(){
@@ -369,6 +374,7 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     public void endWork(){ //called when changing category
         fileTitleArea.setText("");
+        titleText.setText("");
         rename.setSelected(false);
         rename.setDisable(true);
         edit.setSelected(false);
@@ -408,6 +414,8 @@ public class ControllerPrimary extends Controller implements Initializable{
         textAreaFullScreen.setEditable(false);
         fileTitleArea.setEditable(false);
         fileTitleArea.setDisable(true);
+        fileTitleArea.setVisible(false);
+        titleText.setVisible(true);
 
         searchText.setDisable(false);
     }
