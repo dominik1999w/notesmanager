@@ -1,5 +1,6 @@
 package Controllers;
 
+import Others.Buttons;
 import Others.RegexManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,21 +22,27 @@ public class ControllerCategories extends Controller {
     }
 
     @FXML
-    ListView<String> categories_list;
+    ListView<String> categoriesList;
     @FXML
     TextField newCategoryName;
     @FXML
     Button removeCategory;
+    @FXML
+    Button back;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         ObservableList<String> categories = FXCollections.observableArrayList(getCategories(false));
-        categories_list.setItems(categories);
-        categories_list.setOnMouseClicked(mouseEvent -> {
-            if(categories_list.getSelectionModel().getSelectedItems().get(0) != null) {
+        categoriesList.setItems(categories);
+        categoriesList.setOnMouseClicked(mouseEvent -> {
+            if(categoriesList.getSelectionModel().getSelectedItems().get(0) != null) {
                 removeCategory.setDisable(false);
             }
         });
+
+        Buttons buttons = new Buttons();
+        back.setGraphic(buttons.setButton("back"));
+        removeCategory.setGraphic(buttons.setButton("remove"));
     }
 
 
@@ -55,12 +62,13 @@ public class ControllerCategories extends Controller {
         } catch (NullPointerException e){
             System.out.println("You can't create nothing. ;)");
         } catch (IOException e) {
-            System.out.println("FAILED to create category" + category);
+            System.out.println("FAILED to create category: " + category);
+            e.printStackTrace();
         }
     }
 
     public void removeCategory(){
-        String path = RegexManager.categoryToPath(categories_list.getSelectionModel().getSelectedItem());
+        String path = RegexManager.categoryToPath(categoriesList.getSelectionModel().getSelectedItem());
         File category = new File(path);
 
 

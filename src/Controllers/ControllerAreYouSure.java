@@ -2,8 +2,8 @@ package Controllers;
 
 import Others.RegexManager;
 import javafx.fxml.FXML;
+import javafx.scene.text.Text;
 
-import javafx.scene.control.TextField;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -31,16 +31,16 @@ public class ControllerAreYouSure extends Controller {
     private String command;
 
     @FXML
-    TextField question;
+    Text question;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(command.equals("remove")){
-            question.setText("Are you sure you want to remove " + file.getName() + " from  category " + category + "?" );
+            question.setText("Are you sure you want to remove \"" + file.getName() + "\" from  category \"" + category + "\"?" );
         } else if(command.equals("newCategory")){
-            question.setText("Are you sure you want to create new category called " + category + "?" );
+            question.setText("Are you sure you want to create new category called \"" + category + "\"?" );
         } else if(command.equals("removeCategory")){
-            question.setText("Are you sure you want to remove a category " + category + "?" );
+            question.setText("Are you sure you want to remove a category \"" + category + "\"?" );
         }
     }
 

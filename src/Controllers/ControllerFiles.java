@@ -1,9 +1,11 @@
 package Controllers;
 
+import Others.Buttons;
 import Others.RegexManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -20,24 +22,28 @@ public class ControllerFiles extends Controller{
     }
 
     @FXML
-    ListView<String> categories_list;
+    ListView<String> categoriesList;
     @FXML
     TextField newFileName;
+    @FXML
+    Button back;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> categories = FXCollections.observableArrayList(getCategories(false));
-        categories_list.setItems(categories);
-        categories_list.setOnMouseClicked(mouseEvent -> {
-            if (categories_list.getSelectionModel().getSelectedItems().get(0) != null) {
+        categoriesList.setItems(categories);
+        categoriesList.setOnMouseClicked(mouseEvent -> {
+            if (categoriesList.getSelectionModel().getSelectedItems().get(0) != null) {
                 newFileName.setDisable(false);
                 newFileName.setEditable(true);
             }
         });
+        Buttons buttons = new Buttons();
+        back.setGraphic(buttons.setButton("back"));
     }
     public void submitFileName(){
-        String path = RegexManager.categoryToPath(categories_list.getSelectionModel().getSelectedItem());
+        String path = RegexManager.categoryToPath(categoriesList.getSelectionModel().getSelectedItem());
         newFileName.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 String file = path.concat(String.valueOf(newFileName.getCharacters()));

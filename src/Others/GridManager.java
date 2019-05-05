@@ -69,7 +69,7 @@ public class GridManager {
         scrollPane.setContent(gridPane);
         gridPane.setVisible(true);
         scrollPane.setVisible(true);
-        gridPane.getStylesheets().addAll(getClass().getResource("../Others/sample.css").toExternalForm());
+        gridPane.getStylesheets().addAll(getClass().getResource("../Css/sample.css").toExternalForm());
 
         int c = 0;
         for(int i = 0; i < height; i++) {

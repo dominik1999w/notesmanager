@@ -40,7 +40,7 @@ import java.util.regex.Pattern;
 public class ControllerPrimary extends Controller implements Initializable{
 
     public ControllerPrimary(String name, Stage stage) {
-        buttons=new Buttons();
+        buttons = new Buttons();
         this.name = name;
         this.previousController = this;
         Controller.stageMaster = new StageMaster(stage); //One and only stageMaster
@@ -103,6 +103,10 @@ public class ControllerPrimary extends Controller implements Initializable{
     AnchorPane optionsBarAnchor;
     @FXML
     BorderPane optionsBarBorder;
+    @FXML
+    Button newFileButton;
+    @FXML
+    Button newCategoryButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -114,10 +118,16 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
         TreeItem<File> connectRoots = new TreeItem<>(null);
         connectRoots.getChildren().addAll(roots);
-        fullSize.setGraphic(buttons.setFullSizeButton());
-        save.setGraphic(buttons.setSaveButton());
-        edit.setGraphic(buttons.setEditButton());
-        rename.setGraphic(buttons.setRenameButton());
+
+        fullSize.setGraphic(buttons.setButton("fullSize"));
+        save.setGraphic(buttons.setButton("save"));
+        edit.setGraphic(buttons.setButton("edit"));
+        rename.setGraphic(buttons.setButton("rename"));
+        newFileButton.setGraphic(buttons.setButton("newFile"));
+        remove.setGraphic(buttons.setButton("remove"));
+        newCategoryButton.setGraphic(buttons.setButton("newCategory"));
+        natively.setGraphic(buttons.setButton("external"));
+
         treeView.setRoot(connectRoots);
         treeView.setShowRoot(false);
         treeView.setCellFactory(new Callback<TreeView<File>, TreeCell<File>>() { //replace path with file name
