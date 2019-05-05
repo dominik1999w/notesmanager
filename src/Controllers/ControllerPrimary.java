@@ -17,6 +17,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.controlsfx.control.textfield.TextFields;
@@ -31,6 +32,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ControllerPrimary extends Controller implements Initializable{
 
@@ -55,6 +58,8 @@ public class ControllerPrimary extends Controller implements Initializable{
     TextArea textAreaHalfScreen;
     @FXML
     ToggleButton rename;
+    @FXML
+    TextField searchText;
     @FXML
     ToggleButton edit;
     @FXML
@@ -89,6 +94,8 @@ public class ControllerPrimary extends Controller implements Initializable{
     AnchorPane treePane;
     @FXML
     TextField autoFillText;
+    @FXML
+    Text findCounter;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         FilesTreeView filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
@@ -353,8 +360,12 @@ public class ControllerPrimary extends Controller implements Initializable{
         textAreaFullScreen.setVisible(false);
         textAreaFullScreen.clear();
         scrollPaneFull.setVisible(false);
-
         splitPaneEditMode.setVisible(false);
+
+        searchText.setDisable(true);
+        findCounter.setText("");
+        searchText.setText("");
+        rememberedWord="";
     }
 
     private void startWork(){ //called when
@@ -373,6 +384,8 @@ public class ControllerPrimary extends Controller implements Initializable{
         textAreaFullScreen.setEditable(false);
         fileTitleArea.setEditable(false);
         fileTitleArea.setDisable(true);
+
+        searchText.setDisable(false);
     }
 
     private void returnBeforeRefresh(){
@@ -405,5 +418,51 @@ public class ControllerPrimary extends Controller implements Initializable{
                 displayFile();
             }
         });
+    }
+
+
+// CONFIGURE FIND OPTIONS--------------------------------------------------------------------
+
+    private class pair {
+        final int start, end;
+        pair(int start, int end) {
+            this.start = start;
+            this.end = end;
+        }
+    }
+    private int counter=0;
+    private String rememberedWord="";
+    private List<pair> positions;
+    public void findText() {
+        searchText.setOnKeyReleased(event -> {
+            if(searchText.getCharacters().length()==0){
+                textAreaHalfScreen.selectRange(0,0);
+                findCounter.setText("");
+            }
+            else if(searchText.getCharacters().length()>0){
+                if (!rememberedWord.equals(String.valueOf(searchText.getCharacters()))) { //if a new word
+                    counter = 0;
+                    rememberedWord = String.valueOf(searchText.getCharacters());
+                    positions = new LinkedList<>();
+                    Pattern pattern = Pattern.compile(String.valueOf(searchText.getCharacters()));
+                    Matcher matcher = pattern.matcher(textAreaHalfScreen.getText());
+                    while (matcher.find()) {
+                        positions.add(new pair(matcher.start(), matcher.end()));
+                    }
+                }
+                if (event.getCode() == KeyCode.ENTER) { //go to the next found pattern
+                    counter++;
+                }
+                if (counter == positions.size()) { //if the last one is reached
+                    counter = 0;
+                }
+                textAreaHalfScreen.setStyle("-fx-highlight-fill: lightgray; -fx-highlight-text-fill: firebrick;");
+                if(positions.size()>0){
+                    findCounter.setText(counter+1+"/"+positions.size());
+                    textAreaHalfScreen.selectRange(positions.get(counter).start, positions.get(counter).end);
+                }
+            }
+        });
+
     }
 }

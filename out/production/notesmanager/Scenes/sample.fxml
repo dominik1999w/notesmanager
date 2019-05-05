@@ -31,7 +31,7 @@
             </Button>
             <Button fx:id="newCategoryButton" layoutX="240.0" layoutY="1.0" maxWidth="70.0" minWidth="70.0" mnemonicParsing="false" onAction="#clickNewCategoryButton" prefWidth="70.0" style="-fx-background-color: white;" text="new cat" />
                   <Button fx:id="natively" layoutX="160.0" layoutY="1.0" maxWidth="70.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#openFileNatively" prefWidth="70.0" style="-fx-background-color: white;" text="ext app" />
-                  <TextField fx:id="autoFillText" layoutY="30.0" onKeyPressed="#autoOpenFile" prefHeight="26.0" prefWidth="310.0" />
+                  <TextField fx:id="autoFillText" layoutY="30.0" maxWidth="310.0" minWidth="280.0" onKeyPressed="#autoOpenFile" prefHeight="26.0" prefWidth="310.0" />
                   <Text fill="WHITE" layoutX="14.0" layoutY="973.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NotesManager" wrappingWidth="246.7294921875">
                      <font>
                         <Font name="Chilanka Regular" size="32.0" />
@@ -133,7 +133,9 @@
                   </rowConstraints>
               </GridPane>
               <ToggleButton fx:id="fullSize" layoutX="540.0" layoutY="15.0" mnemonicParsing="false" onAction="#MakeTextAreaFullSize" styleClass="button" text="full size" />
-                  <Button fx:id="close" layoutX="668.0" layoutY="15.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: black;" text="X" textFill="#ee0404" />
+                  <Button fx:id="close" layoutX="885.0" layoutY="15.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: black;" text="X" textFill="#ee0404" />
+                  <TextField fx:id="searchText" layoutX="643.0" layoutY="15.0" onKeyReleased="#findText" prefHeight="26.0" prefWidth="136.0" />
+                  <Text fx:id="findCounter" layoutX="779.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" />
           </children>
         </AnchorPane>
       </items>
