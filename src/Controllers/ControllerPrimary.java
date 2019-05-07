@@ -50,7 +50,6 @@ public class ControllerPrimary extends Controller implements Initializable{
     private File selectedDir;
     private File selectedFile;
     private List<String> autoPaths =new LinkedList<>();
-
     @FXML
     TreeView<File> treeView;
     @FXML
@@ -156,7 +155,6 @@ public class ControllerPrimary extends Controller implements Initializable{
         treePane.setMaxWidth(310);
         optionsBarAnchor.setMinHeight(53);
         optionsBarAnchor.setMaxHeight(53);
-
         prepareAutoTextField();
         endWork();
     }
@@ -195,6 +193,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     }
     public void removeFile() throws IOException {
         try{
+            autoPaths.clear();
             Controller.stageMaster.loadNewScene(new ControllerAreYouSure("/Scenes/AreYouSure.fxml", this,"remove",selectedFile));
         } catch (NullPointerException e){
             System.out.println("You can't remove nothing. ;)");
@@ -205,6 +204,7 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     public void rename(){
         if(selectedFile != null) {
+            autoPaths.clear();
             fileTitleArea.setEditable(!fileTitleArea.isEditable());
             fileTitleArea.setDisable(!fileTitleArea.isDisabled());
             fileTitleArea.setVisible(!fileTitleArea.isVisible());
@@ -434,7 +434,8 @@ public class ControllerPrimary extends Controller implements Initializable{
         for(int i = 0; i < treeView.getRoot().getChildren().size(); i++) {
             for(int j = 0; j < treeView.getTreeItem(i).getChildren().size(); j++){
                 String s = String.valueOf(treeView.getTreeItem(i).getChildren().get(j).getValue());
-                autoPaths.add(RegexManager.convertFullPathToShort(s));
+                if(!autoPaths.contains(RegexManager.convertFullPathToShort(s)))
+                    autoPaths.add(RegexManager.convertFullPathToShort(s));
             }
         }
         TextFields.bindAutoCompletion(autoFillText, autoPaths);
@@ -477,17 +478,25 @@ public class ControllerPrimary extends Controller implements Initializable{
                     while (matcher.find()) {
                         positions.add(new Pair(matcher.start(), matcher.end()));
                     }
+                    findCounter.setText(counter + "/" + positions.size());
                 }
                 if (event.getCode() == KeyCode.ENTER) { //go to the next found pattern
                     counter++;
                 }
                 if (counter == positions.size()) { //if the last one is reached
                     counter = 0;
-                }
-                textAreaHalfScreen.setStyle("-fx-highlight-fill: lightgray; -fx-highlight-text-fill: firebrick;");
-                if(positions.size() > 0){
-                    findCounter.setText(counter + 1 + "/" + positions.size());
-                    textAreaHalfScreen.selectRange(positions.get(counter).getKey(), positions.get(counter).getValue());
+                }if(textAreaFullScreen.isVisible()){
+                    textAreaFullScreen.setStyle("-fx-highlight-fill: lightgray; -fx-highlight-text-fill: firebrick;");
+                    if (positions.size() > 0) {
+                        findCounter.setText(counter + 1 + "/" + positions.size());
+                        textAreaFullScreen.selectRange(positions.get(counter).getKey(), positions.get(counter).getValue());
+                    }
+                }else{
+                    textAreaHalfScreen.setStyle("-fx-highlight-fill: lightgray; -fx-highlight-text-fill: firebrick;");
+                    if (positions.size() > 0) {
+                        findCounter.setText(counter + 1 + "/" + positions.size());
+                        textAreaHalfScreen.selectRange(positions.get(counter).getKey(), positions.get(counter).getValue());
+                    }
                 }
             }
         });
