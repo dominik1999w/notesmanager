@@ -10,40 +10,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$USER_HOME$/Downloads/commons-io-2.6" />
-        </CLASSES>
-        <JAVADOC>
-          <root url="file://$USER_HOME$/Downloads/commons-io-2.6/docs" />
-        </JAVADOC>
-        <SOURCES>
-          <root url="file://$USER_HOME$/Downloads/commons-io-2.6" />
-        </SOURCES>
-        <jarDirectory url="file://$USER_HOME$/Downloads/commons-io-2.6" recursive="false" />
-        <jarDirectory url="file://$USER_HOME$/Downloads/commons-io-2.6" recursive="false" type="SOURCES" />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/JDK/ApacheCommonsIO/commons-io-2.6-bin/commons-io-2.6/commons-io-2.6.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/controlsfx-8.40.11.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/JDK/jar_files/controlsfx-8.40.11.jar!/" />
+          <root url="jar://$USER_HOME$/Desktop/PO_PROJECT_LIBS/controlsfx-8.40.11.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
