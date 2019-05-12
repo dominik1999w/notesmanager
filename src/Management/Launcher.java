@@ -11,7 +11,7 @@ public class Launcher extends Application {
     public void start(Stage primaryStage) throws Exception{
         //primaryStage.setResizable(false);
         //primaryStage.setFullScreen(true);
-        primaryStage.setMinHeight(1000);
+        primaryStage.setMinHeight(1020);
         primaryStage.setMinWidth(1320);
         primaryStage.setTitle("NotesManager");
         //Make first primary controller, set its name. It will create static field for

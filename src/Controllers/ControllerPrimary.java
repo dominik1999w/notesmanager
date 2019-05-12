@@ -286,20 +286,20 @@ public class ControllerPrimary extends Controller implements Initializable{
     }
 
     public void openFileTree(){
-            TreeItem<File> item = treeView.getSelectionModel().getSelectedItem();
-            if(item != null && item.getValue().isDirectory()){
-                selectedDir = item.getValue();
-                displayGridFilesView(item.getValue());
-            }
-            if(item != null && item.getValue().isFile()) { //if clicked on file display content
-                selectedFile = item.getValue();
-                selectedDir = new File(RegexManager.getCategoryPath(selectedFile));
-                System.out.println(selectedFile.getPath());
-                displayGridFilesView(selectedDir);
-                displayFile();
-            }
-            if(item != null)
-                System.out.println(item.getValue());
+        TreeItem<File> item = treeView.getSelectionModel().getSelectedItem();
+        if(item != null && item.getValue().isDirectory()){
+            selectedDir = item.getValue();
+            displayGridFilesView(item.getValue());
+        }
+        if(item != null && item.getValue().isFile()) { //if clicked on file display content
+            selectedFile = item.getValue();
+            selectedDir = new File(RegexManager.getCategoryPath(selectedFile));
+            System.out.println(selectedFile.getPath());
+            displayGridFilesView(selectedDir);
+            displayFile();
+        }
+        if(item != null)
+            System.out.println(item.getValue());
     }
 
     public void openFileInEditMode(MouseEvent event) throws IOException {
@@ -451,6 +451,7 @@ public class ControllerPrimary extends Controller implements Initializable{
                 File dir = new File(RegexManager.getCategoryPath(selectedFile));
                 displayGridFilesView(dir);
                 displayFile();
+                autoFillText.setText("");
             }
         });
     }
