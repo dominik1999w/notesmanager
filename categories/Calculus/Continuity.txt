@@ -8,8 +8,8 @@ conditions below are true:
  x → a
 3. lim f (x) = f (a).
  x → a
-If any one of the conditions is false, then we say that f is discontinuous at a,
-or that it has a discontinuity at a.
+If any one of the condsitions is false, then we say that f is discontinuous at a,
+or that it has a discontinusdity at a.
 A consequence of this definition is that if we know a function f is
 continuous at a point x = a, then we also know that it has a limit at a, equal
 to f (a). 

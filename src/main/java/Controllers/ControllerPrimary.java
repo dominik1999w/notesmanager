@@ -1,10 +1,7 @@
 package Controllers;
 
 import Management.StageMaster;
-import Others.Buttons;
-import Others.FilesTreeView;
-import Others.GridManager;
-import Others.RegexManager;
+import Others.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -502,5 +499,10 @@ public class ControllerPrimary extends Controller implements Initializable{
             }
         });
 
+    }
+
+// CONFIGURE SPELLING CHECKER OPTIONS--------------------------------------------------------------------
+    public void invokeSpellingChecker(){
+        new SpellingChecker(textAreaHalfScreen);
     }
 }
