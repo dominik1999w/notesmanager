@@ -1,5 +1,6 @@
-package Others;
+package Controllers;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,11 +14,13 @@ import org.languagetool.language.AmericanEnglish;
 import org.languagetool.rules.RuleMatch;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class SpellingChecker {
+public class ControllerSpellingChecker extends Controller {
     @FXML
     ListView<String> suggestionsList;
     @FXML
@@ -26,14 +29,21 @@ public class SpellingChecker {
     private HashMap<String,String> misspelledWords;
     private List<String> matchStringList;
     private  List<RuleMatch> matchList;
-    public SpellingChecker(TextArea textAreaToCheck){
+
+    public ControllerSpellingChecker(String name, Controller previousController, TextArea textAreaToCheck) {
+        this.name = name;
+        this.previousController = previousController;
         this.textAreaToCheck=textAreaToCheck;
         misspelledWords= new HashMap<>();
         matchStringList=new ArrayList<>();
         suggestionsList=new ListView<>();
-        prepareSuggestions();
-        setUpSpellingScreen();
     }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        prepareSuggestions();
+    }
+
     private void prepareSuggestions(){
         JLanguageTool lTool=new JLanguageTool(new AmericanEnglish());
         try {
@@ -57,7 +67,7 @@ public class SpellingChecker {
             matchStringList.add(t);
         }
         suggestionsList.getItems().add("a");
-//        suggestionsList.setItems(FXCollections.observableList(matchStringList));
+        suggestionsList.setItems(FXCollections.observableList(matchStringList));
     }
     private void setUpSpellingScreen(){
         try {
@@ -69,4 +79,6 @@ public class SpellingChecker {
             stage.show();
         }catch (Exception ignored){}
     }
+
+
 }

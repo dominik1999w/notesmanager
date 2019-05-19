@@ -503,6 +503,12 @@ public class ControllerPrimary extends Controller implements Initializable{
 
 // CONFIGURE SPELLING CHECKER OPTIONS--------------------------------------------------------------------
     public void invokeSpellingChecker(){
-        new SpellingChecker(textAreaHalfScreen);
+        Controller controllerSpellingChecker = new ControllerSpellingChecker("/Scenes/SpellingWindow.fxml", this,  textAreaHalfScreen);
+        StageMaster stageMaster = new StageMaster(new Stage());
+        try {
+            stageMaster.loadNewScene(controllerSpellingChecker);
+        } catch (IOException e) {
+            System.out.println("LOADING SPELLING CHECKER FAILED...");
+        }
     }
 }
