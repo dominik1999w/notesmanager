@@ -1,8 +1,8 @@
 Definition: A function f is continuous at a point x = a if
  lim f (x) = f (a)
  x → a
-In other words, the function f is continuous at a if ALL three of the
-conditions below are true:
+In other wordsds, the function f is continuous at a if ALL three of the
+condasitions below are true:
 1. f (a) is defined. (i.e., a is in the domain of f .)
 2. lim f (x) exists. (i.e., both one-sided limits exist and are equal at a.)
  x → a

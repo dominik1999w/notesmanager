@@ -40,7 +40,7 @@ public class ControllerFiles extends Controller{
             }
         });
         Buttons buttons = new Buttons();
-        back.setGraphic(buttons.setButton("back"));
+        back.setGraphic(buttons.setCustomImage("back"));
     }
     public void submitFileName(){
         String path = RegexManager.categoryToPath(categoriesList.getSelectionModel().getSelectedItem());

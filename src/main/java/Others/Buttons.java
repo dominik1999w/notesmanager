@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView;
 
 public class Buttons {
 
-    public ImageView setButton(String name){
+    public ImageView setCustomImage(String name){
         Image image = new Image(getClass().getResourceAsStream("../Images/" + name + ".png"));
         ImageView icon = new ImageView(image);
         icon.setPreserveRatio(true);

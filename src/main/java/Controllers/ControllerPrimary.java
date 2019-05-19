@@ -117,14 +117,14 @@ public class ControllerPrimary extends Controller implements Initializable{
         TreeItem<File> connectRoots = new TreeItem<>(null);
         connectRoots.getChildren().addAll(roots);
 
-        fullSize.setGraphic(buttons.setButton("fullSize"));
-        save.setGraphic(buttons.setButton("save"));
-        edit.setGraphic(buttons.setButton("edit"));
-        rename.setGraphic(buttons.setButton("rename"));
-        newFileButton.setGraphic(buttons.setButton("newFile"));
-        remove.setGraphic(buttons.setButton("remove"));
-        newCategoryButton.setGraphic(buttons.setButton("newCategory"));
-        natively.setGraphic(buttons.setButton("external"));
+        fullSize.setGraphic(buttons.setCustomImage("fullSize"));
+        save.setGraphic(buttons.setCustomImage("save"));
+        edit.setGraphic(buttons.setCustomImage("edit"));
+        rename.setGraphic(buttons.setCustomImage("rename"));
+        newFileButton.setGraphic(buttons.setCustomImage("newFile"));
+        remove.setGraphic(buttons.setCustomImage("remove"));
+        newCategoryButton.setGraphic(buttons.setCustomImage("newCategory"));
+        natively.setGraphic(buttons.setCustomImage("external"));
 
         treeView.setRoot(connectRoots);
         treeView.setShowRoot(false);
@@ -505,6 +505,8 @@ public class ControllerPrimary extends Controller implements Initializable{
     public void invokeSpellingChecker(){
         Controller controllerSpellingChecker = new ControllerSpellingChecker("/Scenes/SpellingWindow.fxml", this,  textAreaHalfScreen);
         StageMaster stageMaster = new StageMaster(new Stage());
+        stageMaster.setResizable(false);
+        stageMaster.setName("Spelling App!");
         try {
             stageMaster.loadNewScene(controllerSpellingChecker);
         } catch (IOException e) {

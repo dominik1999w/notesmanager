@@ -1,14 +1,14 @@
 package Controllers;
 
+import Others.Buttons;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import org.languagetool.JLanguageTool;
 import org.languagetool.language.AmericanEnglish;
 import org.languagetool.rules.RuleMatch;
@@ -21,13 +21,19 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ControllerSpellingChecker extends Controller {
+    private Buttons buttons;
     @FXML
-    ListView<String> suggestionsList;
+    ListView<String> suggestionsList1;
+    @FXML
+    ListView<String> suggestionsList2;
     @FXML
     Text SuggestionsText;
+    @FXML
+    AnchorPane spellingPane;
     private TextArea textAreaToCheck;
-    private HashMap<String,String> misspelledWords;
-    private List<String> matchStringList;
+    private HashMap<String, List<String>> misspelledWords;
+    private List<String> matchStringList1;
+    private List<String> matchStringList2;
     private  List<RuleMatch> matchList;
 
     public ControllerSpellingChecker(String name, Controller previousController, TextArea textAreaToCheck) {
@@ -35,12 +41,33 @@ public class ControllerSpellingChecker extends Controller {
         this.previousController = previousController;
         this.textAreaToCheck=textAreaToCheck;
         misspelledWords= new HashMap<>();
-        matchStringList=new ArrayList<>();
-        suggestionsList=new ListView<>();
+        matchStringList1=new ArrayList<>();
+        matchStringList2=new ArrayList<>();
+        buttons=new Buttons();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Image image = new Image(getClass().getResourceAsStream("../Images/arrow.png"));
+        ImageView arrow=new ImageView(image);
+        arrow.setImage(image);
+        arrow.setPreserveRatio(true);
+        arrow.setFitHeight(50);
+        arrow.setFitWidth(70);
+        arrow.setY(160);
+        arrow.setX(225);
+        spellingPane.getChildren().add(arrow);
+        suggestionsList1.setOnMouseClicked(mouseEvent->{
+            String tmp=suggestionsList1.getSelectionModel().getSelectedItems().get(0);
+            if(suggestionsList1.getSelectionModel().getSelectedItems().get(0)!=null){
+                matchStringList2.clear();
+                int a=Math.min(10,misspelledWords.get(tmp).size());
+                for(int i=0;i<a;i++){
+                    matchStringList2.add(misspelledWords.get(tmp).get(i));
+                }
+                suggestionsList2.setItems(FXCollections.observableList(matchStringList2));
+            }
+        });
         prepareSuggestions();
     }
 
@@ -54,7 +81,7 @@ public class ControllerSpellingChecker extends Controller {
                 if(r-l>2) {
                     String tmp=textAreaToCheck.getText().substring(l,r);
                     if (!misspelledWords.containsKey(tmp))
-                        misspelledWords.put(tmp,a.getSuggestedReplacements().get(0));
+                        misspelledWords.put(tmp,a.getSuggestedReplacements());
                 }
             });
         } catch (IOException e) {
@@ -62,23 +89,9 @@ public class ControllerSpellingChecker extends Controller {
         }
         System.out.println("MISSPELLED WORDS:");
         for(String x: misspelledWords.keySet()){
-            String t=x+" -> "+misspelledWords.get(x);
-            System.out.println(t);
-            matchStringList.add(t);
+            matchStringList1.add(x);
         }
-        suggestionsList.getItems().add("a");
-        suggestionsList.setItems(FXCollections.observableList(matchStringList));
+        suggestionsList1.setItems(FXCollections.observableList(matchStringList1));
     }
-    private void setUpSpellingScreen(){
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Scenes/SpellingWindow.fxml"));
-            fxmlLoader.setController(this);
-            Parent root1 = fxmlLoader.load();
-            Stage stage = new Stage();
-             stage.setScene(new Scene(root1));
-            stage.show();
-        }catch (Exception ignored){}
-    }
-
 
 }

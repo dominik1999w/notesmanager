@@ -41,8 +41,8 @@ public class ControllerCategories extends Controller {
         });
 
         Buttons buttons = new Buttons();
-        back.setGraphic(buttons.setButton("back"));
-        removeCategory.setGraphic(buttons.setButton("remove"));
+        back.setGraphic(buttons.setCustomImage("back"));
+        removeCategory.setGraphic(buttons.setCustomImage("remove"));
     }
 
 
