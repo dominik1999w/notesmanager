@@ -87,11 +87,9 @@ public class ControllerSpellingChecker extends Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("MISSPELLED WORDS:");
         for(String x: misspelledWords.keySet()){
             matchStringList1.add(x);
         }
         suggestionsList1.setItems(FXCollections.observableList(matchStringList1));
     }
-
 }
