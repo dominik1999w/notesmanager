@@ -18,13 +18,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootBox" prefHeight="1000.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootBox" minHeight="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <SplitPane fx:id="splitPane" dividerPositions="0.23975720789074356" focusTraversable="true" prefHeight="1000.0" prefWidth="1320.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="ALWAYS">
+    <SplitPane fx:id="splitPane" dividerPositions="0.23975720789074356" focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="ALWAYS">
       <items>
         <AnchorPane fx:id="treePane" maxWidth="310.0" minWidth="310.0" prefWidth="310.0" style="-fx-background-color: slategrey;">
           <children>
-            <TreeView fx:id="treeView" layoutY="56.0" onMouseClicked="#openFileTree" prefHeight="942.0" prefWidth="310.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0" />
+            <TreeView fx:id="treeView" layoutY="56.0" maxWidth="310.0" minWidth="310.0" onMouseClicked="#openFileTree" prefWidth="310.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0" />
             <Button fx:id="newFileButton" layoutX="0.0" layoutY="1.0" maxWidth="113.0" minWidth="113.0" mnemonicParsing="false" onAction="#clickCategoryControllerButton" prefHeight="28.0" prefWidth="113.0" style="-fx-background-color: white;" text="New File" underline="false" />
             <Button fx:id="remove" layoutX="268.0" layoutY="1.0" maxWidth="42.0" minWidth="42.0" mnemonicParsing="false" onAction="#removeFile" prefHeight="28.0" prefWidth="42.0" style="-fx-background-color: white;" underline="false" wrapText="true">
               <font>
@@ -33,7 +33,7 @@
             </Button>
             <Button fx:id="newCategoryButton" layoutX="113.0" layoutY="1.0" maxWidth="113.0" minWidth="113.0" mnemonicParsing="false" onAction="#clickNewCategoryButton" prefHeight="28.0" prefWidth="113.0" style="-fx-background-color: white;" text="Category" />
                   <TextField fx:id="autoFillText" layoutY="30.0" maxWidth="310.0" minWidth="280.0" onKeyPressed="#autoOpenFile" prefHeight="26.0" prefWidth="310.0" />
-                  <Text fill="WHITE" layoutX="14.0" layoutY="973.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NotesManager" wrappingWidth="246.7294921875">
+                  <Text fill="WHITE" layoutX="14.0" layoutY="945.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NotesManager" wrappingWidth="246.7294921875">
                      <font>
                         <Font name="Chilanka Regular" size="32.0" />
                      </font>
@@ -41,11 +41,11 @@
                   <Button fx:id="natively" layoutX="226.0" layoutY="1.0" maxWidth="42.0" minWidth="42.0" mnemonicParsing="false" onMouseClicked="#openFileNatively" prefHeight="28.0" prefWidth="42.0" style="-fx-background-color: white;" />
           </children>
         </AnchorPane>
-            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <SplitPane dividerPositions="0.5" orientation="VERTICAL" focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <items>
-                  <BorderPane fx:id="optionsBarBorder" maxHeight="50.0" minHeight="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                   <BorderPane fx:id="optionsBarBorder" maxHeight="53.0" minHeight="53.0" prefHeight="53.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <center>
-                        <AnchorPane fx:id="optionsBarAnchor" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="optionsBarAnchor" maxHeight="53.0" minHeight="53.0" prefHeight="53.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Button fx:id="save" layoutX="108.0" layoutY="12.0" maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="100.0" text="Save" />
                               <ToggleButton fx:id="edit" layoutX="6.0" layoutY="12.0" maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#edit" prefWidth="100.0" text="Edit" />
@@ -82,9 +82,9 @@
                         </AnchorPane>
                      </right>
                   </BorderPane>
-              <AnchorPane fx:id="MainPane" styleClass="MainPane">
+                   <AnchorPane fx:id="MainPane" styleClass="MainPane">
                 <children>
-                        <AnchorPane fx:id="textPane" layoutY="54.0" prefHeight="944.0" prefWidth="989.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="textPane" layoutY="54.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <TextArea fx:id="textAreaFullScreen" prefHeight="944.0" prefWidth="989.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                               <ScrollPane fx:id="scrollPaneFull" prefHeight="944.0" prefWidth="989.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -108,9 +108,9 @@
                               </ScrollPane>
                            </children>
                         </AnchorPane>
-                        <SplitPane fx:id="splitPaneEditMode" dividerPositions="0.4879759519038076" layoutY="54.0" prefHeight="944.0" prefWidth="989.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <SplitPane fx:id="splitPaneEditMode" dividerPositions="0.4879759519038076" layoutY="54.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <items>
-                            <AnchorPane fx:id="smallGridPane" minHeight="0.0" minWidth="0.0" prefHeight="928.0" prefWidth="483.0">
+                            <AnchorPane fx:id="smallGridPane" maxWidth="510.0" minHeight="0.0" minWidth="510.0">
                                  <children>
                                     <ScrollPane fx:id="scrollPane" prefHeight="942.0" prefWidth="478.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                           <GridPane fx:id="gridFiles2" layoutX="14.0" layoutY="51.0" onMouseClicked="#openFileInEditMode" visible="false">
@@ -130,7 +130,7 @@
                                                 </ScrollPane>
                                  </children>
                               </AnchorPane>
-                            <AnchorPane fx:id="textHalfPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <AnchorPane fx:id="textHalfPane" minHeight="0.0" minWidth="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                               <TextArea fx:id="textAreaHalfScreen" editable="false" prefHeight="942.0" prefWidth="503.0" text="" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>

@@ -146,12 +146,6 @@ public class ControllerPrimary extends Controller implements Initializable{
         scrollPaneFull.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPaneFull.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
 
-        smallGridPane.setMinWidth(510);
-        smallGridPane.setMaxWidth(510);
-        treePane.setMinWidth(310);
-        treePane.setMaxWidth(310);
-        optionsBarAnchor.setMinHeight(53);
-        optionsBarAnchor.setMaxHeight(53);
         prepareAutoTextField();
         endWork();
     }
