@@ -2,6 +2,8 @@ package Controllers;
 
 import Management.StageMaster;
 import Others.*;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -18,11 +20,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javafx.util.Duration;
 import javafx.util.Pair;
 import org.controlsfx.control.textfield.TextFields;
 
 import java.awt.*;
 import java.io.*;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -105,7 +109,8 @@ public class ControllerPrimary extends Controller implements Initializable{
     Button newCategoryButton;
     @FXML
     Text titleText;
-
+    @FXML
+    Button spellingCheckerButton;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         FilesTreeView filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
@@ -125,7 +130,9 @@ public class ControllerPrimary extends Controller implements Initializable{
         remove.setGraphic(buttons.setCustomImage("remove"));
         newCategoryButton.setGraphic(buttons.setCustomImage("newCategory"));
         natively.setGraphic(buttons.setCustomImage("external"));
-
+        Tooltip a=new Tooltip("Spelling Checker!");
+        setTooltipTimer(a);
+        spellingCheckerButton.setTooltip(a);
         treeView.setRoot(connectRoots);
         treeView.setShowRoot(false);
         treeView.setCellFactory(new Callback<TreeView<File>, TreeCell<File>>() { //replace path with file name
@@ -149,7 +156,18 @@ public class ControllerPrimary extends Controller implements Initializable{
         prepareAutoTextField();
         endWork();
     }
-
+    private void setTooltipTimer(Tooltip tooltip) {
+        try {
+            Field fieldBehavior = tooltip.getClass().getDeclaredField("BEHAVIOR");
+            fieldBehavior.setAccessible(true);
+            Object objBehavior = fieldBehavior.get(tooltip);
+            Field fieldTimer = objBehavior.getClass().getDeclaredField("activationTimer");
+            fieldTimer.setAccessible(true);
+            Timeline objTimer = (Timeline) fieldTimer.get(objBehavior);
+            objTimer.getKeyFrames().clear();
+            objTimer.getKeyFrames().add(new KeyFrame(new Duration(200)));
+        } catch (Exception e) {e.printStackTrace();}
+    }
 // NAVIGATION ----------------------------------------------------------------------
 
     public void clickCategoryControllerButton() throws IOException {
@@ -366,6 +384,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     public void endWork(){ //called when changing category
         fileTitleArea.setText("");
         titleText.setText("");
+        spellingCheckerButton.setDisable(true);
         rename.setSelected(false);
         rename.setDisable(true);
         edit.setSelected(false);
@@ -389,9 +408,10 @@ public class ControllerPrimary extends Controller implements Initializable{
         rememberedWord = "";
     }
 
-    private void startWork(){ //called when
+    private void startWork(){
         rename.setSelected(false);
         rename.setDisable(false);
+        spellingCheckerButton.setDisable(false);
         edit.setSelected(false);
         edit.setDisable(false);
         fullSize.setDisable(false);
@@ -497,8 +517,15 @@ public class ControllerPrimary extends Controller implements Initializable{
 
 // CONFIGURE SPELLING CHECKER OPTIONS--------------------------------------------------------------------
     public void invokeSpellingChecker(){
-        Controller controllerSpellingChecker = new ControllerSpellingChecker("/Scenes/SpellingWindow.fxml", this,  textAreaHalfScreen);
-        StageMaster stageMaster = new StageMaster(new Stage());
+        Controller controllerSpellingChecker=null;
+        Stage s=new Stage();
+        if(textAreaFullScreen.isVisible()) {
+            controllerSpellingChecker = new ControllerSpellingChecker("/Scenes/SpellingWindow.fxml", this, textAreaFullScreen,this,s);
+        }
+        if(textAreaHalfScreen.isVisible()){
+            controllerSpellingChecker = new ControllerSpellingChecker("/Scenes/SpellingWindow.fxml", this, textAreaHalfScreen,this,s);
+        }
+        StageMaster stageMaster = new StageMaster(s);
         stageMaster.setResizable(false);
         stageMaster.setName("Spelling App!");
         try {

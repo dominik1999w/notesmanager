@@ -9,6 +9,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.TreeView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -18,7 +20,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootBox" minHeight="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootBox" minHeight="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <SplitPane fx:id="splitPane" dividerPositions="0.23975720789074356" focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="ALWAYS">
       <items>
@@ -33,7 +35,7 @@
             </Button>
             <Button fx:id="newCategoryButton" layoutX="113.0" layoutY="1.0" maxWidth="113.0" minWidth="113.0" mnemonicParsing="false" onAction="#clickNewCategoryButton" prefHeight="28.0" prefWidth="113.0" style="-fx-background-color: white;" text="Category" />
                   <TextField fx:id="autoFillText" layoutY="30.0" maxWidth="310.0" minWidth="280.0" onKeyPressed="#autoOpenFile" prefHeight="26.0" prefWidth="310.0" />
-                  <Text fill="WHITE" layoutX="14.0" layoutY="945.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NotesManager" wrappingWidth="246.7294921875">
+                  <Text fill="WHITE" layoutX="14.0" layoutY="945.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NotesManager" wrappingWidth="246.7294921875" AnchorPane.bottomAnchor="40.0">
                      <font>
                         <Font name="Chilanka Regular" size="32.0" />
                      </font>
@@ -41,7 +43,7 @@
                   <Button fx:id="natively" layoutX="226.0" layoutY="1.0" maxWidth="42.0" minWidth="42.0" mnemonicParsing="false" onMouseClicked="#openFileNatively" prefHeight="28.0" prefWidth="42.0" style="-fx-background-color: white;" />
           </children>
         </AnchorPane>
-            <SplitPane dividerPositions="0.5" orientation="VERTICAL" focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <SplitPane dividerPositions="0.5" focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <items>
                    <BorderPane fx:id="optionsBarBorder" maxHeight="53.0" minHeight="53.0" prefHeight="53.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <center>
@@ -74,10 +76,18 @@
                                     <Font size="16.0" />
                                  </font>
                               </Button>
-                          <ToggleButton fx:id="fullSize" layoutX="212.0" layoutY="12.0" maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#MakeTextAreaFullSize" prefWidth="100.0" styleClass="button" text="Full Size" />
-                              <Text fx:id="findCounter" fill="WHITE" layoutX="160.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                              <TextField fx:id="searchText" layoutX="5.0" layoutY="12.0" onKeyReleased="#findText" prefHeight="26.0" prefWidth="140.0" />
-                              <Button fx:id="spellingCheckerButton" layoutX="148.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#invokeSpellingChecker" prefHeight="26.0" prefWidth="42.0" text="Spelling!" />
+                          <ToggleButton fx:id="fullSize" layoutX="226.0" layoutY="12.0" maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#MakeTextAreaFullSize" prefWidth="100.0" styleClass="button" text="Full Size" />
+                              <Text fx:id="findCounter" fill="WHITE" layoutX="119.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <TextField fx:id="searchText" layoutY="12.0" onKeyReleased="#findText" prefHeight="26.0" prefWidth="119.0" />
+                              <Button fx:id="spellingCheckerButton" layoutX="164.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#invokeSpellingChecker" prefHeight="26.0" prefWidth="42.0" style="-fx-background-color: #3C408B;">
+                                 <graphic>
+                                    <ImageView fitHeight="39.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/spelling.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
                            </children>
                         </AnchorPane>
                      </right>

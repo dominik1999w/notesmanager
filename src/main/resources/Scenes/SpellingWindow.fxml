@@ -24,7 +24,7 @@
             <Font name="KacstOffice" size="17.0" />
          </font>
       </Text>
-      <Button layoutX="180.0" layoutY="320.0" mnemonicParsing="false" text="Accept Suggestion" textAlignment="CENTER" />
+      <Button fx:id="acceptSuggestion" layoutX="180.0" layoutY="320.0" mnemonicParsing="false" onMouseClicked="#importSuggestion" text="Accept Suggestion" textAlignment="CENTER" />
       <ListView fx:id="suggestionsList2" layoutX="280.0" layoutY="50.0" prefHeight="250.0" prefWidth="210.0" />
    </children>
 </AnchorPane>

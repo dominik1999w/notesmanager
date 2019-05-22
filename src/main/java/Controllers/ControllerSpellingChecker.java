@@ -3,12 +3,13 @@ package Controllers;
 import Others.Buttons;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import org.languagetool.JLanguageTool;
 import org.languagetool.language.AmericanEnglish;
 import org.languagetool.rules.RuleMatch;
@@ -21,22 +22,38 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ControllerSpellingChecker extends Controller {
+
+    private final ControllerPrimary controllerPrimary;
+    private final Stage stage;
     private Buttons buttons;
     @FXML
     ListView<String> suggestionsList1;
     @FXML
     ListView<String> suggestionsList2;
     @FXML
-    Text SuggestionsText;
-    @FXML
     AnchorPane spellingPane;
+    @FXML
+    Button acceptSuggestion;
+    class tuple{
+        int l;
+        int r;
+        List<String> suggestedWords;
+
+        public tuple(int l, int r, List<String> suggestedReplacements) {
+            this.l=l;
+            this.r=r;
+            this.suggestedWords=suggestedReplacements;
+        }
+    }
     private TextArea textAreaToCheck;
-    private HashMap<String, List<String>> misspelledWords;
+    private HashMap<String, tuple> misspelledWords;
     private List<String> matchStringList1;
     private List<String> matchStringList2;
     private  List<RuleMatch> matchList;
 
-    public ControllerSpellingChecker(String name, Controller previousController, TextArea textAreaToCheck) {
+    public ControllerSpellingChecker(String name, Controller previousController, TextArea textAreaToCheck, ControllerPrimary controllerPrimary, Stage stage) {
+        this.stage=stage;
+        this.controllerPrimary=controllerPrimary;
         this.name = name;
         this.previousController = previousController;
         this.textAreaToCheck=textAreaToCheck;
@@ -61,16 +78,15 @@ public class ControllerSpellingChecker extends Controller {
             String tmp=suggestionsList1.getSelectionModel().getSelectedItems().get(0);
             if(suggestionsList1.getSelectionModel().getSelectedItems().get(0)!=null){
                 matchStringList2.clear();
-                int a=Math.min(10,misspelledWords.get(tmp).size());
+                int a=Math.min(10,misspelledWords.get(tmp).suggestedWords.size());
                 for(int i=0;i<a;i++){
-                    matchStringList2.add(misspelledWords.get(tmp).get(i));
+                    matchStringList2.add(misspelledWords.get(tmp).suggestedWords.get(i));
                 }
                 suggestionsList2.setItems(FXCollections.observableList(matchStringList2));
             }
         });
         prepareSuggestions();
     }
-
     private void prepareSuggestions(){
         JLanguageTool lTool=new JLanguageTool(new AmericanEnglish());
         try {
@@ -79,9 +95,10 @@ public class ControllerSpellingChecker extends Controller {
                 int l=a.getFromPos();
                 int r=a.getToPos();
                 if(r-l>2) {
-                    String tmp=textAreaToCheck.getText().substring(l,r);
-                    if (!misspelledWords.containsKey(tmp))
-                        misspelledWords.put(tmp,a.getSuggestedReplacements());
+                    String tmp = textAreaToCheck.getText().substring(l, r);
+                    if (!misspelledWords.containsKey(tmp)) {
+                        misspelledWords.put(tmp, new tuple(l,r,a.getSuggestedReplacements()));
+                    }
                 }
             });
         } catch (IOException e) {
@@ -91,5 +108,21 @@ public class ControllerSpellingChecker extends Controller {
             matchStringList1.add(x);
         }
         suggestionsList1.setItems(FXCollections.observableList(matchStringList1));
+    }
+    public void importSuggestion(){
+        String d=textAreaToCheck.getText();
+        String original=suggestionsList1.getSelectionModel().getSelectedItems().get(0);
+        String tmp=suggestionsList2.getSelectionModel().getSelectedItems().get(0);
+        System.out.println(""+controllerPrimary.textAreaFullScreen.isVisible()+controllerPrimary.textAreaHalfScreen.isVisible());
+        if(controllerPrimary.textAreaFullScreen.isVisible())
+            controllerPrimary.textAreaFullScreen.setText(d.replace(original,tmp));
+        else
+            controllerPrimary.textAreaHalfScreen.setText(d.replace(original,tmp));
+        matchStringList1.remove(original);
+        matchStringList2.clear();
+        suggestionsList2.setItems(FXCollections.observableList(matchStringList2));
+        suggestionsList1.setItems(FXCollections.observableList(matchStringList1));
+        if(matchStringList1.isEmpty())
+            stage.close();
     }
 }

@@ -11,7 +11,7 @@ import java.io.IOException;
 public class StageMaster {
 
     private Controller currentController;
-    private Stage stage;
+    public Stage stage;
 
     public StageMaster(Stage stage) {
         this.stage = stage;
