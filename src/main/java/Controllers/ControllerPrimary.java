@@ -111,6 +111,8 @@ public class ControllerPrimary extends Controller implements Initializable{
     Text titleText;
     @FXML
     Button spellingCheckerButton;
+    @FXML
+    AnchorPane rootBox;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         FilesTreeView filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
@@ -166,7 +168,8 @@ public class ControllerPrimary extends Controller implements Initializable{
             Timeline objTimer = (Timeline) fieldTimer.get(objBehavior);
             objTimer.getKeyFrames().clear();
             objTimer.getKeyFrames().add(new KeyFrame(new Duration(200)));
-        } catch (Exception e) {e.printStackTrace();}
+        } catch (Exception e) {//e.printStackTrace();
+            System.out.println("NIE WAŻNY WYJĄTEK ;))))))))))))"); }
     }
 // NAVIGATION ----------------------------------------------------------------------
 

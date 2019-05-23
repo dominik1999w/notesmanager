@@ -10,7 +10,7 @@ struct record {
 };
  
 int z,n,points;
-int hash_size,hash_size2,hash_fullness,hash_removed,just_found,ind;
+int hash_size, hash_size2, hash_fullness, hash_removed,just_found, ind;
 string command,number;
 record* hashh;
 record* hash2;
@@ -104,7 +104,7 @@ void check(){
         }
         delete [] hash2;
     } else if(hash_removed > hash_size / 4){
-        if(hash_fullness < hash_size / 4) ind = max(0,ind - 1);
+        if(hash_fullness < hash_size / 4) ind = max(0, ind - 1);
         hash2 = hashh;
         hashh = new record[primes[ind]];
         hash_size2 = hash_size;

@@ -3,8 +3,10 @@ package Management;
 import Controllers.Controller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Control;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import opennlp.tools.parser.Cons;
 
 import java.io.IOException;
 
@@ -30,20 +32,19 @@ public class StageMaster {
     }
 
     private void loadScene(String name) throws IOException {
-        boolean wasMaximized = false;
+        /*boolean wasMaximized = false;
         if(stage.isMaximized()) {
             stage.setMaximized(false);
             wasMaximized = true;
-        }
+            System.out.println("wasMaximized: " + wasMaximized);
+        }*/
         System.out.println("LOADING: " + name);
         FXMLLoader loader = new FXMLLoader(currentController.getClass().getResource(name));
         loader.setController(currentController);
         Pane myPane = loader.load();
         this.stage.setScene(new Scene(myPane));
         stage.show();
-        if(wasMaximized){
-            stage.setMaximized(true);
-        }
+        //stage.setMaximized(wasMaximized);
     }
     public void setName(String name){
         stage.setTitle(name);

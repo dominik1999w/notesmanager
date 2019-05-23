@@ -9,8 +9,6 @@ public class Launcher extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        //primaryStage.setResizable(false);
-        //primaryStage.setFullScreen(true);
         primaryStage.setMinHeight(1040);
         primaryStage.setMinWidth(1350);
         primaryStage.setHeight(1041);

@@ -36,6 +36,16 @@
     -fx-background-color: #082745 ;
 }
 
+#rootBox{
+    -fx-background: #082745;
+    -fx-background-color: #082745 ;
+}
+
+#splitPane{
+    -fx-background: #082745;
+    -fx-background-color: #082745 ;
+}
+
 #scrollPaneFull{
     -fx-background: #082745;
     -fx-background-color: #082745 ;
