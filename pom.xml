@@ -42,7 +42,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>8.8.3</version>
                 <configuration>
-                    <mainClass>your.package.with.Launcher</mainClass>
+                    <mainClass>Management.Launcher</mainClass>
                 </configuration>
             </plugin>
             <plugin>
