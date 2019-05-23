@@ -352,6 +352,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         for(String tmp: lines){
             textAreaHalfScreen.appendText(tmp + "\n");
         }
+        textAreaHalfScreen.selectRange(0,0);
     }
     public void MakeTextAreaFullSize(){
         if(selectedFile != null){
