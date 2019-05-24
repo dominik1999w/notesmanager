@@ -36,6 +36,16 @@
     -fx-background-color: #082745 ;
 }
 
+#rootBox{
+    -fx-background: #082745;
+    -fx-background-color: #082745 ;
+}
+
+#splitPane{
+    -fx-background: #082745;
+    -fx-background-color: #082745 ;
+}
+
 #scrollPaneFull{
     -fx-background: #082745;
     -fx-background-color: #082745 ;
@@ -70,4 +80,9 @@
 #close{
     -fx-font-size: 20px !important;
     -fx-font-weight: bold !important;
+}
+
+#statePane{
+    -fx-background-image: url("../States/background.png");
+    -fx-background-size: 100% 100%;
 }

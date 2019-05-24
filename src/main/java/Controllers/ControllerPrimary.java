@@ -17,6 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -31,10 +32,8 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.*;
 import java.util.List;
-import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -46,11 +45,12 @@ public class ControllerPrimary extends Controller implements Initializable{
         this.previousController = this;
         Controller.stageMaster = new StageMaster(stage); //One and only stageMaster
     }
+
     private Buttons buttons;
     private GridManager gridManager = new GridManager();
     private File selectedDir;
     private File selectedFile;
-    private List<String> autoPaths =new LinkedList<>();
+    private List<String> autoPaths = new LinkedList<>();
     @FXML
     TreeView<File> treeView;
     @FXML
@@ -113,6 +113,8 @@ public class ControllerPrimary extends Controller implements Initializable{
     Button spellingCheckerButton;
     @FXML
     AnchorPane rootBox;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         FilesTreeView filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
@@ -132,7 +134,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         remove.setGraphic(buttons.setCustomImage("remove"));
         newCategoryButton.setGraphic(buttons.setCustomImage("newCategory"));
         natively.setGraphic(buttons.setCustomImage("external"));
-        Tooltip a=new Tooltip("Spelling Checker!");
+        Tooltip a = new Tooltip("Spelling Checker!");
         setTooltipTimer(a);
         spellingCheckerButton.setTooltip(a);
         treeView.setRoot(connectRoots);
@@ -156,8 +158,10 @@ public class ControllerPrimary extends Controller implements Initializable{
         scrollPaneFull.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
 
         prepareAutoTextField();
+        prepareLearningStates();
         endWork();
     }
+
     private void setTooltipTimer(Tooltip tooltip) {
         try {
             Field fieldBehavior = tooltip.getClass().getDeclaredField("BEHAVIOR");
@@ -171,6 +175,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         } catch (Exception e) {//e.printStackTrace();
             System.out.println("NIE WAŻNY WYJĄTEK ;))))))))))))"); }
     }
+
 // NAVIGATION ----------------------------------------------------------------------
 
     public void clickCategoryControllerButton() throws IOException {
@@ -193,6 +198,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
 
     }
+
     class ExternalThread extends Thread{
         @Override
         public void run(){
@@ -203,6 +209,7 @@ public class ControllerPrimary extends Controller implements Initializable{
             }
         }
     }
+
     public void removeFile() throws IOException {
         try{
             autoPaths.clear();
@@ -228,6 +235,7 @@ public class ControllerPrimary extends Controller implements Initializable{
                 rename.setSelected(!rename.isSelected());
         }
     }
+
     public void submitRename(){
         fileTitleArea.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
@@ -291,6 +299,8 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     private void displayGridFilesView(File dir){
         endWork();
+        close.setVisible(true);
+        close.setDisable(false);
         textPane.setVisible(true);
         selectedDir = new File(dir.getPath());
         gridManager = new GridManager(selectedDir, gridFilesFactory4, gridFiles4, scrollPaneFull);
@@ -357,6 +367,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
         textAreaHalfScreen.selectRange(0,0);
     }
+
     public void MakeTextAreaFullSize(){
         if(selectedFile != null){
             gridFiles2.setVisible(!gridFiles2.isVisible());
@@ -410,6 +421,9 @@ public class ControllerPrimary extends Controller implements Initializable{
         findCounter.setText("");
         searchText.setText("");
         rememberedWord = "";
+
+        statePane.setVisible(false);
+        state.setDisable(true);
     }
 
     private void startWork(){
@@ -433,6 +447,8 @@ public class ControllerPrimary extends Controller implements Initializable{
         titleText.setVisible(true);
 
         searchText.setDisable(false);
+        statePane.setVisible(false);
+        state.setDisable(false);
     }
 
     private void returnBeforeRefresh(){
@@ -455,6 +471,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
         TextFields.bindAutoCompletion(autoFillText, autoPaths);
     }
+
     public void autoOpenFile(){
         autoFillText.setOnKeyPressed(event -> {
             if(event.getCode() == KeyCode.ENTER){
@@ -472,7 +489,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     }
 
 
-// CONFIGURE FIND OPTIONS--------------------------------------------------------------------
+// CONFIGURE FIND OPTIONS-------------------------------------------------------------
 
     private int counter = 0;
     private String rememberedWord = "";
@@ -519,7 +536,8 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     }
 
-// CONFIGURE SPELLING CHECKER OPTIONS--------------------------------------------------------------------
+// CONFIGURE SPELLING CHECKER OPTIONS-------------------------------------------------
+
     public void invokeSpellingChecker(){
         Controller controllerSpellingChecker=null;
         Stage s=new Stage();
@@ -538,4 +556,113 @@ public class ControllerPrimary extends Controller implements Initializable{
             System.out.println("LOADING SPELLING CHECKER FAILED...");
         }
     }
+
+// LEARNING - STATE------------------------------------------------------------------
+
+    @FXML
+    Pane statePane;
+    @FXML
+    Button state;
+    @FXML
+    RadioButton state0;
+    @FXML
+    RadioButton state1;
+    @FXML
+    RadioButton state2;
+    @FXML
+    RadioButton state3;
+    @FXML
+    RadioButton state4;
+    private ArrayList<RadioButton> radioButtons = new ArrayList<>();
+    private HashMap<String,Integer> states = new HashMap<>(); //Strings are paths to files (short form)
+    private int quantity;
+    private int defaultValue = 2;
+    private String pathToStates = "src/main/resources/States/states";
+
+    private void getStates(){
+
+        try {
+            FileInputStream fileInputStream = new FileInputStream(pathToStates);
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            states = (HashMap<String, Integer>) objectInputStream.readObject();
+            objectInputStream.close();
+            fileInputStream.close();
+            System.out.println("GETTING states OK");
+        } catch(Exception e){
+            System.out.println("GETTING states FAILED");
+        }
+
+        for(String s : autoPaths)
+            if(!states.keySet().contains(s))
+                states.put(s,defaultValue);
+
+        //for(String path : states.keySet())
+        //    System.out.println(path + " " + states.get(path) );
+    }
+
+    private void updateStates(String path, int state){
+        getStates();
+
+        if(states.keySet().contains(path))
+            states.replace(path,state);
+        else
+            states.put(path,state);
+
+        for(String s : autoPaths)
+            if(!states.keySet().contains(s))
+                states.put(s,defaultValue);
+
+        commitUpdate();
+    }
+
+    private void commitUpdate(){
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(pathToStates);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(states);
+            objectOutputStream.close();
+            fileOutputStream.close();
+            System.out.println("UPDATING states OK");
+        } catch(Exception e){
+            System.out.println("UPDATING states FAILED");
+        }
+    }
+
+    private void prepareLearningStates(){
+        radioButtons.add(state0);
+        radioButtons.add(state1);
+        radioButtons.add(state2);
+        radioButtons.add(state3);
+        radioButtons.add(state4);
+        quantity = 5;
+
+        getStates();
+
+        for(int i = 0; i < quantity; i++){
+            final int id = i;
+            radioButtons.get(i).setOnAction(event -> stateRadio(id,true));
+        }
+    }
+
+    public void statePaneActivation(){
+        System.out.println("LEARNING ACTIVATION!");
+        stateRadio(states.get(RegexManager.convertFullPathToShort(selectedFile.getPath())),false);
+        statePane.setVisible(true);
+    }
+
+    public void stateRadio(int id, boolean ifClose){
+        System.out.println("stateRadio for: " + id);
+
+        RadioButton radioButton = radioButtons.get(id);
+        for(int i = 0; i < quantity; i++){
+            if(i != id)
+                radioButtons.get(i).setSelected(false);
+        }
+        radioButton.setSelected(true);
+        updateStates(RegexManager.convertFullPathToShort(selectedFile.getPath()),id);
+        if(ifClose){
+            statePane.setVisible(false);
+        }
+    }
+
 }

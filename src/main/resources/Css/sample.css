@@ -81,3 +81,8 @@
     -fx-font-size: 20px !important;
     -fx-font-weight: bold !important;
 }
+
+#statePane{
+    -fx-background-image: url("../States/background.png");
+    -fx-background-size: 100% 100%;
+}
