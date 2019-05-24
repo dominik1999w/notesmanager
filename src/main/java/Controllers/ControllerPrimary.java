@@ -26,7 +26,6 @@ import javafx.util.Callback;
 import javafx.util.Duration;
 import javafx.util.Pair;
 import org.controlsfx.control.textfield.TextFields;
-import org.languagetool.rules.ShortenedYearRangeChecker;
 
 import java.awt.*;
 import java.io.*;

@@ -3,31 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0e9c97d0-9877-4614-8db6-8cb875667fb1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Calculus/Applications of Derivatives.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Calculus/Concavity.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Calculus/L'Hôpital's Rule.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Calculus/Limits and Continuity.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Calculus/Tangents.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/categories/Calculus/Tangents.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Object-Oriented Programming/refleksje" beforeDir="false" afterPath="$PROJECT_DIR$/categories/Object-Oriented Programming/refleksje" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/Programming Methods/haszowanie" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerPrimary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerPrimary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Management/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Management/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Management/StageMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Management/StageMaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Others/GridManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Others/GridManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Others/RegexManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Others/RegexManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/sample.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/sample.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Scenes/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Scenes/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/States/states" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/States/states" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary$ExternalThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary$ExternalThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Css/sample.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Css/sample.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Management/Launcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Management/Launcher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Management/StageMaster.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Management/StageMaster.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Others/GridManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Others/GridManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Others/RegexManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Others/RegexManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Scenes/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Scenes/sample.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -66,8 +42,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerPrimary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-813">
-              <caret line="690" lean-forward="true" selection-start-line="690" selection-end-line="690" />
+            <state relative-caret-position="219">
+              <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
               <folding>
                 <element signature="e#1254#1495#0" />
                 <element signature="e#4485#4574#1" />
@@ -125,12 +101,7 @@
                 <element signature="e#17668#18192#0" />
                 <element signature="e#17727#18182#1" />
                 <element signature="e#17844#17911#1" />
-                <element signature="e#18416#20590#0" />
-                <element signature="e#18487#20581#0" />
                 <element signature="e#18554#18663#1" />
-                <element signature="e#18724#20571#1" />
-                <element signature="e#18814#19422#1" />
-                <element signature="e#19225#19329#1" />
                 <element signature="e#19477#19558#1" />
                 <element signature="e#19608#19689#1" />
                 <element signature="e#19723#20138#1" />
@@ -142,7 +113,6 @@
                 <element signature="e#21043#21189#1" />
                 <element signature="e#21343#21419#0" />
                 <element signature="e#21442#21523#0" />
-                <element signature="e#22440#23199#0" />
                 <element signature="e#23091#23127#0" />
                 <element signature="e#23205#23564#0" />
                 <element signature="e#23570#24078#0" />
@@ -344,6 +314,41 @@
             <path>
               <item name="notesmanager" type="b2602c69:ProjectViewProjectNode" />
               <item name="notesmanager" type="462c0819:PsiDirectoryNode" />
+              <item name="categories" type="462c0819:PsiDirectoryNode" />
+              <item name="Calculus" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="notesmanager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="notesmanager" type="462c0819:PsiDirectoryNode" />
+              <item name="categories" type="462c0819:PsiDirectoryNode" />
+              <item name="Data Engineering" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="notesmanager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="notesmanager" type="462c0819:PsiDirectoryNode" />
+              <item name="categories" type="462c0819:PsiDirectoryNode" />
+              <item name="Discrete Mathematics" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="notesmanager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="notesmanager" type="462c0819:PsiDirectoryNode" />
+              <item name="categories" type="462c0819:PsiDirectoryNode" />
+              <item name="Object-Oriented Programming" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="notesmanager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="notesmanager" type="462c0819:PsiDirectoryNode" />
+              <item name="categories" type="462c0819:PsiDirectoryNode" />
+              <item name="Programming Methods" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="notesmanager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="notesmanager" type="462c0819:PsiDirectoryNode" />
+              <item name="catHelp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="notesmanager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="notesmanager" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -433,7 +438,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558736740071" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558737324485" />
     <property name="last_opened_file_path" value="/usr/lib/jvm/java-11-openjdk-amd64/javafx-sdk-11.0.2/lib" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -525,12 +530,12 @@
       <option name="project" value="LOCAL" />
       <updated>1558726314246</updated>
     </task>
-    <task id="LOCAL-00006" summary="Fixed bug">
-      <created>1555612257809</created>
+    <task id="LOCAL-00006" summary="Fully working learning.">
+      <created>1558736828160</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1555612257809</updated>
+      <updated>1558736828160</updated>
     </task>
     <task id="LOCAL-00007" summary="Added delete button">
       <created>1555613863768</created>
@@ -651,7 +656,7 @@
       <option name="project" value="LOCAL" />
       <updated>1557091986800</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -667,7 +672,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.18096292" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.18096292" />
       <window_info id="Structure" order="1" weight="0.24916944" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -676,7 +681,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3261339" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4449244" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4449244" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39848813" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -764,7 +769,8 @@
     <MESSAGE value="Clean warnings." />
     <MESSAGE value="Learning &amp; GUI updates." />
     <MESSAGE value="Missing files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Missing files." />
+    <MESSAGE value="Fully working learning." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully working learning." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/resources/Images/back.png">
@@ -974,8 +980,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerPrimary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-813">
-          <caret line="690" lean-forward="true" selection-start-line="690" selection-end-line="690" />
+        <state relative-caret-position="219">
+          <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
           <folding>
             <element signature="e#1254#1495#0" />
             <element signature="e#4485#4574#1" />
@@ -1033,12 +1039,7 @@
             <element signature="e#17668#18192#0" />
             <element signature="e#17727#18182#1" />
             <element signature="e#17844#17911#1" />
-            <element signature="e#18416#20590#0" />
-            <element signature="e#18487#20581#0" />
             <element signature="e#18554#18663#1" />
-            <element signature="e#18724#20571#1" />
-            <element signature="e#18814#19422#1" />
-            <element signature="e#19225#19329#1" />
             <element signature="e#19477#19558#1" />
             <element signature="e#19608#19689#1" />
             <element signature="e#19723#20138#1" />
@@ -1050,7 +1051,6 @@
             <element signature="e#21043#21189#1" />
             <element signature="e#21343#21419#0" />
             <element signature="e#21442#21523#0" />
-            <element signature="e#22440#23199#0" />
             <element signature="e#23091#23127#0" />
             <element signature="e#23205#23564#0" />
             <element signature="e#23570#24078#0" />
