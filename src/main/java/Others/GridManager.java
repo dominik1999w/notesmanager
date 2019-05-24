@@ -137,7 +137,7 @@ public class GridManager {
 
     private GridPane generateNewGridPane(int width, int height){
 
-        double prefHeight = height <= 5 ? gridFilesFactory.getPrefHeight() : height * 175; //globalne
+        double prefHeight = height * 185; //globalne
         double prefWidth = gridFilesFactory.getPrefWidth() * ((double)width / 4); //globalne
 
         System.out.println("CHANGING grid to : prefW - " + prefWidth + " prefH - " + prefHeight);
@@ -155,7 +155,7 @@ public class GridManager {
         gridPane.getColumnConstraints().addAll(columnConstraints);
 
         LinkedList<RowConstraints> rowConstraints = new LinkedList<>();
-        height = height <= 5 ? 5 : height; //globalne
+        //height = height <= 5 ? 5 : height; //globaln
         for(int i = 0; i < height; i++)
             rowConstraints.add(gridFilesFactory.getRowConstraints().get(0));
         gridPane.getRowConstraints().addAll(rowConstraints);

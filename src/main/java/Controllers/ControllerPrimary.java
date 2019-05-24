@@ -129,7 +129,6 @@ public class ControllerPrimary extends Controller implements Initializable{
         TreeItem<File> connectRoots = new TreeItem<>(null);
         connectRoots.getChildren().addAll(roots);
 
-        fullSize.setGraphic(buttons.setCustomImage("fullSize"));
         save.setGraphic(buttons.setCustomImage("save"));
         edit.setGraphic(buttons.setCustomImage("edit"));
         rename.setGraphic(buttons.setCustomImage("rename"));
@@ -137,6 +136,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         remove.setGraphic(buttons.setCustomImage("remove"));
         newCategoryButton.setGraphic(buttons.setCustomImage("newCategory"));
         natively.setGraphic(buttons.setCustomImage("external"));
+        state.setGraphic(buttons.setCustomImage("state"));
         Tooltip a = new Tooltip("Spelling Checker!");
         setTooltipTimer(a);
         spellingCheckerButton.setTooltip(a);
@@ -311,8 +311,7 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     private void displayGridFilesView(File dir){
         endWork();
-        close.setVisible(true);
-        close.setDisable(false);
+        startAnything();
         textPane.setVisible(true);
         selectedDir = new File(dir.getPath());
         gridManager = new GridManager(gridFilesFactory4, gridFiles4, scrollPaneFull,this);
@@ -413,16 +412,18 @@ public class ControllerPrimary extends Controller implements Initializable{
     }
 
 
-    private void endWork(){ //called when changing category
+    private void endWork(){ //called when changing category //some text
         fileTitleArea.setText("");
         titleText.setText("");
         spellingCheckerButton.setDisable(true);
+        spellingCheckerButton.setVisible(false);
         rename.setSelected(false);
         rename.setDisable(true);
         edit.setSelected(false);
         edit.setDisable(true);
         fullSize.setDisable(true);
         fullSize.setSelected(false);
+        fullSize.setVisible(false);
         save.setDisable(true);
         remove.setDisable(true);
         natively.setDisable(true);
@@ -435,23 +436,28 @@ public class ControllerPrimary extends Controller implements Initializable{
         splitPaneEditMode.setVisible(false);
 
         searchText.setDisable(true);
+        searchText.setVisible(false);
         findCounter.setText("");
         searchText.setText("");
         rememberedWord = "";
 
         statePane.setVisible(false);
         state.setDisable(true);
+        state.setSelected(false);
         stateDisplay.setVisible(false);
+
     }
 
-    private void startWork(){
+    private void startWork(){ //some text
         rename.setSelected(false);
         rename.setDisable(false);
         spellingCheckerButton.setDisable(false);
+        spellingCheckerButton.setVisible(true);
         edit.setSelected(false);
         edit.setDisable(false);
         fullSize.setDisable(false);
         fullSize.setSelected(false);
+        fullSize.setVisible(true);
         save.setDisable(false);
         remove.setDisable(false);
         natively.setDisable(false);
@@ -465,8 +471,15 @@ public class ControllerPrimary extends Controller implements Initializable{
         titleText.setVisible(true);
 
         searchText.setDisable(false);
+        searchText.setVisible(true);
         statePane.setVisible(false);
         state.setDisable(false);
+        state.setSelected(false);
+    }
+
+    private void startAnything(){
+        close.setVisible(true);
+        close.setDisable(false);
     }
 
     private void returnBeforeRefresh(){
@@ -591,7 +604,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     @FXML
     Pane statePane;
     @FXML
-    Button state;
+    ToggleButton state;
     @FXML
     ImageView stateDisplay;
     @FXML
@@ -665,9 +678,9 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     private void prepareLearningStates(){
         radioButtons.add(state0);
-        radioButtons.add(state1);
+        radioButtons.add(new RadioButton());
         radioButtons.add(state2);
-        radioButtons.add(state3);
+        radioButtons.add(new RadioButton());
         radioButtons.add(state4);
         radioButtons.add(state5);
         radioButtons.add(state6);
@@ -684,7 +697,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     public void statePaneActivation(){
         System.out.println("LEARNING ACTIVATION!");
         stateRadio(states.get(RegexManager.convertFullPathToShort(selectedFile.getPath())),false);
-        statePane.setVisible(true);
+        statePane.setVisible(!statePane.isVisible());
     }
 
     @FXML
@@ -701,6 +714,8 @@ public class ControllerPrimary extends Controller implements Initializable{
         if(ifClose){
             statePane.setVisible(false);
             displayState(selectedFile);
+            displayGridFilesView(selectedDir);
+            displayFile();
         }
     }
 

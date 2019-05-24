@@ -9,9 +9,9 @@ public class Launcher extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        primaryStage.setMinHeight(1040);
+        primaryStage.setMinHeight(800);
         primaryStage.setMinWidth(1350);
-        primaryStage.setHeight(1041);
+        primaryStage.setHeight(1000);
         primaryStage.setWidth(1351);
         primaryStage.setTitle("NotesManager");
         //Make first primary controller, set its name. It will create static field for

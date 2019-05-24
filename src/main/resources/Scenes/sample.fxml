@@ -45,35 +45,27 @@
                   <Button fx:id="natively" layoutX="226.0" layoutY="1.0" maxWidth="42.0" minWidth="42.0" mnemonicParsing="false" onMouseClicked="#openFileNatively" prefHeight="28.0" prefWidth="42.0" style="-fx-background-color: white;" />
           </children>
         </AnchorPane>
-            <SplitPane dividerPositions="0.5" focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <SplitPane dividerPositions="0.5" focusTraversable="true" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <items>
-                   <BorderPane fx:id="optionsBarBorder" maxHeight="53.0" minHeight="53.0" prefHeight="53.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                   <BorderPane fx:id="optionsBarBorder" maxHeight="70.0" minHeight="70.0" prefHeight="70.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <center>
-                        <AnchorPane fx:id="optionsBarAnchor" maxHeight="58.0" minHeight="58.0" prefHeight="58.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="optionsBarAnchor" maxHeight="64.0" minHeight="64.0" prefHeight="64.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Button fx:id="save" layoutX="2.0" layoutY="30.0" maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="100.0" text="Save" />
-                              <ToggleButton fx:id="edit" layoutX="2.0" layoutY="2.0" maxHeight="20.0" maxWidth="100.0" minHeight="20.0" minWidth="100.0" mnemonicParsing="false" onAction="#edit" prefHeight="20.0" prefWidth="100.0" text="Edit" />
-                        <TextField fx:id="fileTitleArea" disable="true" editable="false" layoutX="367.0" layoutY="11.0" onKeyPressed="#submitRename" prefHeight="33.0" prefWidth="192.0">
+                              <Button fx:id="save" layoutX="2.0" layoutY="34.0" maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="100.0" text="Save" />
+                              <ToggleButton fx:id="edit" layoutX="2.0" layoutY="4.0" maxHeight="26.0" maxWidth="100.0" minHeight="26.0" minWidth="100.0" mnemonicParsing="false" onAction="#edit" prefHeight="26.0" prefWidth="100.0" text="Edit" />
+                        <TextField fx:id="fileTitleArea" disable="true" editable="false" layoutX="216.0" layoutY="18.0" onKeyPressed="#submitRename" prefHeight="33.0" prefWidth="343.0">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </TextField>
-                              <Text fx:id="titleText" fill="WHITE" layoutX="387.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="153.7294921875">
+                              <Text fx:id="titleText" fill="WHITE" layoutX="220.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="316.7294921875">
                                  <font>
                                     <Font name="System Bold" size="17.0" />
                                  </font>
                               </Text>
-                              <ToggleButton fx:id="rename" layoutX="104.0" layoutY="12.0" maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#rename" prefWidth="100.0" text="Rename" />
-                              <Button fx:id="state" layoutX="320.0" layoutY="1.0" mnemonicParsing="false" onAction="#statePaneActivation" prefHeight="26.0" prefWidth="42.0" style="-fx-background-color: #3C408B;">
-                                 <graphic>
-                                    <ImageView fitHeight="39.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../States/button.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <ImageView fx:id="stateDisplay" fitHeight="40.0" fitWidth="40.0" layoutX="571.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+                              <ToggleButton fx:id="rename" layoutX="106.0" layoutY="4.0" maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#rename" prefWidth="100.0" text="Rename" />
+                              <ImageView fx:id="stateDisplay" fitHeight="40.0" fitWidth="40.0" layoutX="570.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                              <ToggleButton fx:id="state" layoutX="106.0" layoutY="34.0" maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#statePaneActivation" prefWidth="100.0" text="SetState" />
                            </children>
                         </AnchorPane>
                      </center>
@@ -83,19 +75,33 @@
                               <Insets right="20.0" />
                            </BorderPane.margin>
                            <children>
-                              <Button fx:id="close" layoutX="335.0" layoutY="5.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: #3C408B;" text="X" textFill="#ee0404">
+                              <Button fx:id="close" layoutX="335.0" layoutY="15.0" mnemonicParsing="false" onAction="#close" prefHeight="35.0" prefWidth="42.0" style="-fx-background-color: #3C408B;" textFill="#ee0404">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
+                                 <graphic>
+                                    <ImageView fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/close.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                               </Button>
-                          <ToggleButton fx:id="fullSize" layoutX="226.0" layoutY="12.0" maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#MakeTextAreaFullSize" prefWidth="100.0" styleClass="button" text="Full Size" />
-                              <Text fx:id="findCounter" fill="WHITE" layoutX="130.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                              <TextField fx:id="searchText" layoutY="12.0" onKeyReleased="#findText" prefHeight="26.0" prefWidth="119.0" />
-                              <Button fx:id="spellingCheckerButton" layoutX="164.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#invokeSpellingChecker" prefHeight="26.0" prefWidth="42.0" style="-fx-background-color: #3C408B;">
+                          <ToggleButton fx:id="fullSize" layoutX="275.0" layoutY="14.0" maxWidth="100.0" minWidth="60.0" mnemonicParsing="false" onAction="#MakeTextAreaFullSize" prefHeight="35.0" prefWidth="60.0" style="-fx-background-color: #3C408B;" styleClass="button">
+                                 <graphic>
+                                    <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/fullSize2.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></ToggleButton>
+                              <Text fx:id="findCounter" fill="WHITE" layoutX="180.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <TextField fx:id="searchText" layoutX="53.0" layoutY="24.0" onKeyReleased="#findText" prefHeight="26.0" prefWidth="119.0" />
+                              <Button fx:id="spellingCheckerButton" layoutX="219.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#invokeSpellingChecker" prefHeight="26.0" prefWidth="42.0" style="-fx-background-color: #3C408B;">
                                  <graphic>
                                     <ImageView fitHeight="39.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../Images/spelling.png" />
+                                          <Image url="@../Images/spelling2.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -122,23 +128,21 @@
                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                          </rowConstraints>
                                      </GridPane>
                                  </content>
                               </ScrollPane>
                            </children>
                         </AnchorPane>
-                        <SplitPane fx:id="splitPaneEditMode" dividerPositions="0.4879759519038076" layoutY="54.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <SplitPane fx:id="splitPaneEditMode" dividerPositions="0.488" layoutY="54.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <items>
                             <AnchorPane fx:id="smallGridPane" maxWidth="510.0" minHeight="0.0" minWidth="510.0">
                                  <children>
-                                    <ScrollPane fx:id="scrollPane" prefHeight="942.0" prefWidth="478.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <ScrollPane fx:id="scrollPane" prefWidth="478.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                           <GridPane fx:id="gridFiles2" layoutX="14.0" layoutY="51.0" onMouseClicked="#openFileInEditMode" visible="false">
                                               <columnConstraints>
-                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="175.0" prefWidth="175.0" />
+                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="175.0" prefWidth="175.0" />
                                               </columnConstraints>
                                               <rowConstraints>
                                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -154,39 +158,35 @@
                               </AnchorPane>
                             <AnchorPane fx:id="textHalfPane" minHeight="0.0" minWidth="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                              <TextArea fx:id="textAreaHalfScreen" editable="false" prefHeight="942.0" prefWidth="503.0" text="" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <TextArea fx:id="textAreaHalfScreen" editable="false" prefWidth="503.0" text="" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                           </items>
                         </SplitPane>
-                    <GridPane fx:id="gridFilesFactory4" layoutX="14.0" layoutY="51.0" onMouseClicked="#openFileInEditMode" prefHeight="890.0" prefWidth="975.0" visible="false">
+                    <GridPane fx:id="gridFilesFactory4" layoutX="14.0" layoutY="51.0" onMouseClicked="#openFileInEditMode" prefHeight="500.0" prefWidth="975.0" visible="false">
                         <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="230.0" prefWidth="230.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="230.0" prefWidth="230.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="230.0" prefWidth="230.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="230.0" prefWidth="230.0" />
                         </columnConstraints>
                         <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="160.0" minHeight="160.0" prefHeight="160.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="160.0" minHeight="160.0" prefHeight="160.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="160.0" minHeight="160.0" prefHeight="160.0" vgrow="SOMETIMES" />
                         </rowConstraints>
                     </GridPane>
-                    <GridPane fx:id="gridFilesFactory2" layoutX="14.0" layoutY="51.0" onMouseClicked="#openFileInEditMode" prefHeight="890.0" prefWidth="975.0" visible="false">
+                    <GridPane fx:id="gridFilesFactory2" layoutX="14.0" layoutY="51.0" onMouseClicked="#openFileInEditMode" prefHeight="500.0" prefWidth="975.0" visible="false">
                         <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="230.0" prefWidth="230.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="230.0" prefWidth="230.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="230.0" prefWidth="230.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="230.0" prefWidth="230.0" />
                         </columnConstraints>
                         <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="160.0" minHeight="160.0" prefHeight="160.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="160.0" minHeight="160.0" prefHeight="160.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="160.0" minHeight="160.0" prefHeight="160.0" vgrow="SOMETIMES" />
                         </rowConstraints>
                     </GridPane>
                 </children>
@@ -195,7 +195,7 @@
             </SplitPane>
       </items>
     </SplitPane>
-      <Pane fx:id="statePane" layoutX="600.0" layoutY="50.0" prefHeight="370.0" prefWidth="101.0">
+      <Pane fx:id="statePane" layoutX="424.0" layoutY="71.0" prefHeight="280.0" prefWidth="101.0">
          <children>
             <RadioButton fx:id="state0" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0">
                <graphic>
@@ -210,20 +210,7 @@
                   </Pane>
                </graphic>
             </RadioButton>
-            <RadioButton fx:id="state1" layoutX="14.0" layoutY="60.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0">
-               <graphic>
-                  <Pane>
-                     <children>
-                        <ImageView fitHeight="41.0" fitWidth="36.0" layoutX="10.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../States/1.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-               </graphic>
-            </RadioButton>
-            <RadioButton fx:id="state2" layoutX="14.0" layoutY="110.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0">
+            <RadioButton fx:id="state2" layoutX="14.0" layoutY="60.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0">
                <graphic>
                   <Pane>
                      <children>
@@ -236,20 +223,7 @@
                   </Pane>
                </graphic>
             </RadioButton>
-            <RadioButton fx:id="state3" layoutX="14.0" layoutY="160.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0">
-               <graphic>
-                  <Pane>
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="10.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../States/3.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-               </graphic>
-            </RadioButton>
-            <RadioButton fx:id="state4" layoutX="14.0" layoutY="210.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0">
+            <RadioButton fx:id="state4" layoutX="14.0" layoutY="110.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0">
                <graphic>
                   <Pane>
                      <children>
@@ -262,7 +236,7 @@
                   </Pane>
                </graphic>
             </RadioButton>
-            <RadioButton fx:id="state5" layoutX="14.0" layoutY="260.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0">
+            <RadioButton fx:id="state5" layoutX="14.0" layoutY="160.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0">
                <graphic>
                   <Pane>
                      <children>
@@ -271,7 +245,7 @@
                   </Pane>
                </graphic>
             </RadioButton>
-            <RadioButton fx:id="state6" layoutX="14.0" layoutY="310.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0">
+            <RadioButton fx:id="state6" layoutX="14.0" layoutY="210.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0">
                <graphic>
                   <Pane>
                      <children>
