@@ -14,7 +14,7 @@
     <Pane fx:id="newCategoryMain" prefHeight="1000.0" prefWidth="1320.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <children>
             <Button fx:id="back" layoutX="38.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
-            <ListView fx:id="categoriesList" layoutX="194.0" layoutY="258.0" prefHeight="566.0" prefWidth="219.0" />
+            <ListView fx:id="categoriesList" layoutX="194.0" layoutY="258.0" prefHeight="355.0" prefWidth="219.0" />
             <TextField fx:id="newCategoryName" layoutX="515.0" layoutY="515.0" onKeyPressed="#submitCategoryName" prefHeight="26.0" prefWidth="317.0" style="-fx-background-color: white;" />
             <Text fill="WHITE" layoutX="194.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories:" wrappingWidth="219.00002717971802">
                 <font>
@@ -31,12 +31,7 @@
                     <Font size="15.0" />
                 </font>
             </Text>
-            <Button fx:id="removeCategory" disable="true" layoutX="475.0" layoutY="797.0" mnemonicParsing="false" onAction="#removeCategory" prefHeight="26.0" prefWidth="174.0" text="Delete Category" />
-            <Text fill="WHITE" layoutX="698.0" layoutY="816.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Press enter to remove category" wrappingWidth="317.0000025629997">
-                <font>
-                    <Font size="16.0" />
-                </font>
-            </Text>
+            <Button fx:id="removeCategory" disable="true" layoutX="573.0" layoutY="587.0" mnemonicParsing="false" onAction="#removeCategory" prefHeight="26.0" prefWidth="174.0" text="Delete Category" />
         </children>
     </Pane>
 </children>

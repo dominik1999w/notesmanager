@@ -14,7 +14,7 @@
       <Pane fx:id="newFileMain" prefHeight="1000.0" prefWidth="1320.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
           <children>
               <Button fx:id="back" layoutX="38.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
-              <ListView fx:id="categoriesList" layoutX="194.0" layoutY="258.0" prefHeight="566.0" prefWidth="219.0" />
+              <ListView fx:id="categoriesList" layoutX="194.0" layoutY="258.0" prefHeight="355.0" prefWidth="219.0" />
               <TextField fx:id="newFileName" disable="true" editable="false" layoutX="515.0" layoutY="515.0" onKeyPressed="#submitFileName" prefHeight="26.0" prefWidth="317.0" style="-fx-background-color: white;" />
             <Text fill="WHITE" layoutX="194.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories:" wrappingWidth="219.00002717971802">
                <font>
