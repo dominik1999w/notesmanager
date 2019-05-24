@@ -12,6 +12,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -51,68 +53,69 @@ public class ControllerPrimary extends Controller implements Initializable{
     private File selectedDir;
     private File selectedFile;
     private List<String> autoPaths = new LinkedList<>();
+
     @FXML
-    TreeView<File> treeView;
+    private TreeView<File> treeView;
     @FXML
-    TextField fileTitleArea;
+    private TextField fileTitleArea;
     @FXML
-    TextArea textAreaFullScreen; //visibility changeable
+    private TextArea textAreaFullScreen; //visibility changeable
     @FXML
-    TextArea textAreaHalfScreen;
+    private TextArea textAreaHalfScreen;
     @FXML
-    ToggleButton rename;
+    private ToggleButton rename;
     @FXML
-    TextField searchText;
+    private TextField searchText;
     @FXML
-    ToggleButton edit;
+    private ToggleButton edit;
     @FXML
-    ToggleButton fullSize;
+    private ToggleButton fullSize;
     @FXML
-    Button close;
+    private Button close;
     @FXML
-    Button save;
+    private Button save;
     @FXML
-    Button remove;
+    private Button remove;
     @FXML
-    Button natively;
+    private Button natively;
     @FXML
-    GridPane gridFilesFactory2;
+    private GridPane gridFilesFactory2;
     @FXML
-    GridPane gridFilesFactory4;
+    private GridPane gridFilesFactory4;
     @FXML
-    GridPane gridFiles2;
+    private GridPane gridFiles2;
     @FXML
-    GridPane gridFiles4;
+    private GridPane gridFiles4;
     @FXML
-    ScrollPane scrollPane;
+    private ScrollPane scrollPane;
     @FXML
-    ScrollPane scrollPaneFull; //visibility changeable
+    private ScrollPane scrollPaneFull; //visibility changeable
     @FXML
-    SplitPane splitPaneEditMode; //visibility changeable
+    private SplitPane splitPaneEditMode; //visibility changeable
     @FXML
-    AnchorPane textPane;
+    private AnchorPane textPane;
     @FXML
-    AnchorPane smallGridPane;
+    private AnchorPane smallGridPane;
     @FXML
-    AnchorPane treePane;
+    private AnchorPane treePane;
     @FXML
-    TextField autoFillText;
+    private TextField autoFillText;
     @FXML
-    Text findCounter;
+    private Text findCounter;
     @FXML
-    AnchorPane optionsBarAnchor;
+    private AnchorPane optionsBarAnchor;
     @FXML
-    BorderPane optionsBarBorder;
+    private BorderPane optionsBarBorder;
     @FXML
-    Button newFileButton;
+    private Button newFileButton;
     @FXML
-    Button newCategoryButton;
+    private Button newCategoryButton;
     @FXML
-    Text titleText;
+    private Text titleText;
     @FXML
-    Button spellingCheckerButton;
+    private Button spellingCheckerButton;
     @FXML
-    AnchorPane rootBox;
+    private AnchorPane rootBox;
 
 
     @Override
@@ -178,20 +181,22 @@ public class ControllerPrimary extends Controller implements Initializable{
 
 // NAVIGATION ----------------------------------------------------------------------
 
+    @FXML
     public void clickCategoryControllerButton() throws IOException {
         //Creating new ControllerFiles and loading it
         Controller.stageMaster.loadNewScene(new ControllerFiles("/Scenes/Files.fxml", this));
     }
 
+    @FXML
     public void clickNewCategoryButton() throws IOException {
         Controller.stageMaster.loadNewScene(new ControllerCategories("/Scenes/Categories.fxml", this));
     }
 
 // FILE OPTIONS --------------------------------------------------------------------
 
-    public void openFileNatively() throws InterruptedException {
+    @FXML
+    public void openFileNatively() {
         if(selectedFile == null)  return;
-        Thread cur=Thread.currentThread();
         ExternalThread tr = new ExternalThread();
         if(Desktop.isDesktopSupported()){
             tr.start();
@@ -210,10 +215,12 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
     }
 
+    @FXML
     public void removeFile() throws IOException {
         try{
             autoPaths.clear();
             Controller.stageMaster.loadNewScene(new ControllerAreYouSure("/Scenes/AreYouSure.fxml", this,"remove",selectedFile));
+            prepareAutoTextField();
         } catch (NullPointerException e){
             System.out.println("You can't remove nothing. ;)");
         }
@@ -221,6 +228,7 @@ public class ControllerPrimary extends Controller implements Initializable{
 
 // DISPLAY FILE OPTIONS ------------------------------------------------------------
 
+    @FXML
     public void rename(){
         if(selectedFile != null) {
             autoPaths.clear();
@@ -233,9 +241,11 @@ public class ControllerPrimary extends Controller implements Initializable{
                 displayTitle(selectedFile.getName());
             if (rename.isSelected() != fileTitleArea.isEditable())
                 rename.setSelected(!rename.isSelected());
+            prepareAutoTextField();
         }
     }
 
+    @FXML
     public void submitRename(){
         fileTitleArea.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
@@ -247,8 +257,7 @@ public class ControllerPrimary extends Controller implements Initializable{
                     newPath = newPath.concat(".").concat(extension);
                 try {
                     Path path = Files.move((Paths.get(selectedFile.getPath())), Paths.get(newPath));
-                    File newFile = new File(path.toString());
-                    selectedFile = newFile;
+                    selectedFile = new File(path.toString());
                     System.out.println("RENAMED to: " + selectedFile.getName());
                     rename();
                     stageMaster.refresh(this);
@@ -266,12 +275,14 @@ public class ControllerPrimary extends Controller implements Initializable{
         titleText.setText(RegexManager.convertNameToReadable(name));
     }
 
+    @FXML
     public void edit(){
         textAreaFullScreen.setEditable(!textAreaFullScreen.isEditable());
         textAreaHalfScreen.setEditable(!textAreaHalfScreen.isEditable());
         System.out.println("SET editable to: " + textAreaFullScreen.isEditable());
     }
 
+    @FXML
     public void save(){
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(selectedFile);
@@ -288,6 +299,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
     }
 
+    @FXML
     public void close(){
         endWork();
         textAreaFullScreen.setVisible(false);
@@ -303,10 +315,11 @@ public class ControllerPrimary extends Controller implements Initializable{
         close.setDisable(false);
         textPane.setVisible(true);
         selectedDir = new File(dir.getPath());
-        gridManager = new GridManager(selectedDir, gridFilesFactory4, gridFiles4, scrollPaneFull);
+        gridManager = new GridManager(gridFilesFactory4, gridFiles4, scrollPaneFull,this);
         gridManager.adjustGridFilesView(dir,4); //globalne
     }
 
+    @FXML
     public void openFileTree(){
         TreeItem<File> item = treeView.getSelectionModel().getSelectedItem();
         if(item != null && item.getValue().isDirectory()){
@@ -324,7 +337,8 @@ public class ControllerPrimary extends Controller implements Initializable{
             System.out.println(item.getValue());
     }
 
-    public void openFileInEditMode(MouseEvent event) throws IOException {
+    @FXML
+    public void openFileInEditMode(MouseEvent event) {
         startWork();
         Node clicked = event.getPickResult().getIntersectedNode();
         if(clicked == null) return ;
@@ -337,6 +351,8 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     private void displayFile() {
         startWork();
+
+        displayState(selectedFile);
 
         splitPaneEditMode.setVisible(true);
         gridManager.setGridFilesFactory(gridFilesFactory2);
@@ -368,6 +384,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         textAreaHalfScreen.selectRange(0,0);
     }
 
+    @FXML
     public void MakeTextAreaFullSize(){
         if(selectedFile != null){
             gridFiles2.setVisible(!gridFiles2.isVisible());
@@ -390,13 +407,13 @@ public class ControllerPrimary extends Controller implements Initializable{
     }
 
     private void prepareSmallScreen(){
-        if(textAreaFullScreen.getText() != ""){
+        if(!textAreaFullScreen.getText().equals("")){
             textAreaHalfScreen.setText(textAreaFullScreen.getText());
         }
     }
 
 
-    public void endWork(){ //called when changing category
+    private void endWork(){ //called when changing category
         fileTitleArea.setText("");
         titleText.setText("");
         spellingCheckerButton.setDisable(true);
@@ -424,6 +441,7 @@ public class ControllerPrimary extends Controller implements Initializable{
 
         statePane.setVisible(false);
         state.setDisable(true);
+        stateDisplay.setVisible(false);
     }
 
     private void startWork(){
@@ -472,6 +490,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         TextFields.bindAutoCompletion(autoFillText, autoPaths);
     }
 
+    @FXML
     public void autoOpenFile(){
         autoFillText.setOnKeyPressed(event -> {
             if(event.getCode() == KeyCode.ENTER){
@@ -495,6 +514,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     private String rememberedWord = "";
     private List<Pair<Integer,Integer>> positions;
 
+    @FXML
     public void findText() {
         searchText.setOnKeyReleased(event -> {
             if(searchText.getCharacters().length() == 0){
@@ -538,6 +558,7 @@ public class ControllerPrimary extends Controller implements Initializable{
 
 // CONFIGURE SPELLING CHECKER OPTIONS-------------------------------------------------
 
+    @FXML
     public void invokeSpellingChecker(){
         Controller controllerSpellingChecker=null;
         Stage s=new Stage();
@@ -557,12 +578,22 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
     }
 
-// LEARNING - STATE------------------------------------------------------------------
+    TextArea getTextAreaFullScreen() {
+        return textAreaFullScreen;
+    }
+
+    TextArea getTextAreaHalfScreen() {
+        return textAreaHalfScreen;
+    }
+
+    // LEARNING - STATE------------------------------------------------------------------
 
     @FXML
     Pane statePane;
     @FXML
     Button state;
+    @FXML
+    ImageView stateDisplay;
     @FXML
     RadioButton state0;
     @FXML
@@ -570,13 +601,17 @@ public class ControllerPrimary extends Controller implements Initializable{
     @FXML
     RadioButton state2;
     @FXML
-    RadioButton state3;
+    private RadioButton state3;
     @FXML
     RadioButton state4;
+    @FXML
+    RadioButton state5;
+    @FXML
+    RadioButton state6;
     private ArrayList<RadioButton> radioButtons = new ArrayList<>();
     private HashMap<String,Integer> states = new HashMap<>(); //Strings are paths to files (short form)
-    private int quantity;
-    private int defaultValue = 2;
+    private int quantity = 7;
+    private int defaultValue = 5;
     private String pathToStates = "src/main/resources/States/states";
 
     private void getStates(){
@@ -634,7 +669,8 @@ public class ControllerPrimary extends Controller implements Initializable{
         radioButtons.add(state2);
         radioButtons.add(state3);
         radioButtons.add(state4);
-        quantity = 5;
+        radioButtons.add(state5);
+        radioButtons.add(state6);
 
         getStates();
 
@@ -644,12 +680,14 @@ public class ControllerPrimary extends Controller implements Initializable{
         }
     }
 
+    @FXML
     public void statePaneActivation(){
         System.out.println("LEARNING ACTIVATION!");
         stateRadio(states.get(RegexManager.convertFullPathToShort(selectedFile.getPath())),false);
         statePane.setVisible(true);
     }
 
+    @FXML
     public void stateRadio(int id, boolean ifClose){
         System.out.println("stateRadio for: " + id);
 
@@ -662,7 +700,18 @@ public class ControllerPrimary extends Controller implements Initializable{
         updateStates(RegexManager.convertFullPathToShort(selectedFile.getPath()),id);
         if(ifClose){
             statePane.setVisible(false);
+            displayState(selectedFile);
         }
+    }
+
+    private void displayState(File file){
+        int state = states.get(RegexManager.convertFullPathToShort(file.getPath()));
+        stateDisplay.setImage(new Image(getClass().getResourceAsStream("../States/" + state + ".png")));
+        stateDisplay.setVisible(true);
+    }
+
+    public HashMap<String,Integer> getStatesMap(){
+        return this.states;
     }
 
 }

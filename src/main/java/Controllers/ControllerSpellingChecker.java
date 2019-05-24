@@ -113,10 +113,10 @@ public class ControllerSpellingChecker extends Controller {
         String d=textAreaToCheck.getText();
         String original=suggestionsList1.getSelectionModel().getSelectedItems().get(0);
         String tmp=suggestionsList2.getSelectionModel().getSelectedItems().get(0);
-        if(controllerPrimary.textAreaFullScreen.isVisible())
-            controllerPrimary.textAreaFullScreen.setText(d.replace(original,tmp));
+        if(controllerPrimary.getTextAreaFullScreen().isVisible())
+            controllerPrimary.getTextAreaFullScreen().setText(d.replace(original,tmp));
         else
-            controllerPrimary.textAreaHalfScreen.setText(d.replace(original,tmp));
+            controllerPrimary.getTextAreaHalfScreen().setText(d.replace(original,tmp));
         matchStringList1.remove(original);
         matchStringList2.clear();
         suggestionsList2.setItems(FXCollections.observableList(matchStringList2));

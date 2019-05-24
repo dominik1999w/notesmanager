@@ -49,21 +49,21 @@
                <items>
                    <BorderPane fx:id="optionsBarBorder" maxHeight="53.0" minHeight="53.0" prefHeight="53.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <center>
-                        <AnchorPane fx:id="optionsBarAnchor" maxHeight="53.0" minHeight="53.0" prefHeight="53.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="optionsBarAnchor" maxHeight="58.0" minHeight="58.0" prefHeight="58.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Button fx:id="save" layoutX="108.0" layoutY="12.0" maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="100.0" text="Save" />
-                              <ToggleButton fx:id="edit" layoutX="6.0" layoutY="12.0" maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#edit" prefWidth="100.0" text="Edit" />
-                        <TextField fx:id="fileTitleArea" disable="true" editable="false" layoutX="320.0" layoutY="8.0" onKeyPressed="#submitRename" prefWidth="304.0">
+                              <Button fx:id="save" layoutX="2.0" layoutY="30.0" maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="100.0" text="Save" />
+                              <ToggleButton fx:id="edit" layoutX="2.0" layoutY="2.0" maxHeight="20.0" maxWidth="100.0" minHeight="20.0" minWidth="100.0" mnemonicParsing="false" onAction="#edit" prefHeight="20.0" prefWidth="100.0" text="Edit" />
+                        <TextField fx:id="fileTitleArea" disable="true" editable="false" layoutX="367.0" layoutY="11.0" onKeyPressed="#submitRename" prefHeight="33.0" prefWidth="192.0">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </TextField>
-                              <Text fx:id="titleText" fill="WHITE" layoutX="387.0" layoutY="-2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="218.7294921875">
+                              <Text fx:id="titleText" fill="WHITE" layoutX="387.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="153.7294921875">
                                  <font>
                                     <Font name="System Bold" size="17.0" />
                                  </font>
                               </Text>
-                              <ToggleButton fx:id="rename" layoutX="210.0" layoutY="12.0" maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#rename" prefWidth="100.0" text="Rename" />
+                              <ToggleButton fx:id="rename" layoutX="104.0" layoutY="12.0" maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#rename" prefWidth="100.0" text="Rename" />
                               <Button fx:id="state" layoutX="320.0" layoutY="1.0" mnemonicParsing="false" onAction="#statePaneActivation" prefHeight="26.0" prefWidth="42.0" style="-fx-background-color: #3C408B;">
                                  <graphic>
                                     <ImageView fitHeight="39.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
@@ -73,6 +73,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
+                              <ImageView fx:id="stateDisplay" fitHeight="40.0" fitWidth="40.0" layoutX="571.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </AnchorPane>
                      </center>
@@ -194,7 +195,7 @@
             </SplitPane>
       </items>
     </SplitPane>
-      <Pane fx:id="statePane" layoutX="600.0" layoutY="50.0" prefHeight="269.0" prefWidth="101.0">
+      <Pane fx:id="statePane" layoutX="600.0" layoutY="50.0" prefHeight="370.0" prefWidth="101.0">
          <children>
             <RadioButton fx:id="state0" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0">
                <graphic>
@@ -255,6 +256,28 @@
                         <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="10.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../States/4.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </graphic>
+            </RadioButton>
+            <RadioButton fx:id="state5" layoutX="14.0" layoutY="260.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0">
+               <graphic>
+                  <Pane>
+                     <children>
+                        <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="10.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </Pane>
+               </graphic>
+            </RadioButton>
+            <RadioButton fx:id="state6" layoutX="14.0" layoutY="310.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0">
+               <graphic>
+                  <Pane>
+                     <children>
+                        <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="10.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../States/6.png" />
                            </image>
                         </ImageView>
                      </children>

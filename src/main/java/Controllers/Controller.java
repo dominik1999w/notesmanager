@@ -1,5 +1,6 @@
 package Controllers;
 
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import Others.RegexManager;
 import Management.StageMaster;
@@ -31,18 +32,10 @@ public abstract class Controller implements Initializable {
         return this.previousController;
     }
 
-    public void setPreviousScene(Controller controller){
-        this.previousController = controller;
-    }
 
+    Controller() {}
 
-    public Controller() {}
-
-    public Controller(String name) {
-        this.name = name;
-    }
-
-    public Controller(String name, Controller previousController) {
+    Controller(String name, Controller previousController) {
         this.name = name;
         this.previousController = previousController;
     }
@@ -50,7 +43,8 @@ public abstract class Controller implements Initializable {
     @Override
     public abstract void initialize(URL url, ResourceBundle resourceBundle);
 
-    public void goBack() throws IOException {
+    @FXML
+    void goBack() throws IOException {
         Controller.stageMaster.loadPreviousScene();
     }
 

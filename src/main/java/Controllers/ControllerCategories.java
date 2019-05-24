@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 
 public class ControllerCategories extends Controller {
 
-    public ControllerCategories(String name, Controller previousController) {
+    ControllerCategories(String name, Controller previousController) {
         super(name,previousController);
     }
 
@@ -45,7 +45,7 @@ public class ControllerCategories extends Controller {
         removeCategory.setGraphic(buttons.setCustomImage("remove"));
     }
 
-
+    @FXML
     public void submitCategoryName(){
         newCategoryName.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
@@ -67,6 +67,7 @@ public class ControllerCategories extends Controller {
         }
     }
 
+    @FXML
     public void removeCategory(){
         String path = RegexManager.categoryToPath(categoriesList.getSelectionModel().getSelectedItem());
         File category = new File(path);

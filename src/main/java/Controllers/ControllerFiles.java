@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 
 public class ControllerFiles extends Controller{
 
-    public ControllerFiles(String name, Controller previousController) {
+    ControllerFiles(String name, Controller previousController) {
         super(name,previousController);
     }
 
@@ -42,13 +42,15 @@ public class ControllerFiles extends Controller{
         Buttons buttons = new Buttons();
         back.setGraphic(buttons.setCustomImage("back"));
     }
+
+    @FXML
     public void submitFileName(){
         String path = RegexManager.categoryToPath(categoriesList.getSelectionModel().getSelectedItem());
         newFileName.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 String file = path.concat(String.valueOf(newFileName.getCharacters()));
                 createFile(file);
-                try { goBack(); } catch (IOException e) {}
+                try { goBack(); } catch (IOException e) {e.printStackTrace();}
             }
         });
 

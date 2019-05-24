@@ -1,19 +1,19 @@
 package Others;
 
+import Controllers.ControllerPrimary;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
+import java.util.*;
 
 import static java.lang.Math.round;
 
@@ -21,14 +21,12 @@ public class GridManager {
 
     public GridManager() {}
 
-    public GridManager(File selectedDir, GridPane gridFilesFactory, GridPane gridPane, ScrollPane scrollPane) {
-        this.selectedDir = selectedDir;
+    public GridManager(GridPane gridFilesFactory, GridPane gridPane, ScrollPane scrollPane, ControllerPrimary controller) {
         this.gridFilesFactory = gridFilesFactory;
         this.gridPane = gridPane;
         this.scrollPane = scrollPane;
+        this.controller = controller;
     }
-
-    File selectedDir;
 
     @FXML
     GridPane gridFilesFactory;
@@ -36,6 +34,7 @@ public class GridManager {
     GridPane gridPane;
     @FXML
     ScrollPane scrollPane;
+    private ControllerPrimary controller;
 
     public void setGridFilesFactory(GridPane gridFilesFactory) {
         this.gridFilesFactory = gridFilesFactory;
@@ -53,13 +52,8 @@ public class GridManager {
 
         ArrayList<File> filesInfo = new ArrayList<>();
         if(dir != null) {
-            Collections.addAll(filesInfo, dir.listFiles());
-            filesInfo.sort(new Comparator<File>() {
-                @Override
-                public int compare(File file1, File file2) {
-                    return file1.getName().compareTo(file2.getName());
-                }
-            });
+            Collections.addAll(filesInfo, Objects.requireNonNull(dir.listFiles()));
+            filesInfo.sort(Comparator.comparing(File::getName));
         }
         //adjusting size
         int numberOfItems = filesInfo.size();
@@ -109,6 +103,18 @@ public class GridManager {
                                 "-fx-font-size:14");
                         pane.getChildren().add(extension);
                     }
+
+                    //add state to file
+                    Label state = new Label("");
+                    int s = controller.getStatesMap().get(RegexManager.convertFullPathToShort(file.getPath()));
+                    Image image = new Image(getClass().getResourceAsStream("../States/" + s + ".png"));
+                    state.setTranslateX(180);
+                    state.setTranslateY(15);
+                    ImageView imageView = new ImageView(image);
+                    imageView.setFitHeight(30);
+                    imageView.setFitWidth(30);
+                    state.setGraphic(imageView);
+                    pane.getChildren().add(state);
 
                     //add size info
                     double fileSize = file.length();

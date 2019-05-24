@@ -1,18 +1,18 @@
 package Management;
 
 import Controllers.Controller;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Control;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import opennlp.tools.parser.Cons;
 
 import java.io.IOException;
 
 public class StageMaster {
 
     private Controller currentController;
+    @FXML
     public Stage stage;
 
     public StageMaster(Stage stage) {
