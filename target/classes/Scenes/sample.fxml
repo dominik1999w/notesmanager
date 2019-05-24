@@ -165,7 +165,7 @@
                               </AnchorPane>
                           </items>
                         </SplitPane>
-                        <Pane fx:id="panel" layoutX="10.0" layoutY="550.0" prefHeight="280.0" prefWidth="149.0">
+                        <Pane fx:id="panel" layoutX="10.0" layoutY="200.0" prefHeight="280.0" prefWidth="149.0">
                            <children>
                               <Text fx:id="count0" fill="WHITE" layoutX="99.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
                                  <font>

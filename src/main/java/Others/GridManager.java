@@ -62,8 +62,8 @@ public class GridManager {
             }
         } else {
             Collections.addAll(filesInfo, Objects.requireNonNull(dir.listFiles()));
-            filesInfo.sort(Comparator.comparing(File::getName));
         }
+        filesInfo.sort(Comparator.comparing(File::getName));
         //adjusting size
         int numberOfItems = filesInfo.size();
         int height = numberOfItems % width == 0 ? (numberOfItems / width) : (numberOfItems / width) + 1;
@@ -167,7 +167,6 @@ public class GridManager {
         gridPane.getColumnConstraints().addAll(columnConstraints);
 
         LinkedList<RowConstraints> rowConstraints = new LinkedList<>();
-        //height = height <= 5 ? 5 : height; //globaln
         for(int i = 0; i < height; i++)
             rowConstraints.add(gridFilesFactory.getRowConstraints().get(0));
         gridPane.getRowConstraints().addAll(rowConstraints);

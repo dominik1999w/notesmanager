@@ -341,13 +341,13 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     @FXML
     public void openFileInEditMode(MouseEvent event) {
-        startWork();
         Node clicked = event.getPickResult().getIntersectedNode();
-        if(clicked == null) return ;
+        if(clicked == null) return;
         if(GridPane.getColumnIndex(clicked) != null && GridPane.getRowIndex(clicked) != null){
             selectedFile = new File(clicked.getId());
             displayFile();
             System.out.println(selectedFile);
+            startWork();
         }
     }
 
