@@ -26,6 +26,7 @@ import javafx.util.Callback;
 import javafx.util.Duration;
 import javafx.util.Pair;
 import org.controlsfx.control.textfield.TextFields;
+import org.languagetool.rules.ShortenedYearRangeChecker;
 
 import java.awt.*;
 import java.io.*;
@@ -120,15 +121,6 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        FilesTreeView filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
-        List<String> categories = getCategories(true);
-        List<TreeItem<File>> roots = new LinkedList<>();
-        for(String categoryName : categories){
-            roots.add(filesTreeViewClass.createNode(new File(categoryName)));
-        }
-        TreeItem<File> connectRoots = new TreeItem<>(null);
-        connectRoots.getChildren().addAll(roots);
-
         save.setGraphic(buttons.setCustomImage("save"));
         edit.setGraphic(buttons.setCustomImage("edit"));
         rename.setGraphic(buttons.setCustomImage("rename"));
@@ -140,6 +132,20 @@ public class ControllerPrimary extends Controller implements Initializable{
         Tooltip a = new Tooltip("Spelling Checker!");
         setTooltipTimer(a);
         spellingCheckerButton.setTooltip(a);
+
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollPaneFull.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPaneFull.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+
+        FilesTreeView filesTreeViewClass = new FilesTreeView(); //call FilesTreeView constructor
+        List<String> categories = getCategories(true);
+        List<TreeItem<File>> roots = new LinkedList<>();
+        for(String categoryName : categories){
+            roots.add(filesTreeViewClass.createNode(new File(categoryName)));
+        }
+        TreeItem<File> connectRoots = new TreeItem<>(null);
+        connectRoots.getChildren().addAll(roots);
         treeView.setRoot(connectRoots);
         treeView.setShowRoot(false);
         treeView.setCellFactory(new Callback<TreeView<File>, TreeCell<File>>() { //replace path with file name
@@ -154,14 +160,9 @@ public class ControllerPrimary extends Controller implements Initializable{
                 };
             }
         });
-
-        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-        scrollPaneFull.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollPaneFull.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-
         prepareAutoTextField();
         prepareLearningStates();
+        prepareCountsText();
         endWork();
     }
 
@@ -221,6 +222,7 @@ public class ControllerPrimary extends Controller implements Initializable{
             autoPaths.clear();
             Controller.stageMaster.loadNewScene(new ControllerAreYouSure("/Scenes/AreYouSure.fxml", this,"remove",selectedFile));
             prepareAutoTextField();
+            getStates();
         } catch (NullPointerException e){
             System.out.println("You can't remove nothing. ;)");
         }
@@ -241,7 +243,6 @@ public class ControllerPrimary extends Controller implements Initializable{
                 displayTitle(selectedFile.getName());
             if (rename.isSelected() != fileTitleArea.isEditable())
                 rename.setSelected(!rename.isSelected());
-            prepareAutoTextField();
         }
     }
 
@@ -256,9 +257,12 @@ public class ControllerPrimary extends Controller implements Initializable{
                 if(extension.length() > 0)
                     newPath = newPath.concat(".").concat(extension);
                 try {
+                    String old = RegexManager.convertFullPathToShort(selectedFile.getPath());
+                    int oldState = states.get(old);
                     Path path = Files.move((Paths.get(selectedFile.getPath())), Paths.get(newPath));
                     selectedFile = new File(path.toString());
                     System.out.println("RENAMED to: " + selectedFile.getName());
+                    updateStates(RegexManager.convertFullPathToShort(selectedFile.getPath()),oldState);
                     rename();
                     stageMaster.refresh(this);
                     returnBeforeRefresh();
@@ -342,7 +346,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         Node clicked = event.getPickResult().getIntersectedNode();
         if(clicked == null) return ;
         if(GridPane.getColumnIndex(clicked) != null && GridPane.getRowIndex(clicked) != null){
-            selectedFile = new File("categories/" + selectedDir.getName() + "/" + clicked.getId());
+            selectedFile = new File(clicked.getId());
             displayFile();
             System.out.println(selectedFile);
         }
@@ -358,8 +362,6 @@ public class ControllerPrimary extends Controller implements Initializable{
         gridManager.setGridPane(gridFiles2);
         gridManager.setScrollPane(scrollPane);
         gridManager.adjustGridFilesView(selectedDir,2); //globalne
-
-        System.out.println(selectedFile.getPath());
 
         List<String> lines = new ArrayList<>();
         String line;
@@ -446,9 +448,14 @@ public class ControllerPrimary extends Controller implements Initializable{
         state.setSelected(false);
         stateDisplay.setVisible(false);
 
+        countStates();
+        panel.setVisible(true);
+
     }
 
     private void startWork(){ //some text
+        startAnything();
+
         rename.setSelected(false);
         rename.setDisable(false);
         spellingCheckerButton.setDisable(false);
@@ -461,8 +468,6 @@ public class ControllerPrimary extends Controller implements Initializable{
         save.setDisable(false);
         remove.setDisable(false);
         natively.setDisable(false);
-        close.setDisable(false);
-        close.setVisible(true);
 
         textAreaFullScreen.setEditable(false);
         fileTitleArea.setEditable(false);
@@ -477,9 +482,10 @@ public class ControllerPrimary extends Controller implements Initializable{
         state.setSelected(false);
     }
 
-    private void startAnything(){
+    private void startAnything(){ //when opening big grid
         close.setVisible(true);
         close.setDisable(false);
+        panel.setVisible(false);
     }
 
     private void returnBeforeRefresh(){
@@ -599,7 +605,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         return textAreaHalfScreen;
     }
 
-    // LEARNING - STATE------------------------------------------------------------------
+// LEARNING - STATE------------------------------------------------------------------
 
     @FXML
     Pane statePane;
@@ -644,13 +650,20 @@ public class ControllerPrimary extends Controller implements Initializable{
             if(!states.keySet().contains(s))
                 states.put(s,defaultValue);
 
+        HashMap<String, Integer> temp = new HashMap<>();
+        for(String s : states.keySet()){
+            if(autoPaths.contains(s)){
+                temp.put(s,states.get(s));
+            }
+        }
+        states = temp;
+        commitUpdate();
+
         //for(String path : states.keySet())
         //    System.out.println(path + " " + states.get(path) );
     }
 
     private void updateStates(String path, int state){
-        getStates();
-
         if(states.keySet().contains(path))
             states.replace(path,state);
         else
@@ -677,6 +690,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     }
 
     private void prepareLearningStates(){
+        radioButtons.clear();
         radioButtons.add(state0);
         radioButtons.add(new RadioButton());
         radioButtons.add(state2);
@@ -727,6 +741,78 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     public HashMap<String,Integer> getStatesMap(){
         return this.states;
+    }
+
+// LEARNING - OPEN------------------------------------------------------------------
+
+    @FXML
+    Pane panel;
+    @FXML
+    Button open0;
+    @FXML
+    Button open2;
+    @FXML
+    Button open4;
+    @FXML
+    Button open6;
+    @FXML
+    Text count0;
+    @FXML
+    Text count2;
+    @FXML
+    Text count4;
+    @FXML
+    Text count6;
+    private ArrayList<Integer> counts = new ArrayList<>();
+    private ArrayList<Text> countsText = new ArrayList<>();
+    private ArrayList<Button> countsButton = new ArrayList<>();
+
+    private void prepareCountsText(){
+        countsText.clear();
+        countsText.add(count0);
+        countsText.add(new Text());
+        countsText.add(count2);
+        countsText.add(new Text());
+        countsText.add(count4);
+        countsText.add(new Text());
+        countsText.add(count6);
+
+        countsButton.clear();
+        countsButton.add(open0);
+        countsButton.add(new Button());
+        countsButton.add(open2);
+        countsButton.add(new Button());
+        countsButton.add(open4);
+        countsButton.add(new Button());
+        countsButton.add(open6);
+
+        for(int i = 0; i < quantity; i++){
+            final int id = i;
+            countsButton.get(i).setOnAction(event -> openState(id));
+        }
+    }
+
+    private void countStates(){
+        counts.clear();
+        for(int i = 0; i < quantity; i++){
+            counts.add(0);
+        }
+
+        for(Integer state : states.values()){
+            counts.set(state, counts.get(state) + 1);
+        }
+
+        for(int i = 0; i < quantity; i++){
+            Text countI = countsText.get(i);
+            if(countI != null){
+                countI.setText(counts.get(i).toString());
+            }
+        }
+    }
+
+
+    private void openState(int state){
+        displayGridFilesView(new File("catHelp/" + state));
     }
 
 }

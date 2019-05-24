@@ -51,7 +51,16 @@ public class GridManager {
     public void adjustGridFilesView(File dir, int width){
 
         ArrayList<File> filesInfo = new ArrayList<>();
-        if(dir != null) {
+
+        int stateNumber = RegexManager.isState(dir);
+        System.out.println("stateNumber is: " + stateNumber);
+        if(stateNumber >= 0){
+            for(String path : controller.getStatesMap().keySet()){
+                if(controller.getStatesMap().get(path) == stateNumber){
+                    filesInfo.add(new File("categories/" + path));
+                }
+            }
+        } else {
             Collections.addAll(filesInfo, Objects.requireNonNull(dir.listFiles()));
             filesInfo.sort(Comparator.comparing(File::getName));
         }
@@ -73,7 +82,7 @@ public class GridManager {
                     File file = filesInfo.get(c);
 
                     Pane pane = new Pane(); //main cell body
-                    pane.setId(filesInfo.get(c).getName());
+                    pane.setId(filesInfo.get(c).getPath());
                     pane.setStyle("-fx-background-color: #383844;" +
                             "-fx-border-color:black;" +
                             "-fx-text-fill:white;");
@@ -106,6 +115,7 @@ public class GridManager {
 
                     //add state to file
                     Label state = new Label("");
+
                     int s = controller.getStatesMap().get(RegexManager.convertFullPathToShort(file.getPath()));
                     Image image = new Image(getClass().getResourceAsStream("../States/" + s + ".png"));
                     state.setTranslateX(180);
@@ -133,6 +143,8 @@ public class GridManager {
                 }
             }
         }
+        gridPane.setLayoutX(30);
+        gridPane.setLayoutY(30);
     }
 
     private GridPane generateNewGridPane(int width, int height){

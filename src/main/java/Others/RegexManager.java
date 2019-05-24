@@ -27,7 +27,7 @@ public class RegexManager {
     }
 
     public static String convertFullPathToShort(String name){
-        return name.substring(name.indexOf('/')+1);
+        return name.substring(name.indexOf('/') + 1);
     }
 
     public static String categoryToPath(String category){
@@ -47,5 +47,13 @@ public class RegexManager {
     public static String getCategoryPath(File file){
         String category = getCategory(file);
         return categoryToPath(category);
+    }
+
+    public static int isState(File file){
+        String path = file.getPath();
+        String firstDir = path.substring(0, path.indexOf('/'));
+        if(firstDir.equals("catHelp")){
+            return Integer.valueOf(path.substring(path.indexOf('/') + 1));
+        } return -1; //regular category
     }
 }

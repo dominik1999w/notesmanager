@@ -1,6 +1,7 @@
 package Management;
 
 import Controllers.Controller;
+import Controllers.ControllerPrimary;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -52,7 +53,7 @@ public class StageMaster {
     public void setResizable(boolean resizable){
         stage.setResizable(resizable);
     }
-    public void refresh(Controller controller) throws IOException {
+    public void refresh(ControllerPrimary controller) throws IOException {
         Controller.stageMaster.loadNewScene(controller);
     }
 
