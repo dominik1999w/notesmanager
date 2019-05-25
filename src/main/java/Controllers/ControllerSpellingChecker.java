@@ -1,6 +1,7 @@
 package Controllers;
 
 import Others.Buttons;
+import Others.RegexManager;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -75,6 +76,7 @@ public class ControllerSpellingChecker extends Controller {
         arrow.setX(225);
         spellingPane.getChildren().add(arrow);
         suggestionsList1.setOnMouseClicked(mouseEvent->{
+            if(suggestionsList1.getSelectionModel().getSelectedItems().size() == 0) return;
             String tmp=suggestionsList1.getSelectionModel().getSelectedItems().get(0);
             if(suggestionsList1.getSelectionModel().getSelectedItems().get(0)!=null){
                 matchStringList2.clear();
@@ -96,7 +98,8 @@ public class ControllerSpellingChecker extends Controller {
                 int r=a.getToPos();
                 if(r-l>2) {
                     String tmp = textAreaToCheck.getText().substring(l, r);
-                    if (!misspelledWords.containsKey(tmp)) {
+                    if (!misspelledWords.containsKey(tmp) && !RegexManager.isWhite(tmp)) {
+                        System.out.println(tmp);
                         misspelledWords.put(tmp, new tuple(l,r,a.getSuggestedReplacements()));
                     }
                 }
@@ -104,13 +107,14 @@ public class ControllerSpellingChecker extends Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for(String x: misspelledWords.keySet()){
-            matchStringList1.add(x);
-        }
+        matchStringList1.addAll(misspelledWords.keySet());
         suggestionsList1.setItems(FXCollections.observableList(matchStringList1));
     }
+
+    @FXML
     public void importSuggestion(){
         String d=textAreaToCheck.getText();
+        if(suggestionsList1.getSelectionModel().getSelectedItems().size() == 0 || suggestionsList2.getSelectionModel().getSelectedItems().size() == 0) return;
         String original=suggestionsList1.getSelectionModel().getSelectedItems().get(0);
         String tmp=suggestionsList2.getSelectionModel().getSelectedItems().get(0);
         if(controllerPrimary.getTextAreaFullScreen().isVisible())

@@ -94,4 +94,10 @@ public class RegexManager {
         }
         return result;
     }
+
+    public static boolean isWhite(String s){
+        Pattern pat = Pattern.compile("^[\t ]+");
+        Matcher mat = pat.matcher(s);
+        return mat.replaceAll("").equals("");
+    }
 }

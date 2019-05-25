@@ -3,16 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="0e9c97d0-9877-4614-8db6-8cb875667fb1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerPrimary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerPrimary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Others/GridManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Others/GridManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Others/RegexManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Others/RegexManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Scenes/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Scenes/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/States/states" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/States/states" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary$ExternalThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary$ExternalThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Others/GridManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Others/GridManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerSpellingChecker$tuple.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerSpellingChecker$tuple.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerSpellingChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerSpellingChecker.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Others/RegexManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Others/RegexManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Scenes/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Scenes/sample.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -27,15 +24,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerPrimary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="603" column="49" lean-forward="true" selection-start-line="603" selection-start-column="49" selection-end-line="603" selection-end-column="49" />
+            <state relative-caret-position="357">
+              <caret line="634" column="12" lean-forward="true" selection-start-line="634" selection-start-column="12" selection-end-line="634" selection-end-column="12" />
               <folding>
                 <element signature="e#1254#1495#0" />
-                <element signature="e#1739#1740#0" expanded="true" />
-                <element signature="e#1770#1771#0" expanded="true" />
+                <element signature="e#1739#1762#0" />
+                <element signature="e#3173#5372#0" />
                 <element signature="e#4428#4517#1" />
                 <element signature="class#4741:5251" />
                 <element signature="method#call#0;class#4741:5251" />
@@ -62,6 +59,12 @@
                 <element signature="e#9655#9802#0" />
                 <element signature="e#9840#10027#0" />
                 <element signature="e#10033#10299#0" />
+                <element signature="e#10305#10974#0" />
+                <element signature="e#10347#10758#0" />
+                <element signature="e#10479#10575#1" />
+                <element signature="e#10581#10677#1" />
+                <element signature="e#10791#10879#0" />
+                <element signature="e#10902#10968#0" />
                 <element signature="e#10980#11126#0" />
                 <element signature="e#11219#11545#0" />
                 <element signature="e#11551#12265#0" />
@@ -70,6 +73,9 @@
                 <element signature="e#12271#12697#0" />
                 <element signature="e#12528#12691#1" />
                 <element signature="e#12703#13701#0" />
+                <element signature="e#13137#13354#0" />
+                <element signature="e#13272#13320#1" />
+                <element signature="e#13377#13421#0" />
                 <element signature="e#13584#13650#1" />
                 <element signature="e#13707#14291#0" />
                 <element signature="e#13785#14285#1" />
@@ -78,9 +84,11 @@
                 <element signature="e#14297#14447#0" />
                 <element signature="e#14453#14627#0" />
                 <element signature="e#14540#14621#1" />
+                <element signature="e#14634#15815#0" />
                 <element signature="e#15821#16718#0" />
                 <element signature="e#16724#16881#0" />
                 <element signature="e#16887#17086#0" />
+                <element signature="e#16954#17080#1" />
                 <element signature="e#17134#17677#0" />
                 <element signature="e#17244#17607#1" />
                 <element signature="e#17327#17597#1" />
@@ -89,14 +97,26 @@
                 <element signature="e#17817#18272#1" />
                 <element signature="e#17934#18001#1" />
                 <element signature="e#18506#20680#0" />
-                <element signature="e#22071#22072#0" expanded="true" />
-                <element signature="e#21088#21933#0" />
-                <element signature="e#21258#21404#1" />
-                <element signature="e#21447#21593#1" />
-                <element signature="e#21747#21823#0" />
-                <element signature="e#21846#21927#0" />
-                <element signature="e#23091#23092#0" expanded="true" />
-                <element signature="e#23172#23173#0" expanded="true" />
+                <element signature="e#18577#20671#0" />
+                <element signature="e#18644#18753#1" />
+                <element signature="e#18814#20661#1" />
+                <element signature="e#18904#19512#1" />
+                <element signature="e#19315#19419#1" />
+                <element signature="e#19567#19648#1" />
+                <element signature="e#19698#19779#1" />
+                <element signature="e#19813#20228#1" />
+                <element signature="e#19980#20210#1" />
+                <element signature="e#20232#20647#1" />
+                <element signature="e#20399#20629#1" />
+                <element signature="e#20844#20959#0" />
+                <element signature="e#21290#21852#0" />
+                <element signature="e#21358#21844#0" />
+                <element signature="e#21203#21241#1" />
+                <element signature="e#21666#21716#1" />
+                <element signature="e#21626#21674#1" />
+                <element signature="e#21885#21930#1" />
+                <element signature="e#22908#22950#1" />
+                <element signature="e#22989#23031#1" />
                 <element signature="e#22844#23855#0" />
                 <element signature="e#22883#23274#0" />
                 <element signature="e#23293#23361#0" />
@@ -114,9 +134,7 @@
                 <element signature="e#25709#25800#1" />
                 <element signature="e#25945#26111#1" />
                 <element signature="e#26123#26395#0" />
-                <element signature="e#27396#27397#0" expanded="true" />
                 <element signature="e#26446#26481#0" />
-                <element signature="e#27430#27431#0" expanded="true" />
                 <element signature="e#27003#27742#0" />
                 <element signature="e#27626#27736#1" />
                 <element signature="e#27748#28199#0" />
@@ -124,9 +142,7 @@
                 <element signature="e#27925#27990#1" />
                 <element signature="e#28033#28193#1" />
                 <element signature="e#28110#28183#1" />
-                <element signature="e#29189#29190#0" expanded="true" />
                 <element signature="e#28239#28306#0" />
-                <element signature="e#29255#29256#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -194,11 +210,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Others/RegexManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="66" column="11" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="11" />
+            <state relative-caret-position="312">
+              <caret line="99" column="37" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
               <folding>
                 <element signature="method#convertPathToName#0;class#RegexManager#0" />
                 <element signature="method#convertNameToReadable#0;class#RegexManager#0" />
@@ -206,6 +222,7 @@
                 <element signature="method#getCategory#0;class#RegexManager#0" />
                 <element signature="method#getCategoryPath#0;class#RegexManager#0" />
                 <element signature="method#isState#0;class#RegexManager#0" />
+                <element signature="method#searchForPatternInFiles#0;class#RegexManager#0" />
               </folding>
             </state>
           </provider>
@@ -214,8 +231,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="118" column="53" selection-start-line="118" selection-start-column="53" selection-end-line="118" selection-end-column="53" />
+            <state relative-caret-position="552">
+              <caret line="115" column="43" lean-forward="true" selection-start-line="115" selection-start-column="43" selection-end-line="115" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -277,7 +294,6 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/module-info.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/ControllerAreYouSure.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/ControllerCategories.java" />
@@ -288,8 +304,9 @@
         <option value="$PROJECT_DIR$/src/main/resources/States/states" />
         <option value="$PROJECT_DIR$/src/main/java/Management/StageMaster.java" />
         <option value="$PROJECT_DIR$/src/main/java/Others/GridManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Others/RegexManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/ControllerPrimary.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Others/RegexManager.java" />
       </list>
     </option>
   </component>
@@ -459,7 +476,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558784373006" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558787324498" />
     <property name="last_opened_file_path" value="/usr/lib/jvm/java-11-openjdk-amd64/javafx-sdk-11.0.2/lib" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -565,12 +582,12 @@
       <option name="project" value="LOCAL" />
       <updated>1558737345719</updated>
     </task>
-    <task id="LOCAL-00008" summary="Added edit and save buttons">
-      <created>1555758619452</created>
+    <task id="LOCAL-00008" summary="Added searchAll.">
+      <created>1558784388323</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1555758619452</updated>
+      <updated>1558784388323</updated>
     </task>
     <task id="LOCAL-00009" summary="Added AreYouSure screen, and upgraded removing.">
       <created>1555763544234</created>
@@ -677,7 +694,7 @@
       <option name="project" value="LOCAL" />
       <updated>1557091986800</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -693,7 +710,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.18317653" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.18317653" />
       <window_info id="Structure" order="1" weight="0.24916944" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -702,7 +719,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3261339" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4449244" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4449244" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39848813" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -767,7 +784,6 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="Fixed categories display" />
     <MESSAGE value="Fixed Categories (removed hardCoding)" />
     <MESSAGE value="Added Title of file display and RegexManager" />
     <MESSAGE value="Fixed bug" />
@@ -792,7 +808,8 @@
     <MESSAGE value="Missing files." />
     <MESSAGE value="Fully working learning." />
     <MESSAGE value="Fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed" />
+    <MESSAGE value="Added searchAll." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added searchAll." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/resources/Images/back.png">
@@ -955,13 +972,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="118" column="53" selection-start-line="118" selection-start-column="53" selection-end-line="118" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Others/GridManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -977,29 +987,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Others/RegexManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="66" column="11" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="11" />
-          <folding>
-            <element signature="method#convertPathToName#0;class#RegexManager#0" />
-            <element signature="method#convertNameToReadable#0;class#RegexManager#0" />
-            <element signature="n#!!block;n#categoryToPath#0;n#RegexManager#0" />
-            <element signature="method#getCategory#0;class#RegexManager#0" />
-            <element signature="method#getCategoryPath#0;class#RegexManager#0" />
-            <element signature="method#isState#0;class#RegexManager#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerPrimary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="603" column="49" lean-forward="true" selection-start-line="603" selection-start-column="49" selection-end-line="603" selection-end-column="49" />
+        <state relative-caret-position="357">
+          <caret line="634" column="12" lean-forward="true" selection-start-line="634" selection-start-column="12" selection-end-line="634" selection-end-column="12" />
           <folding>
             <element signature="e#1254#1495#0" />
-            <element signature="e#1739#1740#0" expanded="true" />
-            <element signature="e#1770#1771#0" expanded="true" />
+            <element signature="e#1739#1762#0" />
+            <element signature="e#3173#5372#0" />
             <element signature="e#4428#4517#1" />
             <element signature="class#4741:5251" />
             <element signature="method#call#0;class#4741:5251" />
@@ -1026,6 +1021,12 @@
             <element signature="e#9655#9802#0" />
             <element signature="e#9840#10027#0" />
             <element signature="e#10033#10299#0" />
+            <element signature="e#10305#10974#0" />
+            <element signature="e#10347#10758#0" />
+            <element signature="e#10479#10575#1" />
+            <element signature="e#10581#10677#1" />
+            <element signature="e#10791#10879#0" />
+            <element signature="e#10902#10968#0" />
             <element signature="e#10980#11126#0" />
             <element signature="e#11219#11545#0" />
             <element signature="e#11551#12265#0" />
@@ -1034,6 +1035,9 @@
             <element signature="e#12271#12697#0" />
             <element signature="e#12528#12691#1" />
             <element signature="e#12703#13701#0" />
+            <element signature="e#13137#13354#0" />
+            <element signature="e#13272#13320#1" />
+            <element signature="e#13377#13421#0" />
             <element signature="e#13584#13650#1" />
             <element signature="e#13707#14291#0" />
             <element signature="e#13785#14285#1" />
@@ -1042,9 +1046,11 @@
             <element signature="e#14297#14447#0" />
             <element signature="e#14453#14627#0" />
             <element signature="e#14540#14621#1" />
+            <element signature="e#14634#15815#0" />
             <element signature="e#15821#16718#0" />
             <element signature="e#16724#16881#0" />
             <element signature="e#16887#17086#0" />
+            <element signature="e#16954#17080#1" />
             <element signature="e#17134#17677#0" />
             <element signature="e#17244#17607#1" />
             <element signature="e#17327#17597#1" />
@@ -1053,14 +1059,26 @@
             <element signature="e#17817#18272#1" />
             <element signature="e#17934#18001#1" />
             <element signature="e#18506#20680#0" />
-            <element signature="e#22071#22072#0" expanded="true" />
-            <element signature="e#21088#21933#0" />
-            <element signature="e#21258#21404#1" />
-            <element signature="e#21447#21593#1" />
-            <element signature="e#21747#21823#0" />
-            <element signature="e#21846#21927#0" />
-            <element signature="e#23091#23092#0" expanded="true" />
-            <element signature="e#23172#23173#0" expanded="true" />
+            <element signature="e#18577#20671#0" />
+            <element signature="e#18644#18753#1" />
+            <element signature="e#18814#20661#1" />
+            <element signature="e#18904#19512#1" />
+            <element signature="e#19315#19419#1" />
+            <element signature="e#19567#19648#1" />
+            <element signature="e#19698#19779#1" />
+            <element signature="e#19813#20228#1" />
+            <element signature="e#19980#20210#1" />
+            <element signature="e#20232#20647#1" />
+            <element signature="e#20399#20629#1" />
+            <element signature="e#20844#20959#0" />
+            <element signature="e#21290#21852#0" />
+            <element signature="e#21358#21844#0" />
+            <element signature="e#21203#21241#1" />
+            <element signature="e#21666#21716#1" />
+            <element signature="e#21626#21674#1" />
+            <element signature="e#21885#21930#1" />
+            <element signature="e#22908#22950#1" />
+            <element signature="e#22989#23031#1" />
             <element signature="e#22844#23855#0" />
             <element signature="e#22883#23274#0" />
             <element signature="e#23293#23361#0" />
@@ -1078,9 +1096,7 @@
             <element signature="e#25709#25800#1" />
             <element signature="e#25945#26111#1" />
             <element signature="e#26123#26395#0" />
-            <element signature="e#27396#27397#0" expanded="true" />
             <element signature="e#26446#26481#0" />
-            <element signature="e#27430#27431#0" expanded="true" />
             <element signature="e#27003#27742#0" />
             <element signature="e#27626#27736#1" />
             <element signature="e#27748#28199#0" />
@@ -1088,9 +1104,30 @@
             <element signature="e#27925#27990#1" />
             <element signature="e#28033#28193#1" />
             <element signature="e#28110#28183#1" />
-            <element signature="e#29189#29190#0" expanded="true" />
             <element signature="e#28239#28306#0" />
-            <element signature="e#29255#29256#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="115" column="43" lean-forward="true" selection-start-line="115" selection-start-column="43" selection-end-line="115" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Others/RegexManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="99" column="37" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
+          <folding>
+            <element signature="method#convertPathToName#0;class#RegexManager#0" />
+            <element signature="method#convertNameToReadable#0;class#RegexManager#0" />
+            <element signature="n#!!block;n#categoryToPath#0;n#RegexManager#0" />
+            <element signature="method#getCategory#0;class#RegexManager#0" />
+            <element signature="method#getCategoryPath#0;class#RegexManager#0" />
+            <element signature="method#isState#0;class#RegexManager#0" />
+            <element signature="method#searchForPatternInFiles#0;class#RegexManager#0" />
           </folding>
         </state>
       </provider>
