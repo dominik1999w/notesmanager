@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e9c97d0-9877-4614-8db6-8cb875667fb1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/search.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerSpellingChecker$tuple.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerSpellingChecker$tuple.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerSpellingChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerSpellingChecker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerPrimary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerPrimary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -20,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerPrimary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="634" column="12" selection-start-line="634" selection-start-column="12" selection-end-line="634" selection-end-column="12" />
+            <state relative-caret-position="348">
+              <caret line="613" column="50" selection-start-line="613" selection-start-column="50" selection-end-line="613" selection-end-column="50" />
               <folding>
                 <element signature="e#1254#1495#0" />
                 <element signature="e#1739#1762#0" />
@@ -92,24 +91,7 @@
                 <element signature="e#17758#18282#0" />
                 <element signature="e#17817#18272#1" />
                 <element signature="e#17934#18001#1" />
-                <element signature="e#18506#20680#0" />
-                <element signature="e#18577#20671#0" />
-                <element signature="e#18644#18753#1" />
-                <element signature="e#18814#20661#1" />
-                <element signature="e#18904#19512#1" />
-                <element signature="e#19315#19419#1" />
-                <element signature="e#19567#19648#1" />
-                <element signature="e#19698#19779#1" />
-                <element signature="e#19813#20228#1" />
-                <element signature="e#19980#20210#1" />
-                <element signature="e#20232#20647#1" />
-                <element signature="e#20399#20629#1" />
                 <element signature="e#20844#20959#0" />
-                <element signature="e#21290#21852#0" />
-                <element signature="e#21358#21844#0" />
-                <element signature="e#21203#21241#1" />
-                <element signature="e#21666#21716#1" />
-                <element signature="e#21626#21674#1" />
                 <element signature="e#21885#21930#1" />
                 <element signature="e#22908#22950#1" />
                 <element signature="e#22989#23031#1" />
@@ -224,7 +206,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
@@ -300,9 +282,9 @@
         <option value="$PROJECT_DIR$/src/main/resources/States/states" />
         <option value="$PROJECT_DIR$/src/main/java/Management/StageMaster.java" />
         <option value="$PROJECT_DIR$/src/main/java/Others/GridManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Controllers/ControllerPrimary.java" />
         <option value="$PROJECT_DIR$/src/main/java/Others/RegexManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Controllers/ControllerPrimary.java" />
       </list>
     </option>
   </component>
@@ -472,7 +454,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558790435035" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558794876051" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Projekt2/imdb2/pom.xml" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -599,12 +581,12 @@
       <option name="project" value="LOCAL" />
       <updated>1558787617156</updated>
     </task>
-    <task id="LOCAL-00011" summary="Added sample data.">
-      <created>1555769109550</created>
+    <task id="LOCAL-00011" summary="Missing file.">
+      <created>1558793802467</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1555769109550</updated>
+      <updated>1558793802467</updated>
     </task>
     <task id="LOCAL-00012" summary="Added sample data.">
       <created>1555769159144</created>
@@ -690,7 +672,7 @@
       <option name="project" value="LOCAL" />
       <updated>1557091986800</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -780,7 +762,6 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="Fixed bug" />
     <MESSAGE value="Added delete button" />
     <MESSAGE value="Added edit and save buttons" />
     <MESSAGE value="Added AreYouSure screen, and upgraded removing." />
@@ -805,7 +786,8 @@
     <MESSAGE value="Added searchAll." />
     <MESSAGE value="SpellingChecker fixed." />
     <MESSAGE value="Cleaning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaning" />
+    <MESSAGE value="Missing file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Missing file." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/resources/Images/back.png">
@@ -983,10 +965,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Others/RegexManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+          <folding>
+            <element signature="method#convertPathToName#0;class#RegexManager#0" />
+            <element signature="method#convertNameToReadable#0;class#RegexManager#0" />
+            <element signature="n#!!block;n#categoryToPath#0;n#RegexManager#0" />
+            <element signature="method#getCategory#0;class#RegexManager#0" />
+            <element signature="method#getCategoryPath#0;class#RegexManager#0" />
+            <element signature="method#isState#0;class#RegexManager#0" />
+            <element signature="method#searchForPatternInFiles#0;class#RegexManager#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerPrimary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="634" column="12" selection-start-line="634" selection-start-column="12" selection-end-line="634" selection-end-column="12" />
+        <state relative-caret-position="348">
+          <caret line="613" column="50" selection-start-line="613" selection-start-column="50" selection-end-line="613" selection-end-column="50" />
           <folding>
             <element signature="e#1254#1495#0" />
             <element signature="e#1739#1762#0" />
@@ -1054,24 +1059,7 @@
             <element signature="e#17758#18282#0" />
             <element signature="e#17817#18272#1" />
             <element signature="e#17934#18001#1" />
-            <element signature="e#18506#20680#0" />
-            <element signature="e#18577#20671#0" />
-            <element signature="e#18644#18753#1" />
-            <element signature="e#18814#20661#1" />
-            <element signature="e#18904#19512#1" />
-            <element signature="e#19315#19419#1" />
-            <element signature="e#19567#19648#1" />
-            <element signature="e#19698#19779#1" />
-            <element signature="e#19813#20228#1" />
-            <element signature="e#19980#20210#1" />
-            <element signature="e#20232#20647#1" />
-            <element signature="e#20399#20629#1" />
             <element signature="e#20844#20959#0" />
-            <element signature="e#21290#21852#0" />
-            <element signature="e#21358#21844#0" />
-            <element signature="e#21203#21241#1" />
-            <element signature="e#21666#21716#1" />
-            <element signature="e#21626#21674#1" />
             <element signature="e#21885#21930#1" />
             <element signature="e#22908#22950#1" />
             <element signature="e#22989#23031#1" />
@@ -1102,29 +1090,6 @@
             <element signature="e#28110#28183#1" />
             <element signature="e#28239#28306#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Others/RegexManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-          <folding>
-            <element signature="method#convertPathToName#0;class#RegexManager#0" />
-            <element signature="method#convertNameToReadable#0;class#RegexManager#0" />
-            <element signature="n#!!block;n#categoryToPath#0;n#RegexManager#0" />
-            <element signature="method#getCategory#0;class#RegexManager#0" />
-            <element signature="method#getCategoryPath#0;class#RegexManager#0" />
-            <element signature="method#isState#0;class#RegexManager#0" />
-            <element signature="method#searchForPatternInFiles#0;class#RegexManager#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
         </state>
       </provider>
     </entry>

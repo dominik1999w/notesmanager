@@ -596,16 +596,15 @@ public class ControllerPrimary extends Controller implements Initializable{
     public void searchAllShow(){
         if(!searchAllText.isVisible()) searchAllText.setText("");
         searchAllText.setVisible(!searchAllText.isVisible());
-        counterSearchAll.setText("");
     }
 
-    public void searchAllEnter(){
-        searchAllText.setOnKeyPressed(event -> {
+    private void searchAllEnter(){
+        searchAllText.setOnKeyReleased(event -> {
             if(event.getCode() == KeyCode.ENTER){
                 patternForGridManager = searchAllText.getText();
                 if(patternForGridManager.length() < 2) return;
                 displayGridFilesView(new File("search/a"));
-            } else if(searchAllText.getText().length() < 1){
+            } else if(searchAllText.getText().length() < 2){
                 counterSearchAll.setText("");
             } else {
                 counterSearchAll.setText(String.valueOf(RegexManager.searchForPatternInFiles(searchAllText.getText(),autoPaths).size()));
