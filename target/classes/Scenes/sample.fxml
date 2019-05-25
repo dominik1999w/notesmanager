@@ -165,8 +165,14 @@
                               </AnchorPane>
                           </items>
                         </SplitPane>
-                        <Pane fx:id="panel" layoutX="10.0" layoutY="200.0" prefHeight="280.0" prefWidth="149.0">
+                        <TextField fx:id="searchAllText" layoutX="180.0" layoutY="490.0" />
+                        <Pane fx:id="panel" layoutX="10.0" layoutY="200.0" prefHeight="344.0" prefWidth="149.0">
                            <children>
+                              <Text fx:id="counterSearchAll" fill="WHITE" layoutX="99.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
                               <Text fx:id="count0" fill="WHITE" layoutX="99.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
                                  <font>
                                     <Font size="20.0" />
@@ -235,6 +241,15 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
+                              <ToggleButton fx:id="searchAll" layoutX="5.0" layoutY="266.0" maxWidth="100.0" minWidth="60.0" mnemonicParsing="false" onAction="#searchAllShow" prefHeight="63.0" prefWidth="80.0" style="-fx-background-color: #3C408B;" styleClass="button">
+                                 <graphic>
+                                    <ImageView fitHeight="52.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/search.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </ToggleButton>
                            </children>
                         </Pane>
                     <GridPane fx:id="gridFilesFactory4" layoutX="14.0" layoutY="51.0" onMouseClicked="#openFileInEditMode" prefHeight="500.0" prefWidth="975.0" visible="false">

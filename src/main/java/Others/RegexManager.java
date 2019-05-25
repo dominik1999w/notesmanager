@@ -1,6 +1,11 @@
 package Others;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -49,11 +54,44 @@ public class RegexManager {
         return categoryToPath(category);
     }
 
-    public static int isState(File file){
+    static int isState(File file){
         String path = file.getPath();
         String firstDir = path.substring(0, path.indexOf('/'));
         if(firstDir.equals("catHelp")){
             return Integer.valueOf(path.substring(path.indexOf('/') + 1));
-        } return -1; //regular category
+        } else if(firstDir.equals("search")) {
+            return -2; //from search option
+        } else return -1; //regular category
+    }
+
+    public static ArrayList<File> searchForPatternInFiles(String pattern, List<String> files){
+        ArrayList<File> result = new ArrayList<>();
+        Pattern pat = Pattern.compile(pattern);
+        BufferedReader bufferedReader = null;
+        String line;
+
+        for(String path : files){
+
+            try {
+                bufferedReader = new BufferedReader(new FileReader(new File("categories/" + path)));
+                while ((line = bufferedReader.readLine()) != null) {
+                    Matcher mat = pat.matcher(line);
+                    if (mat.find()) {
+                        result.add(new File("categories/" + path));
+                        break;
+                    }
+                }
+            } catch(Exception e){
+                e.printStackTrace();
+            } finally {
+                try {
+                    assert bufferedReader != null;
+                    bufferedReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return result;
     }
 }

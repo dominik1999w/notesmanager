@@ -53,6 +53,9 @@ public class ControllerPrimary extends Controller implements Initializable{
     private File selectedDir;
     private File selectedFile;
     private List<String> autoPaths = new LinkedList<>();
+    public List<String> getAutoPaths(){
+        return autoPaths;
+    }
 
     @FXML
     private TreeView<File> treeView;
@@ -159,10 +162,13 @@ public class ControllerPrimary extends Controller implements Initializable{
                 };
             }
         });
+
         prepareAutoTextField();
         prepareLearningStates();
         prepareCountsText();
+
         endWork();
+        searchAllEnter();
     }
 
     private void setTooltipTimer(Tooltip tooltip) {
@@ -294,6 +300,7 @@ public class ControllerPrimary extends Controller implements Initializable{
             } else {
                 fileOutputStream.write(textAreaHalfScreen.getText().getBytes());
             }
+            returnBeforeRefresh();
             System.out.println("SAVED to: " + selectedFile.getName());
         } catch (FileNotFoundException e) {
             System.out.println("FAILED to find: " + selectedFile.getName());
@@ -449,7 +456,9 @@ public class ControllerPrimary extends Controller implements Initializable{
 
         countStates();
         panel.setVisible(true);
-
+        searchAllText.setVisible(false);
+        searchAllText.setText("");
+        counterSearchAll.setText("");
     }
 
     private void startWork(){ //some text
@@ -485,6 +494,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         close.setVisible(true);
         close.setDisable(false);
         panel.setVisible(false);
+        searchAllText.setVisible(false);
     }
 
     private void returnBeforeRefresh(){
@@ -528,9 +538,16 @@ public class ControllerPrimary extends Controller implements Initializable{
 
 // CONFIGURE FIND OPTIONS-------------------------------------------------------------
 
+    @FXML
+    ToggleButton searchAll;
+    @FXML
+    TextField searchAllText;
+    @FXML
+    Text counterSearchAll;
     private int counter = 0;
     private String rememberedWord = "";
     private List<Pair<Integer,Integer>> positions;
+    private String patternForGridManager;
 
     @FXML
     public void findText() {
@@ -556,13 +573,14 @@ public class ControllerPrimary extends Controller implements Initializable{
                 }
                 if (counter == positions.size()) { //if the last one is reached
                     counter = 0;
-                }if(textAreaFullScreen.isVisible()){
+                }
+                if(textAreaFullScreen.isVisible()){
                     textAreaFullScreen.setStyle("-fx-highlight-fill: lightgray; -fx-highlight-text-fill: firebrick;");
                     if (positions.size() > 0) {
                         findCounter.setText(counter + 1 + "/" + positions.size());
                         textAreaFullScreen.selectRange(positions.get(counter).getKey(), positions.get(counter).getValue());
                     }
-                }else{
+                } else {
                     textAreaHalfScreen.setStyle("-fx-highlight-fill: lightgray; -fx-highlight-text-fill: firebrick;");
                     if (positions.size() > 0) {
                         findCounter.setText(counter + 1 + "/" + positions.size());
@@ -572,6 +590,31 @@ public class ControllerPrimary extends Controller implements Initializable{
             }
         });
 
+    }
+
+    @FXML
+    public void searchAllShow(){
+        if(!searchAllText.isVisible()) searchAllText.setText("");
+        searchAllText.setVisible(!searchAllText.isVisible());
+        counterSearchAll.setText("");
+    }
+
+    public void searchAllEnter(){
+        searchAllText.setOnKeyPressed(event -> {
+            if(event.getCode() == KeyCode.ENTER){
+                patternForGridManager = searchAllText.getText();
+                if(patternForGridManager.length() < 2) return;
+                displayGridFilesView(new File("search/a"));
+            } else if(searchAllText.getText().length() < 1){
+                counterSearchAll.setText("");
+            } else {
+                counterSearchAll.setText(String.valueOf(RegexManager.searchForPatternInFiles(searchAllText.getText(),autoPaths).size()));
+            }
+        });
+    }
+
+    public String getPatternForGridManager() {
+        return patternForGridManager;
     }
 
 // CONFIGURE SPELLING CHECKER OPTIONS-------------------------------------------------

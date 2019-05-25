@@ -60,8 +60,10 @@ public class GridManager {
                     filesInfo.add(new File("categories/" + path));
                 }
             }
-        } else {
+        } else if(stateNumber == -1) {
             Collections.addAll(filesInfo, Objects.requireNonNull(dir.listFiles()));
+        } else if(stateNumber == -2){
+            filesInfo = RegexManager.searchForPatternInFiles(controller.getPatternForGridManager(), controller.getAutoPaths());
         }
         filesInfo.sort(Comparator.comparing(File::getName));
         //adjusting size
