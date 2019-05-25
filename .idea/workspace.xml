@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e9c97d0-9877-4614-8db6-8cb875667fb1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/search.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerSpellingChecker$tuple.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerSpellingChecker$tuple.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerSpellingChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerSpellingChecker.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -22,7 +24,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerPrimary.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
-              <caret line="634" column="12" lean-forward="true" selection-start-line="634" selection-start-column="12" selection-end-line="634" selection-end-column="12" />
+              <caret line="634" column="12" selection-start-line="634" selection-start-column="12" selection-end-line="634" selection-end-column="12" />
               <folding>
                 <element signature="e#1254#1495#0" />
                 <element signature="e#1739#1762#0" />
@@ -208,7 +210,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/Others/RegexManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+              <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
               <folding>
                 <element signature="method#convertPathToName#0;class#RegexManager#0" />
                 <element signature="method#convertNameToReadable#0;class#RegexManager#0" />
@@ -225,11 +227,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="255">
+              <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -327,9 +326,9 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
-    <option name="y" value="27" />
-    <option name="width" value="926" />
-    <option name="height" value="1048" />
+    <option name="y" value="25" />
+    <option name="width" value="939" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -473,8 +472,8 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558787432056" />
-    <property name="last_opened_file_path" value="/usr/lib/jvm/java-11-openjdk-amd64/javafx-sdk-11.0.2/lib" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558790435035" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Projekt2/imdb2/pom.xml" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -593,12 +592,12 @@
       <option name="project" value="LOCAL" />
       <updated>1558787360856</updated>
     </task>
-    <task id="LOCAL-00010" summary="Structure cleanUp.">
-      <created>1555766225501</created>
+    <task id="LOCAL-00010" summary="Cleaning">
+      <created>1558787617156</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1555766225501</updated>
+      <updated>1558787617156</updated>
     </task>
     <task id="LOCAL-00011" summary="Added sample data.">
       <created>1555769109550</created>
@@ -691,7 +690,7 @@
       <option name="project" value="LOCAL" />
       <updated>1557091986800</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -781,7 +780,6 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="Added Title of file display and RegexManager" />
     <MESSAGE value="Fixed bug" />
     <MESSAGE value="Added delete button" />
     <MESSAGE value="Added edit and save buttons" />
@@ -806,7 +804,8 @@
     <MESSAGE value="Fixed" />
     <MESSAGE value="Added searchAll." />
     <MESSAGE value="SpellingChecker fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="SpellingChecker fixed." />
+    <MESSAGE value="Cleaning" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaning" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/resources/Images/back.png">
@@ -987,7 +986,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerPrimary.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="634" column="12" lean-forward="true" selection-start-line="634" selection-start-column="12" selection-end-line="634" selection-end-column="12" />
+          <caret line="634" column="12" selection-start-line="634" selection-start-column="12" selection-end-line="634" selection-end-column="12" />
           <folding>
             <element signature="e#1254#1495#0" />
             <element signature="e#1739#1762#0" />
@@ -1109,7 +1108,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Others/RegexManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
           <folding>
             <element signature="method#convertPathToName#0;class#RegexManager#0" />
             <element signature="method#convertNameToReadable#0;class#RegexManager#0" />
@@ -1124,11 +1123,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
         </state>
       </provider>
     </entry>
