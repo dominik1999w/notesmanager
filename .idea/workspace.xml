@@ -4,12 +4,6 @@
     <list default="true" id="0e9c97d0-9877-4614-8db6-8cb875667fb1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Others/RegexManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Others/RegexManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerPrimary$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerSpellingChecker$tuple.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerSpellingChecker$tuple.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerSpellingChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerSpellingChecker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Others/RegexManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Others/RegexManager.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -210,11 +204,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Others/RegexManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="99" column="37" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
+            <state relative-caret-position="240">
+              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
               <folding>
                 <element signature="method#convertPathToName#0;class#RegexManager#0" />
                 <element signature="method#convertNameToReadable#0;class#RegexManager#0" />
@@ -228,11 +222,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="115" column="43" lean-forward="true" selection-start-line="115" selection-start-column="43" selection-end-line="115" selection-end-column="43" />
+            <state relative-caret-position="600">
+              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -305,8 +302,8 @@
         <option value="$PROJECT_DIR$/src/main/java/Management/StageMaster.java" />
         <option value="$PROJECT_DIR$/src/main/java/Others/GridManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/ControllerPrimary.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java" />
         <option value="$PROJECT_DIR$/src/main/java/Others/RegexManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java" />
       </list>
     </option>
   </component>
@@ -476,7 +473,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558787324498" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558787432056" />
     <property name="last_opened_file_path" value="/usr/lib/jvm/java-11-openjdk-amd64/javafx-sdk-11.0.2/lib" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -589,12 +586,12 @@
       <option name="project" value="LOCAL" />
       <updated>1558784388323</updated>
     </task>
-    <task id="LOCAL-00009" summary="Added AreYouSure screen, and upgraded removing.">
-      <created>1555763544234</created>
+    <task id="LOCAL-00009" summary="SpellingChecker fixed.">
+      <created>1558787360856</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1555763544234</updated>
+      <updated>1558787360856</updated>
     </task>
     <task id="LOCAL-00010" summary="Structure cleanUp.">
       <created>1555766225501</created>
@@ -694,7 +691,7 @@
       <option name="project" value="LOCAL" />
       <updated>1557091986800</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -710,7 +707,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.18317653" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.18317653" />
       <window_info id="Structure" order="1" weight="0.24916944" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -719,7 +716,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3261339" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4449244" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4449244" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39848813" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -784,7 +781,6 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="Fixed Categories (removed hardCoding)" />
     <MESSAGE value="Added Title of file display and RegexManager" />
     <MESSAGE value="Fixed bug" />
     <MESSAGE value="Added delete button" />
@@ -809,7 +805,8 @@
     <MESSAGE value="Fully working learning." />
     <MESSAGE value="Fixed" />
     <MESSAGE value="Added searchAll." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added searchAll." />
+    <MESSAGE value="SpellingChecker fixed." />
+    <option name="LAST_COMMIT_MESSAGE" value="SpellingChecker fixed." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/resources/Images/back.png">
@@ -1109,17 +1106,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="115" column="43" lean-forward="true" selection-start-line="115" selection-start-column="43" selection-end-line="115" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Others/RegexManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="99" column="37" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
+        <state relative-caret-position="240">
+          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
           <folding>
             <element signature="method#convertPathToName#0;class#RegexManager#0" />
             <element signature="method#convertNameToReadable#0;class#RegexManager#0" />
@@ -1128,6 +1118,16 @@
             <element signature="method#getCategoryPath#0;class#RegexManager#0" />
             <element signature="method#isState#0;class#RegexManager#0" />
             <element signature="method#searchForPatternInFiles#0;class#RegexManager#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ControllerSpellingChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

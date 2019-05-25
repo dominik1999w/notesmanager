@@ -1,6 +1,5 @@
 package Controllers;
 
-import Others.Buttons;
 import Others.RegexManager;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -26,7 +25,6 @@ public class ControllerSpellingChecker extends Controller {
 
     private final ControllerPrimary controllerPrimary;
     private final Stage stage;
-    private Buttons buttons;
     @FXML
     ListView<String> suggestionsList1;
     @FXML
@@ -40,7 +38,7 @@ public class ControllerSpellingChecker extends Controller {
         int r;
         List<String> suggestedWords;
 
-        public tuple(int l, int r, List<String> suggestedReplacements) {
+        tuple(int l, int r, List<String> suggestedReplacements) {
             this.l=l;
             this.r=r;
             this.suggestedWords=suggestedReplacements;
@@ -50,9 +48,8 @@ public class ControllerSpellingChecker extends Controller {
     private HashMap<String, tuple> misspelledWords;
     private List<String> matchStringList1;
     private List<String> matchStringList2;
-    private  List<RuleMatch> matchList;
 
-    public ControllerSpellingChecker(String name, Controller previousController, TextArea textAreaToCheck, ControllerPrimary controllerPrimary, Stage stage) {
+    ControllerSpellingChecker(String name, Controller previousController, TextArea textAreaToCheck, ControllerPrimary controllerPrimary, Stage stage) {
         this.stage=stage;
         this.controllerPrimary=controllerPrimary;
         this.name = name;
@@ -61,7 +58,6 @@ public class ControllerSpellingChecker extends Controller {
         misspelledWords= new HashMap<>();
         matchStringList1=new ArrayList<>();
         matchStringList2=new ArrayList<>();
-        buttons=new Buttons();
     }
 
     @Override
@@ -92,7 +88,7 @@ public class ControllerSpellingChecker extends Controller {
     private void prepareSuggestions(){
         JLanguageTool lTool=new JLanguageTool(new AmericanEnglish());
         try {
-            matchList=lTool.check(textAreaToCheck.getText());
+            List<RuleMatch> matchList = lTool.check(textAreaToCheck.getText());
             matchList.forEach(a-> {
                 int l=a.getFromPos();
                 int r=a.getToPos();
