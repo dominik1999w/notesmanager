@@ -74,7 +74,7 @@ public class GridManager {
         scrollPane.setContent(gridPane);
         gridPane.setVisible(true);
         scrollPane.setVisible(true);
-        gridPane.getStylesheets().addAll(getClass().getResource("../Css/sample.css").toExternalForm());
+        gridPane.getStylesheets().addAll(getClass().getResource("/Css/sample.css").toExternalForm());
 
         int c = 0;
         for(int i = 0; i < height; i++) {
@@ -119,7 +119,7 @@ public class GridManager {
                     Label state = new Label("");
 
                     int s = controller.getStatesMap().get(RegexManager.convertFullPathToShort(file.getPath()));
-                    Image image = new Image(getClass().getResourceAsStream("../States/" + s + ".png"));
+                    Image image = new Image(getClass().getResourceAsStream("/States/" + s + ".png"));
                     state.setTranslateX(180);
                     state.setTranslateY(15);
                     ImageView imageView = new ImageView(image);

@@ -776,7 +776,7 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     private void displayState(File file){
         int state = states.get(RegexManager.convertFullPathToShort(file.getPath()));
-        stateDisplay.setImage(new Image(getClass().getResourceAsStream("../States/" + state + ".png")));
+        stateDisplay.setImage(new Image(getClass().getResourceAsStream("/States/" + state + ".png")));
         stateDisplay.setVisible(true);
     }
 

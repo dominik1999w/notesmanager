@@ -62,7 +62,7 @@ public class ControllerSpellingChecker extends Controller {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Image image = new Image(getClass().getResourceAsStream("../Images/arrow.png"));
+        Image image = new Image(getClass().getResourceAsStream("/Images/arrow.png"));
         ImageView arrow=new ImageView(image);
         arrow.setImage(image);
         arrow.setPreserveRatio(true);

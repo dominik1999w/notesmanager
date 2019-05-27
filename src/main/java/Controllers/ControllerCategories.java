@@ -35,7 +35,7 @@ public class ControllerCategories extends Controller {
         ObservableList<String> categories = FXCollections.observableArrayList(getCategories(false));
         categoriesList.setItems(categories);
         categoriesList.setOnMouseClicked(mouseEvent -> {
-            if(categoriesList.getSelectionModel().getSelectedItems().get(0) != null) {
+            if(categoriesList.getSelectionModel().getSelectedItems().size() > 0 && categoriesList.getSelectionModel().getSelectedItems().get(0) != null) {
                 removeCategory.setDisable(false);
             }
         });
