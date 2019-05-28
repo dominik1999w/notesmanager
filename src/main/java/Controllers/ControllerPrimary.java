@@ -163,6 +163,12 @@ public class ControllerPrimary extends Controller implements Initializable{
             }
         });
 
+        try {
+            Files.createDirectory(Paths.get(Controller.mainCategory));
+        } catch (IOException e) {
+            System.out.println("File already exists.");
+        }
+
         prepareAutoTextField();
         prepareLearningStates();
         prepareCountsText();
@@ -477,6 +483,7 @@ public class ControllerPrimary extends Controller implements Initializable{
         remove.setDisable(false);
         natively.setDisable(false);
 
+        textAreaHalfScreen.setEditable(false);
         textAreaFullScreen.setEditable(false);
         fileTitleArea.setEditable(false);
         fileTitleArea.setDisable(true);
@@ -526,7 +533,7 @@ public class ControllerPrimary extends Controller implements Initializable{
                 if(!autoPaths.contains(s)){
                     return; //invalid file name
                 }
-                selectedFile = new File("categories/" + s);
+                selectedFile = new File(Controller.mainCategory + "/" + s);
                 File dir = new File(RegexManager.getCategoryPath(selectedFile));
                 displayGridFilesView(dir);
                 displayFile();
@@ -672,7 +679,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     private HashMap<String,Integer> states = new HashMap<>(); //Strings are paths to files (short form)
     private int quantity = 7;
     private int defaultValue = 5;
-    private String pathToStates = "src/main/resources/States/states";
+    private String pathToStates = "./states";
 
     private void getStates(){
 
@@ -718,6 +725,12 @@ public class ControllerPrimary extends Controller implements Initializable{
     }
 
     private void commitUpdate(){
+        try {
+            if(new File(pathToStates).exists())
+                new File(pathToStates).createNewFile();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(pathToStates);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);

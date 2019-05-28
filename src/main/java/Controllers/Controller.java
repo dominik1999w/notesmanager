@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 public abstract class Controller implements Initializable {
 
     public static StageMaster stageMaster;
+    public static String mainCategory = "./categories";
 
     String name;
     Controller previousController;
@@ -53,9 +54,9 @@ public abstract class Controller implements Initializable {
         List<String> categories = new LinkedList<>();
         List<String> names = new LinkedList<>();
         try {
-            categories =  Files.find(Paths.get("categories/"), 1,
+            categories =  Files.find(Paths.get(mainCategory), 1,
                     (path, basicFileAttributes) -> {
-                        if(path.toString().equals("categories")) return false;
+                        if(path.toString().equals(mainCategory)) return false;
                         File file = path.toFile();
                         return file.isDirectory();
                     }).map(Path::toString)

@@ -1,5 +1,6 @@
 package Others;
 
+import Controllers.Controller;
 import Controllers.ControllerPrimary;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -57,7 +58,7 @@ public class GridManager {
         if(stateNumber >= 0){
             for(String path : controller.getStatesMap().keySet()){
                 if(controller.getStatesMap().get(path) == stateNumber){
-                    filesInfo.add(new File("categories/" + path));
+                    filesInfo.add(new File(Controller.mainCategory + path));
                 }
             }
         } else if(stateNumber == -1) {

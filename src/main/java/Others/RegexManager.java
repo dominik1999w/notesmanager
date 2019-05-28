@@ -1,5 +1,7 @@
 package Others;
 
+import Controllers.Controller;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -32,16 +34,16 @@ public class RegexManager {
     }
 
     public static String convertFullPathToShort(String name){
-        return name.substring(name.indexOf('/') + 1);
+        return name.substring(name.indexOf('/',5) + 1);
     }
 
     public static String categoryToPath(String category){
-        return "categories/" + category + "/";
+        return Controller.mainCategory + "/" + category + "/";
     }
 
     public static String getCategory(File file){
         String path = file.getPath();
-        Pattern pat = Pattern.compile("categories/");
+        Pattern pat = Pattern.compile(Controller.mainCategory+ "/");
         Matcher mat = pat.matcher(path);
         path = mat.replaceFirst("");
         Pattern pat2 = Pattern.compile("[/].+$");
@@ -73,11 +75,11 @@ public class RegexManager {
         for(String path : files){
 
             try {
-                bufferedReader = new BufferedReader(new FileReader(new File("categories/" + path)));
+                bufferedReader = new BufferedReader(new FileReader(new File(Controller.mainCategory + "/" + path)));
                 while ((line = bufferedReader.readLine()) != null) {
                     Matcher mat = pat.matcher(line);
                     if (mat.find()) {
-                        result.add(new File("categories/" + path));
+                        result.add(new File(Controller.mainCategory + "/" + path));
                         break;
                     }
                 }

@@ -7,3 +7,8 @@ ControllerPrimary
     ../States -> /States (~779)
 ControllerSpellingChecker
     ..Images -> /Images
+ControllerPrimary
+    fileInputStream -> getClass().getResourceAsStream(pathToStates) (~700)
++ everywhere
+    categories -> /categories
+    (Contoller[abstract] also)
