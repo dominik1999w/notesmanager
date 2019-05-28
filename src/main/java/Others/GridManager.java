@@ -58,7 +58,7 @@ public class GridManager {
         if(stateNumber >= 0){
             for(String path : controller.getStatesMap().keySet()){
                 if(controller.getStatesMap().get(path) == stateNumber){
-                    filesInfo.add(new File(Controller.mainCategory + path));
+                    filesInfo.add(new File(Controller.mainCategory + "/" + path));
                 }
             }
         } else if(stateNumber == -1) {
@@ -118,6 +118,7 @@ public class GridManager {
 
                     //add state to file
                     Label state = new Label("");
+
 
                     int s = controller.getStatesMap().get(RegexManager.convertFullPathToShort(file.getPath()));
                     Image image = new Image(getClass().getResourceAsStream("/States/" + s + ".png"));
