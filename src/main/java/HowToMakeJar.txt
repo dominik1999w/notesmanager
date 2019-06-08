@@ -1,14 +1,10 @@
-Others.Buttons:
-    ../Images -> /Images
-Others.GridManager:
-    ../Css -> /Css
-    ../States -> /States
-ControllerPrimary
-    ../States -> /States (~779)
-ControllerSpellingChecker
-    ..Images -> /Images
-ControllerPrimary
-    fileInputStream -> getClass().getResourceAsStream(pathToStates) (~700)
-+ everywhere
-    categories -> /categories
-    (Contoller[abstract] also)
+In Controller.java change:
+    for jar:
+        public static String mainCategory = "./.categories";
+    for normal use:
+        public static String mainCategory = "categories/";
+In ControllerPrimary.java change:
+    for jar:
+        private String pathToStates = ".states";
+    for normal use:
+        private String pathToStates = "src/main/resources/States/states";

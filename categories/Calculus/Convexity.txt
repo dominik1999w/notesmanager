@@ -1,0 +1,8 @@
+What Is Convexity?
+Convexity is a measure 
+of the curvature, or the degree of the curve, in the relationship 
+between bond prices and bond yields. Convexity demonstrates 
+how the duration of a bond changes as the interest rate changes. 
+Portfolio managers will use convexity as a risk-management tool, 
+to measure and manage the portfolio's exposure to interest rate 
+risk.

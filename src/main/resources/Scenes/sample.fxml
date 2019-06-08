@@ -58,7 +58,7 @@
                                     <Font size="17.0" />
                                  </font>
                               </TextField>
-                              <Text fx:id="titleText" fill="WHITE" layoutX="220.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="316.7294921875">
+                              <Text fx:id="titleText" fill="WHITE" layoutX="216.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="384.7294921875">
                                  <font>
                                     <Font name="System Bold" size="21.0" />
                                  </font>

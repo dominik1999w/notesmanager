@@ -1,0 +1,11 @@
+CREATE OR REPLACE FUNCTION new_dates() RETURNS trigger AS $$
+BEGIN
+      IF OLD.data_zakonczenia + INTERVAL '5 years' > NOW()  THEN
+              RETURN null;
+      END IF;
+      RETURN OLD;
+END;
+$$ LANGUAGE plpgsql;
+ 
+CREATE TRIGGER new_dates BEFORE DELETE ON wizyty
+FOR EACH ROW EXECUTE PROCEDURE new_dates();

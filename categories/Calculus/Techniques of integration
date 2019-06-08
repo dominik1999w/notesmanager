@@ -1,0 +1,19 @@
+Finding antiderivatives of elementary functions is often considerably harder than finding their derivatives. For some elementary functions, it is impossible to find an antiderivative in terms of other elementary functions. See the articles on elementary functions and nonelementary integral for further information.
+
+There are various methods available:
+
+the linearity of integration allows us to break complicated integrals into simpler ones
+integration by substitution, often combined with trigonometric identities or the natural logarithm
+the inverse chain rule method, a special case of integration by substitution
+integration by parts to integrate products of functions
+Inverse function integration, a formula that expresses the antiderivative of the inverse {\displaystyle f^{-1}} f^{-1} of an invertible and continuous function {\displaystyle f} f in terms of the antiderivative of {\displaystyle f} f and of {\displaystyle f^{-1}} f^{-1}.
+the method of partial fractions in integration allows us to integrate all rational functions (fractions of two polynomials)
+the Risch algorithm
+when integrating multiple times, certain additional techniques can be used, see for instance double integrals and polar coordinates, the Jacobian and the Stokes' theorem
+if a function has no elementary antiderivative (for instance, {\displaystyle \exp(-x^{2})} {\displaystyle \exp(-x^{2})}), its definite integral can be approximated using numerical integration
+it is often convenient to algebraically manipulate the integrand such that other integration techniques, such as integration by substitution, may be used.
+to calculate the (n times) repeated antiderivative of a function f, Cauchy's formula is useful (cf. Cauchy formula for repeated integration):
+{\displaystyle \int _{x_{0}}^{x}\int _{x_{0}}^{x_{1}}\dots \int _{x_{0}}^{x_{n-1}}f(x_{n})\,dx_{n}\dots \,dx_{2}\,dx_{1}=\int _{x_{0}}^{x}f(t){\frac {(x-t)^{n-1}}{(n-1)!}}\,dt.} {\displaystyle \int _{x_{0}}^{x}\int _{x_{0}}^{x_{1}}\dots \int _{x_{0}}^{x_{n-1}}f(x_{n})\,dx_{n}\dots \,dx_{2}\,dx_{1}=\int _{x_{0}}^{x}f(t){\frac {(x-t)^{n-1}}{(n-1)!}}\,dt.}
+Computer algebra systems can be used to automate some or all of the work involved in the symbolic techniques above, which is particularly useful when the algebraic manipulations involved are very complex or lengthy. Integrals which have already been derived can be looked up in a table of integrals.
+
+

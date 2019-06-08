@@ -60,7 +60,6 @@ public class ControllerCategories extends Controller {
         try{
             Controller.stageMaster.loadNewScene(new ControllerAreYouSure("/Scenes/AreYouSure.fxml", this,"newCategory",category));
         } catch (NullPointerException e){
-            System.out.println("You can't create nothing. ;)");
         } catch (IOException e) {
             System.out.println("FAILED to create category: " + category);
             e.printStackTrace();
@@ -76,7 +75,6 @@ public class ControllerCategories extends Controller {
         try{
             Controller.stageMaster.loadNewScene(new ControllerAreYouSure("/Scenes/AreYouSure.fxml", this,"removeCategory",category));
         } catch (NullPointerException e){
-            System.out.println("You can't remove nothing. ;)");
         } catch (IOException e) {
             System.out.println("FAILED to remove category" + category);
         }

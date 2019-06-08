@@ -1,0 +1,218 @@
+ rem->right->parent = nullptr;
+                        head = rem->right;
+                        delete rem;
+                        s--;
+                        return true;
+                    } else if(rem->parent->left != nullptr && *(rem->parent->left) == *rem) {
+                        rem->right->parent = rem->parent;
+                        rem->parent->left = rem->right;
+                        delete rem;
+                        s--;
+                        return true;
+                    } else {
+                        rem->right->parent = rem->parent;
+                        rem->parent->right = rem->right;
+                        delete rem;
+                        s--;
+                        return true;
+                    }
+                } else if(rem-> right == nullptr){
+                    if(*rem == *head){
+                        rem->right->parent = nullptr;
+                        head = rem->left;
+                        delete rem;
+                        s--;
+                        return true;
+                    } else if(rem->parent->left != nullptr && *(rem->parent->left) == *rem) {
+                        rem->left->parent = rem->parent;
+                        rem->parent->left = rem->left;
+                        delete rem;
+                        s--;
+                        return true;
+                    } else {
+                        rem->left->parent = rem->parent;
+                        rem->parent->right = rem->left;
+                        delete rem;
+                        s--;
+                        return true;
+                    }
+                } else {
+                    it++;
+                    node<T,R>* f = it.e;
+                    rem->k = f->GetKey();
+                    rem->n = f->GetName();
+                    erase(*(new iteratorM<T,R>(f)));
+                    return true;
+                }
+            }
+            cout << "Something is wrong with erasing (it)" << endl;
+            return false;
+        }
+ 
+        iteratorM<T,R> find(T key){
+            if(head == nullptr)
+                return *(new iteratorM<T,R>());
+            node<T,R>* root = head;
+            while(true){
+                if(root->k == key){
+                    return *(new iteratorM<T,R>(root));
+                } else if(root->k > key){
+                    if(root->left == nullptr){
+                        return *(new iteratorM<T,R>());
+                    } else {
+                        root = root->left;
+                    }
+                } else {
+                    if(root->right == nullptr){
+                        return *(new iteratorM<T,R>());
+                    } else {
+                        root = root->right;
+                    }
+                }
+            }
+        }
+ 
+        iteratorM<T,R> findOrNext(T key){
+            if(head == nullptr)
+                return *(new iteratorM<T,R>());
+            node<T,R>* root = head;
+            while(true){
+                if(root->k == key){
+                    return *(new iteratorM<T,R>(root));
+                } else if(root->k > key){
+                    if(root->left == nullptr){
+                        iteratorM<T,R> it = *(new iteratorM<T,R>(root));
+                        return it;
+                    } else {
+                        root = root->left;
+                    }
+                } else {
+                    if(root->right == nullptr){
+                        iteratorM<T,R> it = *(new iteratorM<T,R>(root));
+                        return it;
+                    } else {
+                        root = root->right;
+                    }
+                }
+            }
+        }
+ 
+        iteratorM<T,R> begin(){
+            if(head == nullptr){
+                return *(new iteratorM<T,R>());
+            } else {
+                node<T,R>* b = head;
+                while(b->left != nullptr){
+                    b = b->left;
+                }
+                return iteratorM<T,R>(b);
+            }
+        }
+ 
+        iteratorM<T,R> end(){
+            if(head == nullptr){
+                return *(new iteratorM<T,R>());
+            } else {
+                node<T,R>* e = head;
+                while(e->right != nullptr){
+                    e = e->right;
+                }
+                return iteratorM<T,R>(e);
+            }
+        }
+ 
+        void print(){
+            inorder(head);
+        }
+ 
+        void print(T b, T e){
+            inorder_interval(head,b,e);
+        }
+ 
+        int size(){
+            return this->s;
+        }
+ 
+        void clean(){
+            postorder(head);
+            s = 0;
+        }
+ 
+        R& operator[](T key){
+            node<T,R>* f = find(key).e;
+            if(f != nullptr){
+                return f->n;
+            } else {
+                return iinsert(key);
+            }
+        }
+ 
+ 
+        void inorder(node<T,R>* root){
+            if(root->left != nullptr) inorder(root->left);
+            cout << *root;
+            if(root->right != nullptr) inorder(root->right);
+        }
+ 
+        void inorder_interval(node<T,R>* root, T b, T e){
+            if(root->left != nullptr){
+                if(!(root->k < b && root->left->k < b))
+                    inorder_interval(root->left,b,e);
+            }
+            if(root->k >= b && root->k <= e)
+                cout << *root;
+            if(root->right != nullptr){
+                if(!(root->k > e && root->right->k > e))
+                    inorder_interval(root->right,b,e);
+            }
+        }
+ 
+        void postorder(node<T,R>* root){
+            if(root->left != nullptr) postorder(root->left);
+            if(root->right != nullptr) postorder(root->right);
+ 
+            if(root != nullptr) {
+ 
+                if(root->parent != nullptr){
+                    if(root->parent->left != nullptr && *(root->parent->left) == *root){
+                        root->parent->left = nullptr;
+                    }
+                    else if(root->parent->right != nullptr && *(root->parent->right) == *root){
+                        root->parent->right = nullptr;
+                    }
+                }
+                delete root;
+            }
+        }
+ 
+        R& iinsert(T key){
+            if(head == nullptr){
+                head = new node<T,R>(key,nullptr);
+                s++;
+                return head->n;
+            }
+            node<T,R>* root = head;
+            while(true){
+                if(root->k == key){
+                    return root->n;
+                } else if(root->k > key){
+                    if(root->left == nullptr){
+                        root->left = new node<T,R>(key,root);
+                        s++;
+                        return root->left->n;
+                    } else {
+                        root = root->left;
+                    }
+                } else {
+                    if(root->right == nullptr){
+                        root->right = new node<T,R>(key,root);
+                        s++;
+                        return root->right->n;
+                    } else {
+                        root = root->right;
+                    }
+                }
+            }
+        }
+ 
+};

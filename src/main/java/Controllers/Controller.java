@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 public abstract class Controller implements Initializable {
 
     public static StageMaster stageMaster;
-    public static String mainCategory = "./categories";
+    public static String mainCategory = "./.categories";
 
     String name;
     Controller previousController;

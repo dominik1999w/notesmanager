@@ -33,13 +33,6 @@ public class StageMaster {
     }
 
     private void loadScene(String name) throws IOException {
-        /*boolean wasMaximized = false;
-        if(stage.isMaximized()) {
-            stage.setMaximized(false);
-            wasMaximized = true;
-            System.out.println("wasMaximized: " + wasMaximized);
-        }*/
-        System.out.println("LOADING: " + name);
         FXMLLoader loader = new FXMLLoader(currentController.getClass().getResource(name));
         loader.setController(currentController);
         Pane myPane = loader.load();

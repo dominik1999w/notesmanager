@@ -79,7 +79,6 @@ public class ControllerAreYouSure extends Controller {
         String path = file.getPath();
         try {
             Files.delete(Paths.get(path));
-            System.out.println("REMOVED: " + path);
         } catch (IOException e) {
             System.out.println("FAILED to remove: " + path);
         }
@@ -89,7 +88,6 @@ public class ControllerAreYouSure extends Controller {
         String path = RegexManager.categoryToPath(category);
         try {
             Files.createDirectory(Paths.get(path));
-            System.out.println("CREATED CATEGORY: " + category);
         } catch (IOException e) {
             System.out.println("FAILED to create category.");
         }
@@ -98,9 +96,7 @@ public class ControllerAreYouSure extends Controller {
     private void removeCategory(){
         try{
             delete(file);
-            System.out.println("REMOVED CATEGORY: " + file.getName());
-        } catch(NullPointerException e){
-            System.out.println("You can't remove nothing.");
+        } catch(NullPointerException ignored){
         }
     }
 

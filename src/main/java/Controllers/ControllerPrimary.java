@@ -165,9 +165,7 @@ public class ControllerPrimary extends Controller implements Initializable{
 
         try {
             Files.createDirectory(Paths.get(Controller.mainCategory));
-        } catch (IOException e) {
-            System.out.println("File already exists.");
-        }
+        } catch (IOException ignored) { }
 
         prepareAutoTextField();
         prepareLearningStates();
@@ -187,8 +185,7 @@ public class ControllerPrimary extends Controller implements Initializable{
             Timeline objTimer = (Timeline) fieldTimer.get(objBehavior);
             objTimer.getKeyFrames().clear();
             objTimer.getKeyFrames().add(new KeyFrame(new Duration(200)));
-        } catch (Exception e) {//e.printStackTrace();
-            System.out.println("NIE WAŻNY WYJĄTEK ;))))))))))))"); }
+        } catch (Exception ignored) {}
     }
 
 // NAVIGATION ----------------------------------------------------------------------
@@ -222,7 +219,7 @@ public class ControllerPrimary extends Controller implements Initializable{
             try {
                 Desktop.getDesktop().open(selectedFile);
             } catch (IOException e) {
-                System.out.println("FAILED to open file:");
+                System.out.println("FAILED to open file:" + selectedFile.toString());
             }
         }
     }
@@ -234,9 +231,7 @@ public class ControllerPrimary extends Controller implements Initializable{
             Controller.stageMaster.loadNewScene(new ControllerAreYouSure("/Scenes/AreYouSure.fxml", this,"remove",selectedFile));
             prepareAutoTextField();
             getStates();
-        } catch (NullPointerException e){
-            System.out.println("You can't remove nothing. ;)");
-        }
+        } catch (NullPointerException ignored){ }
     }
 
 // DISPLAY FILE OPTIONS ------------------------------------------------------------
@@ -249,7 +244,6 @@ public class ControllerPrimary extends Controller implements Initializable{
             fileTitleArea.setDisable(!fileTitleArea.isDisabled());
             fileTitleArea.setVisible(!fileTitleArea.isVisible());
             titleText.setVisible(!titleText.isVisible());
-            System.out.println("SET title editable to: " + fileTitleArea.isEditable());
             if (fileTitleArea.isDisabled())
                 displayTitle(selectedFile.getName());
             if (rename.isSelected() != fileTitleArea.isEditable())
@@ -272,7 +266,6 @@ public class ControllerPrimary extends Controller implements Initializable{
                     int oldState = states.get(old);
                     Path path = Files.move((Paths.get(selectedFile.getPath())), Paths.get(newPath));
                     selectedFile = new File(path.toString());
-                    System.out.println("RENAMED to: " + selectedFile.getName());
                     updateStates(RegexManager.convertFullPathToShort(selectedFile.getPath()),oldState);
                     rename();
                     stageMaster.refresh(this);
@@ -294,7 +287,6 @@ public class ControllerPrimary extends Controller implements Initializable{
     public void edit(){
         textAreaFullScreen.setEditable(!textAreaFullScreen.isEditable());
         textAreaHalfScreen.setEditable(!textAreaHalfScreen.isEditable());
-        System.out.println("SET editable to: " + textAreaFullScreen.isEditable());
     }
 
     @FXML
@@ -307,7 +299,6 @@ public class ControllerPrimary extends Controller implements Initializable{
                 fileOutputStream.write(textAreaHalfScreen.getText().getBytes());
             }
             returnBeforeRefresh();
-            System.out.println("SAVED to: " + selectedFile.getName());
         } catch (FileNotFoundException e) {
             System.out.println("FAILED to find: " + selectedFile.getName());
         } catch (IOException e) {
@@ -344,12 +335,9 @@ public class ControllerPrimary extends Controller implements Initializable{
         if(item != null && item.getValue().isFile()) { //if clicked on file display content
             selectedFile = item.getValue();
             selectedDir = new File(RegexManager.getCategoryPath(selectedFile));
-            System.out.println(selectedFile.getPath());
             displayGridFilesView(selectedDir);
             displayFile();
         }
-        if(item != null)
-            System.out.println(item.getValue());
     }
 
     @FXML
@@ -359,7 +347,6 @@ public class ControllerPrimary extends Controller implements Initializable{
         if(GridPane.getColumnIndex(clicked) != null && GridPane.getRowIndex(clicked) != null){
             selectedFile = new File(clicked.getId());
             displayFile();
-            System.out.println(selectedFile);
             startWork();
         }
     }
@@ -571,7 +558,7 @@ public class ControllerPrimary extends Controller implements Initializable{
                     Pattern pattern = Pattern.compile(String.valueOf(searchText.getCharacters()));
                     Matcher matcher = pattern.matcher(textAreaHalfScreen.getText());
                     while (matcher.find()) {
-                        positions.add(new Pair(matcher.start(), matcher.end()));
+                        positions.add(new Pair<>(matcher.start(), matcher.end()));
                     }
                     findCounter.setText(counter + "/" + positions.size());
                 }
@@ -679,7 +666,7 @@ public class ControllerPrimary extends Controller implements Initializable{
     private HashMap<String,Integer> states = new HashMap<>(); //Strings are paths to files (short form)
     private int quantity = 7;
     private int defaultValue = 5;
-    private String pathToStates = "./states";
+    private String pathToStates = ".states";
 
     private void getStates(){
 
@@ -689,9 +676,7 @@ public class ControllerPrimary extends Controller implements Initializable{
             states = (HashMap<String, Integer>) objectInputStream.readObject();
             objectInputStream.close();
             fileInputStream.close();
-            System.out.println("GETTING states OK");
-        } catch(Exception e){
-            System.out.println("GETTING states FAILED");
+        } catch(Exception ignored){
         }
 
         for(String s : autoPaths)
@@ -707,8 +692,6 @@ public class ControllerPrimary extends Controller implements Initializable{
         states = temp;
         commitUpdate();
 
-        //for(String path : states.keySet())
-        //    System.out.println(path + " " + states.get(path) );
     }
 
     private void updateStates(String path, int state){
@@ -737,7 +720,6 @@ public class ControllerPrimary extends Controller implements Initializable{
             objectOutputStream.writeObject(states);
             objectOutputStream.close();
             fileOutputStream.close();
-            System.out.println("UPDATING states OK");
         } catch(Exception e){
             System.out.println("UPDATING states FAILED");
         }
@@ -763,14 +745,12 @@ public class ControllerPrimary extends Controller implements Initializable{
 
     @FXML
     public void statePaneActivation(){
-        System.out.println("LEARNING ACTIVATION!");
         stateRadio(states.get(RegexManager.convertFullPathToShort(selectedFile.getPath())),false);
         statePane.setVisible(!statePane.isVisible());
     }
 
     @FXML
     public void stateRadio(int id, boolean ifClose){
-        System.out.println("stateRadio for: " + id);
 
         RadioButton radioButton = radioButtons.get(id);
         for(int i = 0; i < quantity; i++){

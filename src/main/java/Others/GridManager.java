@@ -54,7 +54,6 @@ public class GridManager {
         ArrayList<File> filesInfo = new ArrayList<>();
 
         int stateNumber = RegexManager.isState(dir);
-        System.out.println("stateNumber is: " + stateNumber);
         if(stateNumber >= 0){
             for(String path : controller.getStatesMap().keySet()){
                 if(controller.getStatesMap().get(path) == stateNumber){
@@ -156,7 +155,6 @@ public class GridManager {
         double prefHeight = height * 185; //globalne
         double prefWidth = gridFilesFactory.getPrefWidth() * ((double)width / 4); //globalne
 
-        System.out.println("CHANGING grid to : prefW - " + prefWidth + " prefH - " + prefHeight);
 
         GridPane gridPane = new GridPane();
         gridPane.setLayoutX(gridFilesFactory.getLayoutX());

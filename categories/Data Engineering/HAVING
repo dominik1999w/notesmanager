@@ -1,0 +1,22 @@
+CREATE TABLE lekarze_prowadzacy (
+  pesel CHAR(11) NOT NULL REFERENCES pacjenci,
+  lekarz INTEGER NOT NULL REFERENCES lekarze,
+  PRIMARY KEY(pesel,lekarz)
+);
+ 
+CREATE OR REPLACE FUNCTION assign() RETURNS trigger AS $$
+BEGIN
+      INSERT INTO lekarze_prowadzacy VALUES(NEW.pesel,
+      (SELECT MIN(id) FROM lekarze JOIN specjalizacje ON id = id_lekarza
+          WHERE specjalizacja = 'Medycyna rodzinna' AND
+          COALESCE((SELECT COUNT(*) FROM lekarze_prowadzacy WHERE lekarz = id GROUP BY lekarz),0) <= ALL
+          (SELECT COALESCE((SELECT SUM(1) FROM lekarze_prowadzacy
+            WHERE lekarz = lekarze.id GROUP BY lekarz),0) FROM lekarze JOIN specjalizacje ON id = id_lekarza
+             WHERE specjalizacja = 'Medycyna rodzinna' GROUP BY id
+        )));
+      RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+ 
+CREATE TRIGGER assign AFTER INSERT ON pacjenci
+FOR EACH ROW EXECUTE PROCEDURE assign();

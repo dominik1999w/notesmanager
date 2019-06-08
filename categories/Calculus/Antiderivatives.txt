@@ -1,0 +1,9 @@
+In calculus, an antiderivative, primitive function, primitive integral or indefinite integral of a function f 
+is a differentiable function F whose derivative is equal to the original function f. This can be stated symbolically as {\displaystyle F'=f} {\displaystyle F'=f}.[1][2] 
+The process of solving for antiderivatives is called antidifferentiation (or indefinite integration) and its opposite operation is called differentiation, 
+which is the process of finding a derivative.
+
+Antiderivatives are related to definite integrals through the fundamental theorem of calculus: the definite integral of a function over an interval is equal to the 
+difference between the values of an antiderivative evaluated at the endpoints of the interval.
+
+The discrete equivalent of the notion of antiderivative is antidifference.

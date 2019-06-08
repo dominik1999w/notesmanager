@@ -95,7 +95,6 @@ public class ControllerSpellingChecker extends Controller {
                 if(r-l>2) {
                     String tmp = textAreaToCheck.getText().substring(l, r);
                     if (!misspelledWords.containsKey(tmp) && !RegexManager.isWhite(tmp)) {
-                        System.out.println(tmp);
                         misspelledWords.put(tmp, new tuple(l,r,a.getSuggestedReplacements()));
                     }
                 }

@@ -1,0 +1,334 @@
+#include <iostream>
+#include <climits>
+#include <string>
+using namespace std;
+ 
+struct node {
+      int left;
+      int right;
+};
+struct mypair {
+      int d;
+      int witness;
+} mp;
+ 
+int z,n,l,r;
+int leafs;
+int result;
+string order;
+bool stop;
+node Arr[2000000];
+int height[2000000];
+int furthest[2000000];
+int dist[2000000];
+int deph[2000000];
+int witness[2000000];
+int leaf[2000000];
+ 
+void preorder(int i){
+      node N = Arr[i];
+      cout << i << " ";
+      if(N.left != -1) preorder(N.left);
+      if(N.right != -1) preorder(N.right);
+}
+ 
+void inorder(int i){
+      node N = Arr[i];
+      if(N.left != -1) inorder(N.left);
+      cout << i << " ";
+      if(N.right != -1) inorder(N.right);
+}
+ 
+void postorder(int i){
+      node N = Arr[i];
+      if(N.left != -1) postorder(N.left);
+      if(N.right != -1) postorder(N.right);
+      cout << i << " ";
+}
+ 
+void _order(string order){
+      if(order == "PREORDER") preorder(0);
+      if(order == "INORDER") inorder(0);
+      if(order == "POSTORDER") postorder(0);
+      cout << endl;
+}
+ 
+bool is_node_leaf(int i){
+ 
+      return (Arr[i].left == -1 && Arr[i].right == -1);
+}
+ 
+void zero(){
+      for(int i = 0; i < n; i++){
+              height[i] = 0;
+      }
+      height[0] = 0;
+}
+ 
+void find_height(int root){
+      node N = Arr[root];
+      if(N.left != -1) { height[N.left] = height[root] + 1; find_height(N.left); }
+      if(N.right != -1) { height[N.right] = height[root] + 1; find_height(N.right); }
+}
+ 
+void preorder_h(int i){
+      node N = Arr[i];
+      if(is_node_leaf(i)) { cout << i << ":" << height[i] << " "; }
+      if(N.left != -1) preorder_h(N.left);
+      if(N.right != -1) preorder_h(N.right);
+}
+ 
+void inorder_h(int i){
+      node N = Arr[i];
+      if(N.left != -1) inorder_h(N.left);
+      if(is_node_leaf(i)) { cout << i << ":" << height[i] << " "; }
+      if(N.right != -1) inorder_h(N.right);
+}
+ 
+void postorder_h(int i){
+      node N = Arr[i];
+      if(N.left != -1) postorder_h(N.left);
+      if(N.right != -1) postorder_h(N.right);
+      if(is_node_leaf(i)) { cout << i << ":" << height[i] << " "; }
+}
+ 
+void ordered_height(string order){
+      if(order == "PREORDER") preorder_h(0);
+      if(order == "INORDER") inorder_h(0);
+      if(order == "POSTORDER") postorder_h(0);
+      cout << endl;
+}
+ 
+mypair find_deph(int i){
+      node N = Arr[i];
+      if(is_node_leaf(i)) {
+              deph[i] = 0;
+              witness[i] = i;
+              mp.d = 0;
+              mp.witness = i;
+              return mp; }
+      if(N.left == -1) {
+              mypair p = find_deph(N.right);
+              deph[i] = p.d + 1;
+              witness[i] = p.witness;
+              p.d = p.d + 1;
+              return p;
+      }
+      if(N.right == -1) {
+              mypair p = find_deph(N.left);
+              deph[i] = p.d + 1;
+              witness[i] = p.witness;
+              p.d = p.d + 1;
+              return p;
+      }
+      mypair l = find_deph(N.left);
+      mypair r = find_deph(N.right);
+      if(l.d < r.d){
+              deph[i] = r.d + 1;
+              witness[i] = r.witness;
+              r.d = r.d + 1;
+              return r;
+      } else if (l.d > r.d){
+              deph[i] = l.d + 1;
+              witness[i] = l.witness;
+              l.d = l.d + 1;
+              return l;
+      } else {
+              if(l.witness <= r.witness){
+                      deph[i] = l.d + 1;
+                      witness[i] = l.witness;
+                      l.d = l.d + 1;
+                      return l;
+              } else {
+                      deph[i] = r.d + 1;
+                      witness[i] = r.witness;
+                      r.d = r.d + 1;
+                      return r;
+              }
+      }
+}
+ 
+void find_furthest(int i, mypair up){
+      node N = Arr[i];
+      if(i == 0){
+              dist[0] = deph[0];
+              furthest[0] = witness[0];
+      } else {
+              if(up.witness == INT_MAX){
+                      dist[i] = deph[i];
+                      furthest[i] = witness[i];
+              } else if(deph[i] < up.d){
+                      dist[i] = up.d;
+                      furthest[i] = up.witness;
+              } else if(deph[i] > up.d){
+                      dist[i] = deph[i];
+                      furthest[i] = witness[i];
+              } else {
+                      if(witness[i] <= up.witness){
+                              dist[i] = deph[i];
+                              furthest[i] = witness[i];
+                      } else {
+                              dist[i] = up.d;
+                              furthest[i] = up.witness;
+                      }
+              }
+      }
+ 
+      if(N.left != -1){
+              if(N.right == -1){
+                      if(up.witness != INT_MAX)
+                              mp.d = up.d + 1;
+                      mp.witness = up.witness;
+                      find_furthest(N.left,mp);
+              } else {
+                      if(up.witness == INT_MAX){
+                              mp.d = deph[N.right] + 2;
+                              mp.witness = witness[N.right];
+                              find_furthest(N.left,mp);
+                      } else if(deph[N.right] + 2 > up.d + 1){
+                              mp.d = deph[N.right] + 2;
+                              mp.witness = witness[N.right];
+                              find_furthest(N.left,mp);
+                      } else if(deph[N.right] + 2 < up.d + 1){
+                              mp.d = up.d + 1;
+                              mp.witness = up.witness;
+                              find_furthest(N.left,mp);
+                      } else {
+                              if(witness[N.right] <= up.witness){
+                                      mp.d = deph[N.right] + 2;
+                                      mp.witness = witness[N.right];
+                                      find_furthest(N.left,mp);
+                              } else {
+                                      mp.d = up.d + 1;
+                                      mp.witness;
+                                      find_furthest(N.left,mp);
+                              }
+                      }
+              }
+      }
+ 
+      if(N.right != -1){
+              if(N.left == -1){
+                      if(up.witness != INT_MAX)
+                              mp.d = up.d + 1;
+                      mp.witness = up.witness;
+                      find_furthest(N.right,mp);
+              } else {
+                      if(up.witness == INT_MAX){
+                              mp.d = deph[N.left] + 2;
+                              mp.witness = witness[N.left];
+                              find_furthest(N.right,mp);
+                      } else if(deph[N.left] + 2 > up.d + 1){
+                              mp.d = deph[N.left] + 2;
+                              mp.witness = witness[N.left];
+                              find_furthest(N.right,mp);
+                      } else if(deph[N.left] + 2 < up.d + 1){
+                              mp.d = up.d + 1;
+                              mp.witness = up.witness;
+                              find_furthest(N.right,mp);
+                      } else {
+                              if(witness[N.left] <= up.witness){
+                                      mp.d = deph[N.left] + 2;
+                                      mp.witness = witness[N.left];
+                                      find_furthest(N.right,mp);
+                              } else {
+                                      mp.d = up.d + 1;
+                                      mp.witness;
+                                      find_furthest(N.right,mp);
+                              }
+                      }
+              }
+      }
+}
+ 
+void count_leafs(){
+      leafs = 0;
+      for(int i = 0; i < n; i++){
+              if(is_node_leaf(i)) leafs ++;
+      }
+}
+ 
+int count_leaf(int i){
+      node N = Arr[i];
+      if(is_node_leaf(i)) {leaf[i] = 1; return 1;}
+      if(N.left == -1) { leaf[i] = count_leaf(N.right); return leaf[i]; }
+      if(N.right == -1) { leaf[i] = count_leaf(N.left); return leaf[i]; }
+      leaf[i] = count_leaf(N.left) + count_leaf(N.right); return leaf[i];
+}
+ 
+bool check_leaf(int i){
+      node N = Arr[i];
+      int half = leafs / 2;
+      int a,b,c;
+      if(is_node_leaf(i)) return false;
+      if(N.left == -1 || N.right == -1){
+              if(N.left == -1){ a = leaf[N.right]; }
+              if(N.right == -1){ a = leaf[N.left]; }
+              b = leafs - a;
+              if(a <= half && b <= half) return true;
+              else return false;
+      }
+      a = leaf[N.left];
+      b = leaf[N.right];
+      c = leafs - a - b;
+ 
+      if(a <= half && b <= half && c <= half) { return true; }
+      else return false;
+}
+ 
+void preorder_s(int i){
+      node N = Arr[i];
+      if(check_leaf(i)) { stop = false, result = i; }
+      if(N.left != -1 && stop) preorder_s(N.left);
+      if(N.right != -1 && stop) preorder_s(N.right);
+}
+ 
+void inorder_s(int i){
+      node N = Arr[i];
+      if(N.left != -1 && stop) inorder_s(N.left);
+      if(check_leaf(i)) { stop = false, result = i; }
+      if(N.right != -1 && stop) inorder_s(N.right);
+}
+ 
+void postorder_s(int i){
+      node N = Arr[i];
+      if(N.left != -1 && stop) postorder_s(N.left);
+      if(N.right != -1 && stop) postorder_s(N.right);
+      if(check_leaf(i)) { stop = false, result = i; }
+}
+ 
+int ordered_s(string order){
+      stop = true;
+      if(order == "PREORDER") preorder_s(0);
+      if(order == "INORDER") inorder_s(0);
+      if(order == "POSTORDER") postorder_s(0);
+      return result;
+}
+ 
+int main(){
+      cin >> z;
+      while(z--){
+              cin >> n;
+              for(int i = 0; i < n; i++){
+                      cin >> l >> r;
+                      Arr[i].left = l;
+                      Arr[i].right = r;
+              }
+              cin >> order;
+              zero();
+              _order(order);
+              find_height(0);
+              ordered_height(order);
+              find_deph(0);
+              count_leafs();
+              count_leaf(0);
+              mp.d = 0;
+              mp.witness = INT_MAX;
+              find_furthest(0,mp);
+              for(int i = 0; i < n; i++){
+                      cout << i << ":" << furthest[i] << ":" << dist[i] << " ";
+              } cout << endl;
+              cout << ordered_s(order) << endl;
+      }
+ 
+}
