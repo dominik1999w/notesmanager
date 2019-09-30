@@ -10,8 +10,11 @@ INSTALL:
 /usr/lib/jvm/java-11-openjdk-am64/javafx-sdk-11.0.2/lib/
 
 Sample start.sh (watch out for redundant blank spaces!): 
+
 #!/bin/bash
+
 java --module-path /usr/lib/jvm/java-11-openjdk-amd64/javafx-sdk-11.0.2/lib/ --add-modules=javafx.controls,javafx.fxml --add-exports=javafx.base/com.sun.javafx.event=ALL-UNNAMED -jar notesmanager.jar
+
 
 2. Run start.sh script.
 
