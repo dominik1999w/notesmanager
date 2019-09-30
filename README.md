@@ -6,7 +6,7 @@ INSTALL:
 
 0. Preferred java version 11  (11.0.2) -> wget http://gluonhq.com/download/javafx-11-0-2-sdk-linux
 
-1. open attached file start.sh (guarantee access if needed: chmod u+x start.sh). Substitute [JAVAFX_PATH] with a path to javafx/lib.
+1. Open attached file start.sh (guarantee access if needed: chmod u+x start.sh). Substitute [JAVAFX_PATH] with a path to javafx/lib.
 
 By default: /usr/lib/jvm/java-11-openjdk-am64/javafx-sdk-11.0.2/lib/
 
