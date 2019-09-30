@@ -1,12 +1,21 @@
-------------------------------------NotesManager--------------------------------------
+-----------------------------------------------------NOTESMANAGER-----------------------------------------------
 
-Application designed for storing notes. 
+Download notesManager.zip
 
-----------------How to load an app?
+INSTALL:
 
-1. Download notesManager.zip file.
-2. Unzip.
-3. Follow instruction in another readMe.
+0. Preferred java version 11  (11.0.2) -> wget http://gluonhq.com/download/javafx-11-0-2-sdk-linux
+
+1. open attached file start.sh (guarantee access if needed: chmod u+x start.sh). Substitute [JAVAFX_PATH] with a path to javafx/lib. By default: 
+/usr/lib/jvm/java-11-openjdk-am64/javafx-sdk-11.0.2/lib/
+
+Sample start.sh (watch out for redundant blank spaces!): 
+#!/bin/bash
+java --module-path /usr/lib/jvm/java-11-openjdk-amd64/javafx-sdk-11.0.2/lib/ --add-modules=javafx.controls,javafx.fxml --add-exports=javafx.base/com.sun.javafx.event=ALL-UNNAMED -jar notesmanager.jar
+
+2. Run start.sh script.
+
+
 
 ----------------Short description:
 
@@ -36,5 +45,4 @@ NotesManager supports default applications, so every file can be opened in two w
  - change state
  - use full screen (top-right) option
  - use spelling checker (top-right)
-
 
